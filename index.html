@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        height: 80px;
+        width: 100%;
+        background-color: skyblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      main {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      main .container {
+        width: 90%;
+        height: 100%;
+        background-color: rgb(184, 184, 184);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      main .container .choice{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:30px;
+      }
+
+      main .container .choice .choice-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:50px;
+      }
+
+      main .container .choice .choice-box .choice-items {
+        width: 20vw;
+        height: 50vh;
+        background-color: blue;
+        cursor: pointer;
+        font-size: 2em;
+      }
+
+      footer {
+        height: 150px;
+        width: 100%;
+        background-color: skyblue;
+      }
+      main .container .choice .choice-box > .choice-items:nth-child(1){
+          background-color: red;
+      }
+      main .container .choice .choice-box > .choice-items:nth-child(3){
+          background-color: green;
+      }
+      main .container .choice .choice-btn {
+          display: none;
+          text-align: center;
+          /* visibility: hidden; */
+
+      }
+      main .container .choice .choice-btn button{
+        padding:10px 20px;
+        margin-bottom:10px;
+      }
+
+      main .container .choice .choice-btn p a{
+          font-size: 1.5em;
+          text-decoration: none;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header><h1>망원런닝메이트!!</h1></header>
+    <main>
+      <div class="container">
+        <div class="choice">
+          <div class="choice-text">
+              <h1>난이도를 선택하세요</h1>
+          </div>
+          <div class="choice-box">
+            <div class="choice-items">하</div>
+            <div class="choice-items">중</div>
+            <div class="choice-items">상</div>
+          </div>
+          <div class="choice-result"></div>
+          <div class="choice-btn"> 
+              <button>다시하기</button>
+              <button>공유하기</button>
+              <p><a href="#">그 밖의 마포의 러닝루트를 알고싶으세요?</a></p>
+        </div>
+        </div>
+    </main>
+    <footer></footer>
+
+
+    <script>
+        /*
+        choice-items를 클릭하면 choice-text와 choice-items가 바뀐다.
+        마지막 결정하면 choice를 result로 바꾸고 결과를 출력한다. 
+        */
+
+        //변수 선언
+       let choiceText = document.querySelector('.choice-text > h1');
+       
+       let choiceBox = document.querySelector('.choice-box');
+       let choiceItems = document.querySelectorAll('.choice-items');
+       let choiceItems1 = document.querySelector('.choice-box > .choice-items:nth-child(1)');
+       let choiceItems2 = document.querySelector('.choice-box > .choice-items:nth-child(2)');
+       let choiceItems3 = document.querySelector('.choice-box > .choice-items:nth-child(3)');
+       
+       let choiceResult = document.querySelector('.choice-result');
+       let resultBox = [];
+
+       let choiceBtn = document.querySelector('.choice-btn');
+
+
+       // choice-items를 클릭하면 choice-text와 choice-items가 바뀐다.
+       for(let i=0; i<choiceItems.length; i++){
+
+        choiceItems[i].addEventListener('click', () => {
+
+            if(choiceText.innerText === "난이도를 선택하세요"){
+
+                resultBox.push(choiceItems[i].innerText);
+
+                choiceText.innerText = "계절을 선택하세요";
+                choiceItems1.innerText = "봄";
+                choiceItems2.innerText = "여름";
+                choiceItems3.innerText = "가을";
+            }else if(choiceText.innerText === "계절을 선택하세요"){
+
+                resultBox.push(choiceItems[i].innerText);
+
+                choiceText.innerText = "취향을 선택하세요";
+                choiceItems1.innerText = "조용한곳";
+                choiceItems2.innerText = "사람많은곳";
+                choiceItems3.innerText = "적당한곳";
+
+            }else if(choiceText.innerText === "취향을 선택하세요"){
+
+                resultBox.push(choiceItems[i].innerText);
+            // 결과 페이지
+                choiceText.innerText = "당신의 결과는??";
+                choiceBox.style.display = "none";
+                choiceResult.style.display = "block";
+                choiceResult.innerHTML = `<div style="width:40vw;height:50vh;background-color:blue;font-size:40px">
+                    <h1 style="color:yellow;text-align:center">결과는 ${resultBox[0]} - ${resultBox[1]} - ${resultBox[2]} kakaomap<h1>
+                        </div>`;
+                choiceBtn.style.display = "block";    
+
+            }
+        });
+       }
+       console.log(resultBox);
+
+       // 다시하기를 누르면 일어나는 일
+       choiceBtn.addEventListener('click',() => {
+            choiceText.innerText = "난이도를 선택하세요";
+            choiceItems1.innerText = "하";
+            choiceItems2.innerText = "중";
+            choiceItems3.innerText = "상";
+            choiceBox.style.display = "flex";
+            choiceResult.style.display = "none";
+            // 결과박스 초기화
+            resultBox = [];
+            choiceBtn.style.display = "none";
+       })
+
+
+
+       /* 추가로 해야할것? 
+       1. display:flex를 너무 많이씀 
+       2. display: none을 너무 많이씀 에초에 안보이게 하지말고 결과창에서 생겨나게 하는것도 방법
+       3. 디자인
+       4. 스토리, 기획, 사진, 선택지 등 아이디어
+       5. 결과박스를 리스트로 할 것인지, 결과를 뽑아내는 로직을 어떻게 할지 생각
+       */
+
+    </script>
+  </body>
+</html>
