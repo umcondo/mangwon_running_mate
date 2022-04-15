@@ -43,14 +43,6 @@ progressImage.style.width = `${((choice.dataset.index * 1) / 3) * 100}%`; // 초
 for (let i = 0; i < choiceItems.length; i++) {
   choiceItems[i].addEventListener("click", () => {
     switch (choice.dataset.index * 1) {
-      case 0:
-        choiceText.innerText = "난이도를 선택하세요";
-        choiceItems1.innerText = "하";
-        choiceItems2.innerText = "중";
-        choiceItems3.innerText = "상";
-
-        choice.dataset.index = choice.dataset.index * 1 + 1;
-
       case 1:
         //내용변경
         choiceText.innerText = "계절을 선택하세요";
@@ -100,10 +92,19 @@ for (let i = 0; i < choiceItems.length; i++) {
         //결과출력
         choiceText.innerText = "당신의 결과는??";
         choiceBox.style.display = "none";
-        choiceResult.style.display = "block";
-        choiceResult.innerHTML = `<div style="width:40vw;height:50vh;background-color:blue;font-size:40px">
-                       <h1 style="color:yellow;text-align:center">결과는${resultBox}kakaomap<h1>
-                           </div>`;
+        // choiceResult.style.display = "block";
+
+        choiceResult.innerHTML = `<div id="map" style="width:750px;height:350px;"></div>`;
+        map();
+        let newDiv = document.createElement("div");
+        choiceResult.append(newDiv);
+
+        document.querySelector(
+          ".choice-result > div:nth-child(2)"
+        ).innerHTML = `<h1>결과는 : ${resultBox} <br>kakaomap</h1>`;
+
+        document.querySelector("header").style.visibility = "hidden";
+        document.querySelector("footer").style.visibility = "hidden";
 
         //다시하기버튼
         choiceBtn.style.display = "block";
@@ -129,7 +130,7 @@ document
 
     // 선택박스 초기화
     choiceBox.style.display = "flex";
-    choiceResult.style.display = "none";
+    choiceResult.innerHTML = "";
 
     // 결과박스 초기화
     resultBox = [];
@@ -138,6 +139,9 @@ document
     // 진행박스 초기화
     progressText.innerText = `${choice.dataset.index} / 3`;
     progressImage.style.width = `${(choice.dataset.index / 3) * 100}%`;
+
+    document.querySelector("header").style.visibility = "visible";
+    document.querySelector("footer").style.visibility = "visible";
   });
 
 // 뒤로가기를 누르면 일어나는 일
@@ -193,3 +197,37 @@ backBtn.addEventListener("click", () => {
         4. 스토리, 기획, 사진, 선택지 등 아이디어
         5. 결과박스를 리스트로 할 것인지, 결과를 뽑아내는 로직을 어떻게 할지 생각
         */
+
+function map() {
+  var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+    mapOption = {
+      center: new kakao.maps.LatLng(37.55795, 126.89761), // 지도의 중심좌표
+      level: 3, // 지도의 확대 레벨
+      mapTypeId: kakao.maps.MapTypeId.ROADMAP, // 지도종류
+    };
+
+  // 지도를 생성한다
+  var map = new kakao.maps.Map(mapContainer, mapOption);
+
+  // 지도에 확대 축소 컨트롤을 생성한다
+  var zoomControl = new kakao.maps.ZoomControl();
+
+  // 지도의 우측에 확대 축소 컨트롤을 추가한다
+  map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+  // 지도에 마커를 생성하고 표시한다
+  var marker = new kakao.maps.Marker({
+    position: new kakao.maps.LatLng(37.55795, 126.89761), // 마커의 좌표
+    draggable: true, // 마커를 드래그 가능하도록 설정한다
+    map: map, // 마커를 표시할 지도 객체
+  });
+
+  // 커스텀 오버레이를 생성하고 지도에 표시한다
+  var customOverlay = new kakao.maps.CustomOverlay({
+    map: map,
+    content: '<div style="padding:0 5px;background:#fff;">망원체육공원</div>',
+    position: new kakao.maps.LatLng(37.55795, 126.89761), // 커스텀 오버레이를 표시할 좌표
+    xAnchor: 0.5, // 컨텐츠의 x 위치
+    yAnchor: 3, // 컨텐츠의 y 위치
+  });
+}

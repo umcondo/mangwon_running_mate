@@ -1,7 +1,13 @@
+@font-face {
+  font-family: "Apple SD Gothic Neo";
+  src: url("../font/AppleSDGothicNeoL.ttf");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Apple SD Gothic Neo", sans-serif;
+  letter-spacing: 1px;
 }
 body {
   height: 100vh;
@@ -11,7 +17,7 @@ body {
 header {
   height: 80px;
   width: 100%;
-  background-color: skyblue;
+  /* background-color: #f5f5f7; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +31,7 @@ main {
 main .container {
   width: 90%;
   height: 100%;
-  background-color: rgb(184, 184, 184);
+  /* background-color: rgb(184, 184, 184); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,9 +43,17 @@ main .container .choice {
   align-items: center;
 }
 
+main .container .choice .choice-img {
+  width: 120px;
+  margin-bottom: 30px;
+}
 main .container .choice .choice-text {
   margin-bottom: 30px;
+  padding: 50px 100px;
+  border-radius: 30px;
   position: relative;
+  font-size: 13px;
+  border: 7px solid #000;
 }
 main .container .choice .choice-text button {
   position: absolute;
@@ -52,31 +66,40 @@ main .container .choice .choice-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  flex-direction: column;
+  gap: 25px;
 }
 
 main .container .choice .choice-box .choice-items {
-  width: 20vw;
-  height: 50vh;
-  background-color: blue;
+  width: 300px;
+  height: 70px;
+  border: 7px solid #000;
+  border-radius: 35px;
+  /* box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); */
   cursor: pointer;
-  font-size: 2em;
+  /* color: white; */
+  /* background: #000; */
+  font-weight: bold;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .container .choice .choice-box .choice-items:hover {
+  background-color: #f5f5f7;
+  transition: 1s;
 }
 
 footer {
   height: 150px;
   width: 100%;
-  background-color: skyblue;
+  /* background-color: skyblue; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
-main .container .choice .choice-box > .choice-items:nth-child(1) {
-  background-color: red;
-}
-main .container .choice .choice-box > .choice-items:nth-child(3) {
-  background-color: green;
-}
+
 main .container .choice .choice-btn {
   display: none;
   text-align: center;
@@ -95,7 +118,7 @@ main .container .choice .choice-btn p a {
 footer .progress {
   width: 90%;
   height: 80%;
-  background-color: rgb(95, 94, 94);
+  /* background-color: rgb(95, 94, 94); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,21 +128,26 @@ footer .progress {
 footer .progress .progress-bar {
   width: 80%;
   height: 10px;
-  background-color: #fff;
+  background-color: #e5e5e5;
 }
 footer .progress .progress-bar .progress-image {
   height: 100%;
-  background-color: yellow;
+  background-color: black;
   transition: 0.5s;
   position: relative;
 }
 
 footer .progress .progress-bar .progress-image i {
-  color: blue;
+  color: black;
   position: absolute;
   right: -20px;
   top: -15px;
 }
 footer .progress .progress-text {
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#map {
+  margin-bottom: 30px;
 }
