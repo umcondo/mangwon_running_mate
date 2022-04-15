@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  height: 80px;
+  width: 100%;
+  background-color: skyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .container {
+  width: 90%;
+  height: 100%;
+  background-color: rgb(184, 184, 184);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .container .choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .container .choice .choice-text {
+  margin-bottom: 30px;
+  position: relative;
+}
+main .container .choice .choice-text button {
+  position: absolute;
+  top: 3px;
+  right: -150px;
+  padding: 10px 20px;
+  display: none;
+}
+main .container .choice .choice-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+main .container .choice .choice-box .choice-items {
+  width: 20vw;
+  height: 50vh;
+  background-color: blue;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+footer {
+  height: 150px;
+  width: 100%;
+  background-color: skyblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .container .choice .choice-box > .choice-items:nth-child(1) {
+  background-color: red;
+}
+main .container .choice .choice-box > .choice-items:nth-child(3) {
+  background-color: green;
+}
+main .container .choice .choice-btn {
+  display: none;
+  text-align: center;
+  /* visibility: hidden; */
+}
+main .container .choice .choice-btn button {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+main .container .choice .choice-btn p a {
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+footer .progress {
+  width: 90%;
+  height: 80%;
+  background-color: rgb(95, 94, 94);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+footer .progress .progress-bar {
+  width: 80%;
+  height: 10px;
+  background-color: #fff;
+}
+footer .progress .progress-bar .progress-image {
+  height: 100%;
+  background-color: yellow;
+  transition: 0.5s;
+  position: relative;
+}
+
+footer .progress .progress-bar .progress-image i {
+  color: blue;
+  position: absolute;
+  right: -20px;
+  top: -15px;
+}
+footer .progress .progress-text {
+  font-size: 20px;
+}
