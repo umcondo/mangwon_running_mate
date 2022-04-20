@@ -3,6 +3,11 @@
         마지막 결정하면 choice를 result로 바꾸고 결과를 출력한다. 
         */
 
+// 첫페이지 처리
+document.querySelector(".first__page button").addEventListener("click", () => {
+  document.querySelector(".first__page").style.display = "none";
+});
+
 //변수 선언
 const questionCount = 3; // 질문갯수;
 
@@ -28,9 +33,9 @@ let resultBox = [];
 
 let choiceBtn = document.querySelector(".choice-btn");
 
-let progressText = document.querySelector("footer .progress .progress-text");
+let progressText = document.querySelector("header .progress .progress-text");
 let progressImage = document.querySelector(
-  "footer .progress .progress-bar .progress-image"
+  "header .progress .progress-bar .progress-image"
 );
 
 const choice = document.querySelector("main .container .choice");
@@ -86,13 +91,17 @@ for (let i = 0; i < choiceItems.length; i++) {
       case 3:
         resultBox.push(choiceItems[i].innerText);
 
+        // 진행바 삭제
+        document.querySelector("header").style.display = "none";
+
         //뒤로가기버튼 삭제
         backBtn.style.display = "none";
 
         //결과출력
-        choiceText.innerText = "당신의 결과는??";
-        choiceBox.style.display = "none";
-        // choiceResult.style.display = "block";
+        // choiceText.innerText = "당신의 결과는??";
+        // choiceBox.style.display = "none";
+        choice.style.display = "none";
+        document.querySelector(".result").style.display = "flex";
 
         choiceResult.innerHTML = `<div id="map" style="width:750px;height:350px;"></div>`;
         map();
@@ -103,9 +112,6 @@ for (let i = 0; i < choiceItems.length; i++) {
           ".choice-result > div:nth-child(2)"
         ).innerHTML = `<h1>결과는 : ${resultBox} <br>kakaomap</h1>`;
 
-        document.querySelector("header").style.visibility = "hidden";
-        document.querySelector("footer").style.visibility = "hidden";
-
         //다시하기버튼
         choiceBtn.style.display = "block";
         break;
@@ -113,7 +119,7 @@ for (let i = 0; i < choiceItems.length; i++) {
   });
 }
 
-console.log(resultBox);
+// console.log(resultBox);
 
 // 다시하기를 누르면 일어나는 일
 document
@@ -140,8 +146,12 @@ document
     progressText.innerText = `${choice.dataset.index} / 3`;
     progressImage.style.width = `${(choice.dataset.index / 3) * 100}%`;
 
-    document.querySelector("header").style.visibility = "visible";
-    document.querySelector("footer").style.visibility = "visible";
+    // 질문, 진행박스 보이게
+    choice.style.display = "flex";
+    document.querySelector("header").style.display = "flex";
+
+    // 결과 박스 숨기기
+    document.querySelector(".result").style.display = "none";
   });
 
 // 뒤로가기를 누르면 일어나는 일

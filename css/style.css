@@ -11,9 +11,39 @@
 }
 body {
   height: 100vh;
+  overflow: hidden;
+}
+.first__page {
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.first__page__container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-weight: bold;
 }
+
+.first__page__container h2 {
+  font-size: 3em;
+}
+.first__page__container h1 {
+  font-size: 4em;
+}
+.first__page__container p {
+  font-size: 1.5em;
+}
+.first__page__container button {
+  padding: 20px 30px;
+  font-size: 2em;
+  margin-top: 40px;
+}
+
 header {
   height: 80px;
   width: 100%;
@@ -22,19 +52,16 @@ header {
   justify-content: center;
   align-items: center;
 }
-main {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+button {
+  background: transparent;
+  border: 2px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
 }
 main .container {
-  width: 90%;
+  width: 100%;
   height: 100%;
   /* background-color: rgb(184, 184, 184); */
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 main .container .choice {
   display: flex;
@@ -45,20 +72,20 @@ main .container .choice {
 
 main .container .choice .choice-img {
   width: 120px;
-  margin-bottom: 30px;
+  margin: 20px 0;
 }
 main .container .choice .choice-text {
   margin-bottom: 30px;
   padding: 50px 100px;
   border-radius: 30px;
-  position: relative;
   font-size: 13px;
-  border: 7px solid #000;
+  border: 5px solid #000;
 }
 main .container .choice .choice-text button {
   position: absolute;
-  top: 3px;
-  right: -150px;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 10px 20px;
   display: none;
 }
@@ -73,7 +100,7 @@ main .container .choice .choice-box {
 main .container .choice .choice-box .choice-items {
   width: 300px;
   height: 70px;
-  border: 7px solid #000;
+  border: 5px solid #000;
   border-radius: 35px;
   /* box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); */
   cursor: pointer;
@@ -87,11 +114,11 @@ main .container .choice .choice-box .choice-items {
 }
 
 main .container .choice .choice-box .choice-items:hover {
-  background-color: #f5f5f7;
+  background-color: #bdbdbe;
   transition: 1s;
 }
 
-footer {
+header {
   height: 150px;
   width: 100%;
   /* background-color: skyblue; */
@@ -100,22 +127,22 @@ footer {
   justify-content: center;
 }
 
-main .container .choice .choice-btn {
+.choice-btn {
   display: none;
   text-align: center;
   /* visibility: hidden; */
 }
-main .container .choice .choice-btn button {
+.choice-btn button {
   padding: 10px 20px;
   margin-bottom: 10px;
 }
 
-main .container .choice .choice-btn p a {
+.choice-btn p a {
   font-size: 1.5em;
   text-decoration: none;
 }
 
-footer .progress {
+header .progress {
   width: 90%;
   height: 80%;
   /* background-color: rgb(95, 94, 94); */
@@ -125,29 +152,37 @@ footer .progress {
   justify-content: center;
   gap: 20px;
 }
-footer .progress .progress-bar {
-  width: 80%;
+header .progress .progress-bar {
+  width: 35%;
   height: 10px;
   background-color: #e5e5e5;
 }
-footer .progress .progress-bar .progress-image {
+header .progress .progress-bar .progress-image {
   height: 100%;
   background-color: black;
   transition: 0.5s;
   position: relative;
 }
 
-footer .progress .progress-bar .progress-image i {
+header .progress .progress-bar .progress-image i {
   color: black;
   position: absolute;
   right: -20px;
   top: -15px;
 }
-footer .progress .progress-text {
+header .progress .progress-text {
   font-weight: bold;
   font-size: 30px;
 }
 
 #map {
   margin-bottom: 30px;
+}
+
+.result {
+  margin-top: 5%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }

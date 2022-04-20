@@ -4,46 +4,72 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://kit.fontawesome.com/2e802f42d3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/2e802f42d3.js"
+      crossorigin="anonymous"
+    ></script>
     <title>망원 런닝 메이트</title>
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=16c159fd8e6cf9b9dc0f34f5922c2f5a"></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=16c159fd8e6cf9b9dc0f34f5922c2f5a"
+    ></script>
+    <script src="js/main.js" defer></script>
   </head>
   <body>
-    <header><h1>망원런닝메이트!!</h1></header>
+    <!-- 첫화면 -->
+
+    <div class="first__page">
+      <div class="first__page__container">
+        <h2>######</h2>
+        <h1>망원 런닝 메이트</h1>
+        <p>내 취향에 맞는 망원, 마포의 런닝 코스를 알아보세요 !!</p>
+        <button>러닝 코스 추천 시작하기</button>
+      </div>
+    </div>
+
+    <!-- 진행바 -->
+
+    <header>
+      <div class="progress">
+        <div class="progress-text">1 / 3</div>
+        <div class="progress-bar">
+          <div class="progress-image">
+            <i class="fa-solid fa-person-running fa-3x"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 질문 내용 -->
+
     <main>
       <div class="container">
         <div class="choice">
-          <img class="choice-img" src="/img/runner.png" alt="">
+          <img class="choice-img" src="/img/runner.png" alt="" />
           <div class="choice-text">
-            
-              <h1>난이도를 선택하세요</h1>
-              <button>뒤로가기</button>
+            <h1>난이도를 선택하세요</h1>
+            <button>뒤로가기</button>
           </div>
           <div class="choice-box">
             <div class="choice-items">하</div>
             <div class="choice-items">중</div>
             <div class="choice-items">상</div>
           </div>
+        </div>
+
+        <!-- 결과 화면 -->
+
+        <div class="result">
+          <h2 class="result__head">러닝 코스 추천 결과</h2>
           <div class="choice-result"></div>
-          <div class="choice-btn"> 
-              <button>다시하기</button>
-              <button>공유하기</button>
-              <p><a href="#">그 밖의 마포의 러닝루트를 알고싶으세요?</a></p>
-        </div>
-        </div>
-    </main>
-    <footer>
-      <div class="progress">
-        <div class="progress-text">1 / 3</div>
-        <div class="progress-bar">
-          <div class="progress-image"><i class="fa-solid fa-person-running fa-3x"></i></div>
+          <div class="choice-btn">
+            <button>다시하기</button>
+            <button>공유하기</button>
+            <p><a href="#">그 밖의 마포의 러닝루트를 알고싶으세요?</a></p>
+          </div>
         </div>
       </div>
-    </footer>
-
-
-    <script src="js/main.js">
-    </script>
+    </main>
   </body>
 </html>
