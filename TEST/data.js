@@ -7,8 +7,8 @@ const coordinates = [
     id: 0,
     MapCenter: {
       coordinatesName: "지도 가운데",
-      lng: 37.564792088052236,
-      lat: 126.913102,
+      lng: 37.568973491762506,
+      lat: 126.92275825560569,
     },
     track: [
       {

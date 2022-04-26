@@ -15,6 +15,19 @@ function runningCourse(coordinates, MapCenter) {
     };
 
   var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+  // 지도 타입 변경 컨트롤을 생성한다
+  var mapTypeControl = new kakao.maps.MapTypeControl();
+
+  // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+  map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+  // 지도에 확대 축소 컨트롤을 생성한다
+  var zoomControl = new kakao.maps.ZoomControl();
+
+  // 지도의 우측에 확대 축소 컨트롤을 추가한다
+  map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
   var linePath = []; // 러닝 코스
 
   // 모든 좌표 점찍기
@@ -54,7 +67,7 @@ function runningCourse(coordinates, MapCenter) {
         spotName +
         `</div>` +
         `거리 <span class="number">` +
-        distance / 1000 +
+        Math.round((distance / 1000) * 10) / 10 +
         `</span> km</div>`, // 커스텀오버레이에 표시할 내용입니다
       position: new kakao.maps.LatLng(coordinates[i].lng, coordinates[i].lat), // 커스텀오버레이를 표시할 위치입니다.
       xAnchor: 0,
@@ -87,6 +100,59 @@ function runningCourse(coordinates, MapCenter) {
   // 지도에 표시합니다
   distanceOverlay.setMap(map);
 
+  /////////////////////////////////////////// 출발 마커 ////////////////////////////////////////////////
+  var startSrc =
+      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png", // 출발 마커이미지의 주소입니다
+    startSize = new kakao.maps.Size(50, 45), // 출발 마커이미지의 크기입니다
+    startOption = {
+      offset: new kakao.maps.Point(15, 0), // 출발 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+    };
+
+  // 출발 마커 이미지를 생성합니다
+  var startImage = new kakao.maps.MarkerImage(startSrc, startSize, startOption);
+
+  // 출발 마커가 표시될 위치입니다
+  var startPosition = new kakao.maps.LatLng(
+    coordinates[0].lng,
+    coordinates[0].lat
+  );
+
+  // 출발 마커를 생성합니다
+  var startMarker = new kakao.maps.Marker({
+    map: map, // 출발 마커가 지도 위에 표시되도록 설정합니다
+    position: startPosition,
+    image: startImage, // 출발 마커이미지를 설정합니다
+  });
+
+  startMarker.setImage(startImage);
+
+  var arriveSrc =
+      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_b.png", // 도착 마커이미지 주소입니다
+    arriveSize = new kakao.maps.Size(50, 45), // 도착 마커이미지의 크기입니다
+    arriveOption = {
+      offset: new kakao.maps.Point(15, 0), // 도착 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+    };
+
+  // 도착 마커 이미지를 생성합니다
+  var arriveImage = new kakao.maps.MarkerImage(
+    arriveSrc,
+    arriveSize,
+    arriveOption
+  );
+
+  // 도착 마커가 표시될 위치입니다
+  var arrivePosition = new kakao.maps.LatLng(
+    coordinates[coordinates.length - 1].lng,
+    coordinates[coordinates.length - 1].lat
+  );
+  // 도착 마커를 생성합니다
+  var arriveMarker = new kakao.maps.Marker({
+    map: map, // 도착 마커가 지도 위에 표시되도록 설정합니다
+    position: arrivePosition,
+    image: arriveImage, // 도착 마커이미지를 설정합니다
+  });
+
+  arriveMarker.setImage(arriveImage);
   //////////////////////////////////////////////////// 그냥 좌표 따려고 만듦 ///////////////////////////////////////////////////////////////////
 
   kakao.maps.event.addListener(map, "click", function (mouseEvent) {
@@ -121,7 +187,7 @@ function getTimeHTML(distance) {
   // 달리기 평균 시속은 10km/h 이고 이것을 기준으로 달리기 분속은 167m/min입니다
   var runningTime = (distance / 167) | 0;
   var runningHour = "",
-    bycicleMin = "";
+    runningMin = "";
 
   // 계산한 달리기 시간이 60분 보다 크면 시간으로 표출합니다
   if (runningTime > 60) {
@@ -130,7 +196,7 @@ function getTimeHTML(distance) {
   }
   runningMin = '<span class="number">' + (runningTime % 60) + "</span>분";
 
-  distance = distance / 1000;
+  distance = Math.round((distance / 1000) * 100) / 100;
   // 거리와 도보 시간, 달리기 시간을 가지고 HTML Content를 만들어 리턴합니다
   var content = '<ul class="dotOverlay distanceInfo">';
   content += "    <li>";

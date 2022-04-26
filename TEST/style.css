@@ -37,11 +37,12 @@
 }
 .distanceInfo {
   position: relative;
-  top: 5px;
-  left: 5px;
+  top: 50px;
+  left: 50px;
   list-style: none;
   margin: 0;
   line-height: 150%;
+  padding: 10px 20px;
 }
 .distanceInfo .label {
   display: inline-block;
