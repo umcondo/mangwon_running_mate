@@ -4,7 +4,12 @@ for (let i = 0; i < coordinates.length; i++) {
   runningCourse(coordinates[i].track, coordinates[i].MapCenter);
 }
 
-console.log(document.getElementById("map"));
+function showCourse(idx) {
+  // document.getElementById("map").style.display = "none";
+  runningCourse(coordinates[idx].track, coordinates[idx].MapCenter);
+}
+
+// console.log(document.getElementById("map"));
 
 // 데이터를 바탕으로 지도에 코스를 그려주는 함수
 function runningCourse(coordinates, MapCenter) {
@@ -102,7 +107,13 @@ function runningCourse(coordinates, MapCenter) {
   });
 
   // 지도에 표시합니다
+  // console.log(content);
+
+  let map2 = document.getElementById("map");
+  map2.appendChild(content);
   distanceOverlay.setMap(map);
+
+  /////////////////////////////////////////////////////////////오버레이 드래그 /////////////////////////////////////////////
 
   // 커스텀 오버레이를 드래그 하기 위해 필요한
   // 드래그 시작좌표, 커스텀 오버레이의 위치좌표를 넣을 변수를 선업합니다
@@ -140,56 +151,6 @@ function runningCourse(coordinates, MapCenter) {
 
     // document에 mousemove 이벤트를 등록합니다
     addEventHandle(document, "mousemove", onMouseMove);
-  }
-
-  // 커스텀 오버레이에 mousedown 한 상태에서
-  // mousemove 하면 호출되는 핸들러 입니다
-  function onMouseMove(e) {
-    // 커스텀 오버레이를 드래그 할 때, 내부 텍스트가 영역 선택되는 현상을 막아줍니다.
-    if (e.preventDefault) {
-      e.preventDefault();
-    } else {
-      e.returnValue = false;
-    }
-
-    var proj = map.getProjection(), // 지도 객체로 부터 화면픽셀좌표, 지도좌표간 변환을 위한 MapProjection 객체를 얻어옵니다
-      deltaX = startX - e.clientX, // mousedown한 픽셀좌표에서 mousemove한 좌표를 빼서 실제로 마우스가 이동된 픽셀좌표를 구합니다
-      deltaY = startY - e.clientY,
-      // mousedown됐을 때의 커스텀 오버레이의 좌표에 실제로 마우스가 이동된 픽셀좌표를 반영합니다
-      newPoint = new kakao.maps.Point(
-        startOverlayPoint.x - deltaX,
-        startOverlayPoint.y - deltaY
-      ),
-      // 계산된 픽셀 좌표를 지도 컨테이너에 해당하는 지도 좌표로 변경합니다
-      newPos = proj.coordsFromContainerPoint(newPoint);
-
-    // 커스텀 오버레이의 좌표를 설정합니다
-    distanceOverlay.setPosition(newPos);
-  }
-
-  // mouseup 했을 때 호출되는 핸들러 입니다
-  function onMouseUp(e) {
-    // 등록된 mousemove 이벤트 핸들러를 제거합니다
-    removeEventHandle(document, "mousemove", onMouseMove);
-  }
-
-  // target node에 이벤트 핸들러를 등록하는 함수힙니다
-  function addEventHandle(target, type, callback) {
-    if (target.addEventListener) {
-      target.addEventListener(type, callback);
-    } else {
-      console.log(target);
-      target.attachEvent("on" + type, callback);
-    }
-  }
-
-  // target node에 등록된 이벤트 핸들러를 제거하는 함수힙니다
-  function removeEventHandle(target, type, callback) {
-    if (target.removeEventListener) {
-      target.removeEventListener(type, callback);
-    } else {
-      target.detachEvent("on" + type, callback);
-    }
   }
 
   /////////////////////////////////////////// 출발 마커 ////////////////////////////////////////////////
@@ -263,6 +224,57 @@ function runningCourse(coordinates, MapCenter) {
     console.log("latitude", latitude);
     console.log("longitude", longitude);
   });
+
+  /////////////////////////////////////////////////// 함수 속 함수 ////////////////////////////////////////////
+  // 커스텀 오버레이에 mousedown 한 상태에서
+  // mousemove 하면 호출되는 핸들러 입니다
+  function onMouseMove(e) {
+    // 커스텀 오버레이를 드래그 할 때, 내부 텍스트가 영역 선택되는 현상을 막아줍니다.
+    if (e.preventDefault) {
+      e.preventDefault();
+    } else {
+      e.returnValue = false;
+    }
+
+    var proj = map.getProjection(), // 지도 객체로 부터 화면픽셀좌표, 지도좌표간 변환을 위한 MapProjection 객체를 얻어옵니다
+      deltaX = startX - e.clientX, // mousedown한 픽셀좌표에서 mousemove한 좌표를 빼서 실제로 마우스가 이동된 픽셀좌표를 구합니다
+      deltaY = startY - e.clientY,
+      // mousedown됐을 때의 커스텀 오버레이의 좌표에 실제로 마우스가 이동된 픽셀좌표를 반영합니다
+      newPoint = new kakao.maps.Point(
+        startOverlayPoint.x - deltaX,
+        startOverlayPoint.y - deltaY
+      ),
+      // 계산된 픽셀 좌표를 지도 컨테이너에 해당하는 지도 좌표로 변경합니다
+      newPos = proj.coordsFromContainerPoint(newPoint);
+
+    // 커스텀 오버레이의 좌표를 설정합니다
+    distanceOverlay.setPosition(newPos);
+  }
+
+  // mouseup 했을 때 호출되는 핸들러 입니다
+  function onMouseUp(e) {
+    // 등록된 mousemove 이벤트 핸들러를 제거합니다
+    removeEventHandle(document, "mousemove", onMouseMove);
+  }
+
+  // target node에 이벤트 핸들러를 등록하는 함수힙니다
+  function addEventHandle(target, type, callback) {
+    if (target.addEventListener) {
+      target.addEventListener(type, callback);
+    } else {
+      console.log(target);
+      target.attachEvent("on" + type, callback);
+    }
+  }
+
+  // target node에 등록된 이벤트 핸들러를 제거하는 함수힙니다
+  function removeEventHandle(target, type, callback) {
+    if (target.removeEventListener) {
+      target.removeEventListener(type, callback);
+    } else {
+      target.detachEvent("on" + type, callback);
+    }
+  }
 }
 ////////////////////////////////////////////// 완성 함수 /////////////////////////////////////////
 
@@ -313,7 +325,7 @@ function getTimeHTML(distance) {
     '        <span class="label">달리기</span>' + runningHour + runningMin;
   content += "    </li>";
   content += "    <li>";
-  content += '        <span class="label">** 10km/h 기준 **</span>';
+  content += "        <span>** 10km/h 기준 **</span>";
   content += "    </li>";
   content += "</ul>";
 
@@ -345,9 +357,10 @@ function getTimeHTML(distance) {
 function toggleBtn() {
   document
     .querySelectorAll(
-      "#map > div:nth-child(22) > div > div:nth-child(6) > div:nth-child(2n-1) > div"
+      "#map > div:nth-child(n) > div > div:nth-child(6) > div:nth-child(n) > div"
     )
     .forEach((elm) => elm.classList.toggle("toggle"));
 }
 // #map > div:nth-child(22) > div > div:nth-child(6) > div:nth-child(2n-1) > div
 // "#map > div:nth-child(19) > div > div:nth-child(6) > div:nth-child(2n-1) > div"
+//#map > div:nth-child(22) > div > div:nth-child(6) > div:nth-child(12) > div
