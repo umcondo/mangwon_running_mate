@@ -1,3 +1,8 @@
+/* @font-face {
+  font-family: MalgunGothic;
+  src: url(MalgunGothic.eot);
+} */
+
 .dot {
   overflow: hidden;
   float: left;
@@ -7,8 +12,9 @@
 }
 .dotOverlay {
   position: relative;
-  bottom: 55px;
-  left: -43px;
+  /* bottom: -55px; */
+  bottom: -10px;
+  left: -40px;
   border-radius: 6px;
   border: 1px solid #ccc;
   border-bottom: 2px solid #ddd;
@@ -30,12 +36,15 @@
   position: absolute;
   margin-left: -6px;
   left: 50%;
-  bottom: -8px;
+  /* bottom: -8px; */
+  bottom: 40px;
   width: 11px;
   height: 8px;
+  transform: rotate(180deg);
   background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png");
 }
 .distanceInfo {
+  /* position: relative; */
   position: relative;
   top: 50px;
   left: 50px;
@@ -50,4 +59,30 @@
 }
 .distanceInfo:after {
   content: none;
+}
+
+.btn {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  overflow: hidden;
+  margin: 0;
+  z-index: 1;
+  font-size: 12px;
+  font-family: "MalgunGothic", "맑은 고딕", sans-serif;
+  background-color: white;
+  border: none;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+
+  width: 106px;
+  height: 32px;
+  box-sizing: content-box;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
+}
+.toggle {
+  display: none;
 }

@@ -4,6 +4,8 @@ for (let i = 0; i < coordinates.length; i++) {
   runningCourse(coordinates[i].track, coordinates[i].MapCenter);
 }
 
+console.log(document.getElementById("map"));
+
 // 데이터를 바탕으로 지도에 코스를 그려주는 함수
 function runningCourse(coordinates, MapCenter) {
   // 필요한 데이터 지도의 중심 좌표
@@ -11,7 +13,7 @@ function runningCourse(coordinates, MapCenter) {
   var mapContainer = document.getElementById("map"), // 지도를 표시할 div
     mapOption = {
       center: new kakao.maps.LatLng(MapCenter.lng, MapCenter.lat), // 지도의 중심좌표
-      level: 6, // 지도의 확대 레벨
+      level: MapCenter.mapDepthLevel, // 지도의 확대 레벨
     };
 
   var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -48,8 +50,8 @@ function runningCourse(coordinates, MapCenter) {
       path: linePath, // 선을 구성하는 좌표배열 입니다
       strokeWeight: 5, // 선의 두께 입니다
       strokeColor: "red", // 선의 색깔입니다
-      strokeOpacity: 0.5, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-      strokeStyle: "solid", // 선의 스타일입니다
+      strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+      strokeStyle: "shortdash", // 선의 스타일입니다
     });
 
     // 현재 좌표까지의 거리
@@ -59,24 +61,26 @@ function runningCourse(coordinates, MapCenter) {
     let spotName = coordinates[i].coordinatesName;
 
     // 현재 좌표에 거리, 이름 표시
-    distanceOverlay = new kakao.maps.CustomOverlay({
-      map: map, // 커스텀오버레이를 표시할 지도입니다
-      content:
-        '<div class="dotOverlay">' +
-        `<div style="text-align:center">` +
-        spotName +
-        `</div>` +
-        `거리 <span class="number">` +
-        Math.round((distance / 1000) * 10) / 10 +
-        `</span> km</div>`, // 커스텀오버레이에 표시할 내용입니다
-      position: new kakao.maps.LatLng(coordinates[i].lng, coordinates[i].lat), // 커스텀오버레이를 표시할 위치입니다.
-      xAnchor: 0,
-      yAnchor: 0,
-      zIndex: 3,
-    });
-    // 지도에 표시합니다
-
-    circleOverlay.setMap(map);
+    if (coordinates[i].display === "y") {
+      // display가 y일때만 오버레이 표시
+      distanceOverlay = new kakao.maps.CustomOverlay({
+        map: map, // 커스텀오버레이를 표시할 지도입니다
+        content:
+          '<div class="dotOverlay">' +
+          `<div style="text-align:center">` +
+          spotName +
+          `</div>` +
+          `거리 <span class="number">` +
+          Math.round((distance / 1000) * 10) / 10 +
+          `</span> km</div>`, // 커스텀오버레이에 표시할 내용입니다
+        position: new kakao.maps.LatLng(coordinates[i].lng, coordinates[i].lat), // 커스텀오버레이를 표시할 위치입니다.
+        xAnchor: 0,
+        yAnchor: 0,
+        zIndex: 3,
+      });
+      // 지도에 표시합니다
+      circleOverlay.setMap(map);
+    }
   }
 
   // 지도에 선을 표시합니다
@@ -100,12 +104,106 @@ function runningCourse(coordinates, MapCenter) {
   // 지도에 표시합니다
   distanceOverlay.setMap(map);
 
+  // 커스텀 오버레이를 드래그 하기 위해 필요한
+  // 드래그 시작좌표, 커스텀 오버레이의 위치좌표를 넣을 변수를 선업합니다
+  var startX, startY, startOverlayPoint;
+
+  // 커스텀 오버레이에 mousedown이벤트를 등록합니다
+  addEventHandle(content, "mousedown", onMouseDown);
+
+  // mouseup 이벤트가 일어났을때 mousemove 이벤트를 제거하기 위해
+  // document에 mouseup 이벤트를 등록합니다
+  addEventHandle(document, "mouseup", onMouseUp);
+
+  // 커스텀 오버레이에 mousedown 했을 때 호출되는 핸들러 입니다
+  function onMouseDown(e) {
+    // 커스텀 오버레이를 드래그 할 때, 내부 텍스트가 영역 선택되는 현상을 막아줍니다.
+    if (e.preventDefault) {
+      e.preventDefault();
+    } else {
+      e.returnValue = false;
+    }
+
+    var proj = map.getProjection(), // 지도 객체로 부터 화면픽셀좌표, 지도좌표간 변환을 위한 MapProjection 객체를 얻어옵니다
+      overlayPos = distanceOverlay.getPosition(); // 커스텀 오버레이의 현재 위치를 가져옵니다
+
+    // 커스텀오버레이에서 마우스 관련 이벤트가 발생해도 지도가 움직이지 않도록 합니다
+    kakao.maps.event.preventMap();
+
+    // mousedown된 좌표를 설정합니다
+    startX = e.clientX;
+    startY = e.clientY;
+
+    // mousedown됐을 때의 커스텀 오버레이의 좌표를
+    // 지도 컨테이너내 픽셀 좌표로 변환합니다
+    startOverlayPoint = proj.containerPointFromCoords(overlayPos);
+
+    // document에 mousemove 이벤트를 등록합니다
+    addEventHandle(document, "mousemove", onMouseMove);
+  }
+
+  // 커스텀 오버레이에 mousedown 한 상태에서
+  // mousemove 하면 호출되는 핸들러 입니다
+  function onMouseMove(e) {
+    // 커스텀 오버레이를 드래그 할 때, 내부 텍스트가 영역 선택되는 현상을 막아줍니다.
+    if (e.preventDefault) {
+      e.preventDefault();
+    } else {
+      e.returnValue = false;
+    }
+
+    var proj = map.getProjection(), // 지도 객체로 부터 화면픽셀좌표, 지도좌표간 변환을 위한 MapProjection 객체를 얻어옵니다
+      deltaX = startX - e.clientX, // mousedown한 픽셀좌표에서 mousemove한 좌표를 빼서 실제로 마우스가 이동된 픽셀좌표를 구합니다
+      deltaY = startY - e.clientY,
+      // mousedown됐을 때의 커스텀 오버레이의 좌표에 실제로 마우스가 이동된 픽셀좌표를 반영합니다
+      newPoint = new kakao.maps.Point(
+        startOverlayPoint.x - deltaX,
+        startOverlayPoint.y - deltaY
+      ),
+      // 계산된 픽셀 좌표를 지도 컨테이너에 해당하는 지도 좌표로 변경합니다
+      newPos = proj.coordsFromContainerPoint(newPoint);
+
+    // 커스텀 오버레이의 좌표를 설정합니다
+    distanceOverlay.setPosition(newPos);
+  }
+
+  // mouseup 했을 때 호출되는 핸들러 입니다
+  function onMouseUp(e) {
+    // 등록된 mousemove 이벤트 핸들러를 제거합니다
+    removeEventHandle(document, "mousemove", onMouseMove);
+  }
+
+  // target node에 이벤트 핸들러를 등록하는 함수힙니다
+  function addEventHandle(target, type, callback) {
+    if (target.addEventListener) {
+      target.addEventListener(type, callback);
+    } else {
+      console.log(target);
+      target.attachEvent("on" + type, callback);
+    }
+  }
+
+  // target node에 등록된 이벤트 핸들러를 제거하는 함수힙니다
+  function removeEventHandle(target, type, callback) {
+    if (target.removeEventListener) {
+      target.removeEventListener(type, callback);
+    } else {
+      target.detachEvent("on" + type, callback);
+    }
+  }
+
   /////////////////////////////////////////// 출발 마커 ////////////////////////////////////////////////
+  var startMarker =
+    coordinates[0].lng === coordinates[coordinates.length - 1].lng
+      ? new kakao.maps.Point(15, 70)
+      : new kakao.maps.Point(15, 45);
+
   var startSrc =
       "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png", // 출발 마커이미지의 주소입니다
     startSize = new kakao.maps.Size(50, 45), // 출발 마커이미지의 크기입니다
     startOption = {
-      offset: new kakao.maps.Point(15, 0), // 출발 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+      // offset: new kakao.maps.Point(5, 45), // 출발 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+      offset: startMarker, // 출발 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
     };
 
   // 출발 마커 이미지를 생성합니다
@@ -130,7 +228,8 @@ function runningCourse(coordinates, MapCenter) {
       "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_b.png", // 도착 마커이미지 주소입니다
     arriveSize = new kakao.maps.Size(50, 45), // 도착 마커이미지의 크기입니다
     arriveOption = {
-      offset: new kakao.maps.Point(15, 0), // 도착 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+      offset: new kakao.maps.Point(15, 45), // 도착 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+      // offset: new kakao.maps.Point(-5, 45), // 도착 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
     };
 
   // 도착 마커 이미지를 생성합니다
@@ -198,6 +297,7 @@ function getTimeHTML(distance) {
 
   distance = Math.round((distance / 1000) * 100) / 100;
   // 거리와 도보 시간, 달리기 시간을 가지고 HTML Content를 만들어 리턴합니다
+
   var content = '<ul class="dotOverlay distanceInfo">';
   content += "    <li>";
   content +=
@@ -213,9 +313,41 @@ function getTimeHTML(distance) {
     '        <span class="label">달리기</span>' + runningHour + runningMin;
   content += "    </li>";
   content += "    <li>";
-  content += '        <span class="label">*** 10km/h 기준 ***</span>';
+  content += '        <span class="label">** 10km/h 기준 **</span>';
   content += "    </li>";
   content += "</ul>";
 
-  return content;
+  var contentContainer = document.createElement("article");
+  contentContainer.innerHTML = content;
+
+  return contentContainer;
 }
+
+// // 오버레이 안보이게
+// function hide() {
+//   document
+//     .querySelectorAll(
+//       "#map > div:nth-child(19) > div > div:nth-child(6) > div:nth-child(2n-1) > div"
+//     )
+//     .forEach((elm) => (elm.style.display = "none"));
+// }
+
+// // 오버레이 보이게
+// function uncover() {
+//   document
+//     .querySelectorAll(
+//       "#map > div:nth-child(19) > div > div:nth-child(6) > div:nth-child(2n-1) > div"
+//     )
+//     .forEach((elm) => (elm.style.display = "block"));
+// }
+
+// 오버레이 토글
+function toggleBtn() {
+  document
+    .querySelectorAll(
+      "#map > div:nth-child(22) > div > div:nth-child(6) > div:nth-child(2n-1) > div"
+    )
+    .forEach((elm) => elm.classList.toggle("toggle"));
+}
+// #map > div:nth-child(22) > div > div:nth-child(6) > div:nth-child(2n-1) > div
+// "#map > div:nth-child(19) > div > div:nth-child(6) > div:nth-child(2n-1) > div"
