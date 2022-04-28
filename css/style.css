@@ -11,7 +11,7 @@
 }
 body {
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .first__page {
   height: 100%;
@@ -20,12 +20,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 100px;
 }
 .first__page__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   font-weight: bold;
 }
 
@@ -41,6 +42,7 @@ body {
 .first__page__container button {
   padding: 20px 30px;
   font-size: 2em;
+  border-radius: 50px;
   margin-top: 40px;
 }
 
@@ -71,20 +73,24 @@ main .container .choice {
 }
 
 main .container .choice .choice-img {
-  width: 120px;
-  margin: 20px 0;
+  width: 90px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 main .container .choice .choice-text {
   margin-bottom: 30px;
   padding: 50px 100px;
-  border-radius: 30px;
+  border-radius: 70px;
   font-size: 13px;
-  border: 5px solid #000;
+  border: 3px solid #000;
 }
 main .container .choice .back_btn {
   padding: 10px 20px;
   display: none;
   margin-top: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 20px;
 }
 main .container .choice .choice-box {
   display: flex;
@@ -95,14 +101,13 @@ main .container .choice .choice-box {
 }
 
 main .container .choice .choice-box .choice-items {
-  width: 300px;
-  height: 70px;
-  border: 5px solid #000;
-  border-radius: 35px;
+  width: 350px;
+  min-height: 78px;
+  border: 2px solid #000;
+  border-radius: 50px;
   /* box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); */
   cursor: pointer;
-  /* color: white; */
-  /* background: #000; */
+  padding: 10px 30px;
   font-weight: bold;
   font-size: 1.2em;
   display: flex;
@@ -111,7 +116,7 @@ main .container .choice .choice-box .choice-items {
 }
 
 main .container .choice .choice-box .choice-items:hover {
-  background-color: #bdbdbe;
+  background-color: #ececec;
   transition: 1s;
 }
 
@@ -150,8 +155,8 @@ header .progress {
   gap: 20px;
 }
 header .progress .progress-bar {
-  width: 35%;
-  height: 10px;
+  width: 30%;
+  height: 5px;
   background-color: #e5e5e5;
 }
 header .progress .progress-bar .progress-image {
@@ -169,7 +174,7 @@ header .progress .progress-bar .progress-image i {
 }
 header .progress .progress-text {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 #map {
@@ -177,9 +182,109 @@ header .progress .progress-text {
 }
 
 .result {
-  margin-top: 5%;
+  margin-top: 10px;
   display: none;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 20px;
+}
+
+.choice-result {
+  position: relative;
+}
+.result_text {
+  width: 50%;
+}
+
+/* kakaomap */
+.dot {
+  overflow: hidden;
+  float: left;
+  width: 12px;
+  height: 12px;
+  background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png");
+}
+.dotOverlay {
+  position: relative;
+  /* bottom: -55px; */
+  bottom: -10px;
+  left: -40px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  border-bottom: 2px solid #ddd;
+  float: left;
+  font-size: 12px;
+  padding: 5px;
+  background: #fff;
+}
+.dotOverlay:nth-of-type(n) {
+  border: 0;
+  box-shadow: 0px 1px 2px #888;
+}
+.number {
+  font-weight: bold;
+  color: #ee6152;
+}
+.dotOverlay:after {
+  content: "";
+  position: absolute;
+  margin-left: -6px;
+  left: 50%;
+  /* bottom: -8px; */
+  bottom: 40px;
+  width: 11px;
+  height: 8px;
+  transform: rotate(180deg);
+  background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png");
+}
+
+article {
+  position: absolute;
+  bottom: 70px;
+  right: 70px;
+  z-index: 2;
+}
+
+.distanceInfo {
+  /* position: relative; */
+  position: relative;
+  top: 50px;
+  left: 50px;
+  list-style: none;
+  margin: 0;
+  line-height: 170%;
+  padding: 10px 20px;
+}
+.distanceInfo .label {
+  display: inline-block;
+  width: 50px;
+}
+.distanceInfo:after {
+  content: none;
+}
+
+.btn {
+  position: absolute;
+  top: 75px;
+  left: 470px;
+  overflow: hidden;
+  margin: 0;
+  z-index: 3;
+  font-size: 12px;
+  background-color: #3396ff;
+  border: none;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  color: white;
+  padding: 3px 10px;
+  width: 106px;
+  height: 32px;
+  box-sizing: content-box;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
+}
+.toggle {
+  display: none;
 }

@@ -60,23 +60,48 @@ const CourseData = [
 ];
 
 // 질문 배열 - 객체 question(질문 제목), answer1(답변 선택지 1), answer2(답변 선택지 2)
+
 const Question = [
   {
     id: 0,
     question: `러닝 난이도를 선택해주세요`,
-    answer1: `걷고, 뛰면서 천천히 산책하듯 하고 싶어요`,
-    answer2: `왕복코스, 마포 이곳저곳, 10km 이내로 좀 길게 뛰고 싶어요`,
+    answer: [
+      {
+        text: `걷고, 뛰면서 천천히 산책하듯 하고 싶어요`,
+        value: "beginner",
+      },
+      {
+        text: `왕복코스, 마포 이곳저곳, 10km 이내로 좀 길게 뛰고 싶어요`,
+        value: "intermediate",
+      },
+    ],
   },
   {
     id: 1,
     question: `어디를 더 가보고 싶으신가요?`,
-    answer1: `한강 가보고 싶어요. 시원하게 물을 보면서 달리고 싶어요`,
-    answer2: `내륙쪽으로 가보고 싶어요. 마포의 거리, 공원에서 달리고 싶어요`,
+    answer: [
+      {
+        text: `한강 가보고 싶어요. 시원하게 물을 보면서 달리고 싶어요`,
+        value: "Hangang",
+      },
+      {
+        text: `내륙쪽으로 가보고 싶어요. 마포의 거리, 공원에서 달리고 싶어요`,
+        value: "inland",
+      },
+    ],
   },
   {
     id: 2,
     question: `달릴 때 주변 혼잡도는 어느정도가 괜찮나요?`,
-    answer1: `사람 구경하면서 달리고 싶어요`,
-    answer2: `조용한 환경에서 달리고 싶어요`,
+    answer: [
+      {
+        text: `사람 구경하면서 달리고 싶어요`,
+        value: "loud",
+      },
+      {
+        text: `조용한 환경에서 달리고 싶어요`,
+        value: "quiet",
+      },
+    ],
   },
 ];
