@@ -81,13 +81,10 @@ main .container .choice .choice-text {
   font-size: 13px;
   border: 5px solid #000;
 }
-main .container .choice .choice-text button {
-  position: absolute;
-  bottom: 15%;
-  left: 50%;
-  transform: translateX(-50%);
+main .container .choice .back_btn {
   padding: 10px 20px;
   display: none;
+  margin-top: 30px;
 }
 main .container .choice .choice-box {
   display: flex;

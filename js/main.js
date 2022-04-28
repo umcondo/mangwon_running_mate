@@ -3,46 +3,106 @@
         마지막 결정하면 choice를 result로 바꾸고 결과를 출력한다. 
         */
 
-// 첫페이지 처리
+/* 첫페이지 */
 document.querySelector(".first__page button").addEventListener("click", () => {
   document.querySelector(".first__page").style.display = "none";
 });
 
 //변수 선언
-const questionCount = 3; // 질문갯수;
 
-let choiceText = document.querySelector(".choice-text > h1");
-let backBtn = document.querySelector(
-  "main .container .choice .choice-text button"
-);
+let choiceText = document.querySelector(".choice-text > h1"); // 질문제목
 
-let choiceBox = document.querySelector(".choice-box");
-let choiceItems = document.querySelectorAll(".choice-items");
+let backBtn = document.querySelector(".back_btn"); // 뒤로가기 버튼
+
+let choiceBox = document.querySelector(".choice-box"); // 답변내용 담은 div
+let choiceItems = document.querySelectorAll(".choice-items"); // 답변내용들
 let choiceItems1 = document.querySelector(
-  ".choice-box > .choice-items:nth-child(1)"
+  ".choice-box > .choice-items:nth-child(1)" // 답변내용1
 );
 let choiceItems2 = document.querySelector(
-  ".choice-box > .choice-items:nth-child(2)"
-);
-let choiceItems3 = document.querySelector(
-  ".choice-box > .choice-items:nth-child(3)"
+  ".choice-box > .choice-items:nth-child(2)" // 답변내용2
 );
 
-let choiceResult = document.querySelector(".choice-result");
-let resultBox = [];
+let choiceResult = document.querySelector(".choice-result"); //결과
 
-let choiceBtn = document.querySelector(".choice-btn");
+let resultBox = []; // 답변을 모아두는 박스
 
-let progressText = document.querySelector("header .progress .progress-text");
+let choiceBtn = document.querySelector(".choice-btn"); // 다시하기버튼
+
+let progressText = document.querySelector("header .progress .progress-text"); // 진행바텍스트
 let progressImage = document.querySelector(
-  "header .progress .progress-bar .progress-image"
+  "header .progress .progress-bar .progress-image" // 진행바
 );
 
-const choice = document.querySelector("main .container .choice");
+const choice = document.querySelector("main .container .choice"); //질문,답변 전체 div
 
-choice.dataset.index = 1; // 초기값
+choice.dataset.index = 1; // choice div의 클래스 data-index 초기값
 
-progressImage.style.width = `${((choice.dataset.index * 1) / 3) * 100}%`; // 초기값
+/*   질문   */
+const questionCount = Question.length; // 질문갯수;
+
+let currentIndex = 0; // 현재 질문의 인덱스, 초기값 : 0
+
+// console.log(curId, curTitle, curAnswer1, curAnswer2);
+
+// 현재 인덱스의 질문, 내용을 보여주는 함수
+const makeQuestion = (idx) => {
+  let currentQuestion = Question[idx]; // 현재 질문 객체
+
+  // let curId = currentQuestion.id;
+  let curTitle = currentQuestion.question;
+  let curAnswer1 = currentQuestion.answer1;
+  let curAnswer2 = currentQuestion.answer2;
+
+  let choiceText = document.querySelector(".choice-text > h1"); // 질문제목
+  let choiceItems1 = document.querySelector(
+    ".choice-box > .choice-items:nth-child(1)" // 답변내용1
+  );
+  let choiceItems2 = document.querySelector(
+    ".choice-box > .choice-items:nth-child(2)" // 답변내용2
+  );
+
+  choiceText.innerHTML = curTitle;
+  choiceItems1.innerHTML = curAnswer1;
+  choiceItems2.innerHTML = curAnswer2;
+};
+
+const showQuestion = () => {
+  // 질문, 내용을 보여주는 함수
+};
+
+const nextQuestion = () => {
+  currentIndex++;
+  // 질문 내용 선택시 질문값을 저장하고 다음 질문을 보여주는 함수
+  if (currentIndex < questionCount) {
+    // 현재 인덱스가 질문 수와 같아지면 결과페이지 출력
+    makeQuestion(currentIndex);
+  } else {
+    // 결과페이지
+  }
+};
+
+// 질문 진행에 따라 진행도를 보여주는 함수
+const progressBar = () => {
+  let progressText = document.querySelector("header .progress .progress-text"); // 진행바텍스트
+  let progressImage = document.querySelector(
+    "header .progress .progress-bar .progress-image" // 진행바
+  );
+  progressImage.style.width = `${(currentIndex / questionCount) * 100}%`; // 진행바
+  progressText.innerHTML = `${currentIndex} / ${questionCount}`; // 진행도
+};
+
+// 뒤로가기 버튼을 누르면 실행되는 함수, 이전 질문을 보여주고, 질문결과의 마지막 값을 제거한다.
+const backwardBtn = () => {
+  currentIndex--;
+  makeQuestion(currentIndex);
+
+  resultBox.pop();
+};
+
+progressImage.style.width = `${
+  ((choice.dataset.index * 1) / questionCount) * 100
+}%`; // 진행바
 
 // choice-items를 클릭하면 choice-text와 choice-items가 바뀐다.
 for (let i = 0; i < choiceItems.length; i++) {
@@ -53,7 +113,6 @@ for (let i = 0; i < choiceItems.length; i++) {
         choiceText.innerText = "계절을 선택하세요";
         choiceItems1.innerText = "봄";
         choiceItems2.innerText = "여름";
-        choiceItems3.innerText = "가을";
 
         //뒤로가기버튼 생성
         backBtn.style.display = "block";
@@ -75,7 +134,6 @@ for (let i = 0; i < choiceItems.length; i++) {
         choiceText.innerText = "취향을 선택하세요";
         choiceItems1.innerText = "조용한곳";
         choiceItems2.innerText = "사람많은곳";
-        choiceItems3.innerText = "적당한곳";
 
         progressText.innerText = "3 / 3";
         progressImage.style.width = `${(3 / 3) * 100}%`;
@@ -132,7 +190,6 @@ document
     choiceText.innerText = "난이도를 선택하세요";
     choiceItems1.innerText = "하";
     choiceItems2.innerText = "중";
-    choiceItems3.innerText = "상";
 
     // 선택박스 초기화
     choiceBox.style.display = "flex";
@@ -165,7 +222,6 @@ backBtn.addEventListener("click", () => {
       choiceText.innerText = "난이도를 선택하세요";
       choiceItems1.innerText = "하";
       choiceItems2.innerText = "중";
-      choiceItems3.innerText = "상";
 
       //뒤로가기버튼 삭제
       backBtn.style.display = "none";
@@ -181,7 +237,6 @@ backBtn.addEventListener("click", () => {
       choiceText.innerText = "계절을 선택하세요";
       choiceItems1.innerText = "봄";
       choiceItems2.innerText = "여름";
-      choiceItems3.innerText = "가을";
 
       progressText.innerText = `${choice.dataset.index} / 3`;
       progressImage.style.width = `${(choice.dataset.index / 3) * 100}%`;
@@ -191,8 +246,6 @@ backBtn.addEventListener("click", () => {
       //내용변경
       choiceText.innerText = "취향을 선택하세요";
       choiceItems1.innerText = "조용한곳";
-      choiceItems2.innerText = "사람많은곳";
-      choiceItems3.innerText = "적당한곳";
 
       progressText.innerText = `${choice.dataset.index} / 3`;
       progressImage.style.width = `${(choice.dataset.index / 3) * 100}%`;
