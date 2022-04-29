@@ -245,6 +245,11 @@ article {
   right: 70px;
   z-index: 2;
 }
+#map > article:nth-child(5) {
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
 
 .distanceInfo {
   /* position: relative; */
@@ -263,11 +268,19 @@ article {
 .distanceInfo:after {
   content: none;
 }
+/* 
+#map > div:nth-child(n) > div > div:nth-child(6) > div:nth-child(n) > div {
+}
+#map > div:nth-child(1) > div > div:nth-child(6) > div:nth-child(14) > img {
+  display: inline-block;
+  width: 100px;
+  z-index: 10;
+} */
 
 .btn {
-  position: absolute;
-  top: 75px;
-  left: 470px;
+  /* position: absolute;
+  top: 10px;
+  left: 10px; */
   overflow: hidden;
   margin: 0;
   z-index: 3;
