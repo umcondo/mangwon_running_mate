@@ -54,7 +54,7 @@ function nextQuestion(event) {
   } else {
     // 현재 인덱스가 질문 수와 같아지면 결과페이지 출력
     currentIndex = 0; // 질문이 끝났으므로 인덱스를 초기화
-    return makeResult();
+    return resultAnimation();
   }
 }
 
@@ -146,7 +146,7 @@ const makeResult = () => {
 
   document.querySelector(".result_text").innerHTML = resultText;
 
-  let choiceBtn = document.querySelector(".choice-btn"); // 다시하기버튼
+  let choiceBtn = document.querySelector(".result_btn_container"); // 다시하기버튼
   choiceBtn.style.display = "block";
 };
 // 지도를 출력하는 함수
@@ -158,3 +158,12 @@ const reStartBtn = () => {
   resultBox = [];
   makeQuestion(0);
 };
+
+// 애니메이션 페이지 2초 후 없애버리기
+function resultAnimation() {
+  document.querySelector(".result_animation").style.display = "block";
+  setTimeout(() => {
+    document.querySelector(".result_animation").style.display = "none";
+    makeResult();
+  }, 2000);
+}

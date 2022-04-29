@@ -11,7 +11,7 @@
 }
 body {
   height: 100vh;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 /* 첫페이지 */
 .first__page {
@@ -54,13 +54,7 @@ body {
 }
 
 /* 진행바 */
-header {
-  height: 80px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 header {
   height: 150px;
   width: 100%;
@@ -111,12 +105,14 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 0.6s;
 }
 .container .choice .choice-img {
   width: 90px;
   margin-top: 50px;
   margin-bottom: 20px;
 }
+/* 질문 제목 */
 .container .choice .choice-text {
   margin-bottom: 30px;
   padding: 50px 100px;
@@ -138,6 +134,7 @@ button {
   flex-direction: column;
   gap: 25px;
 }
+/* 질문 1,2 */
 .container .choice .choice-box .choice-items {
   width: 350px;
   min-height: 78px;
@@ -156,21 +153,43 @@ button {
   background-color: #ececec;
   transition: 1s;
 }
-.choice-btn {
+
+/* 결과대기 애니메이션 페이지 */
+.result_animation {
   display: none;
-  text-align: center;
-  /* visibility: hidden; */
+  height: 100%;
+  width: 100%;
+  background-color: rgba(248, 248, 100, 1);
+  position: absolute;
+  z-index: 10;
+  top: 0px;
 }
-.choice-btn button {
-  padding: 10px 20px;
-  margin-bottom: 10px;
+.animation_content {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: disappear 2s linear;
 }
-.choice-btn p a {
-  font-size: 1.5em;
-  text-decoration: none;
+@keyframes disappear {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(7);
+    background-color: rgba(248, 248, 100, 0.3);
+  }
 }
 
-/* 결과 */
+/* 결과페이지 */
 .result {
   height: 100%;
   margin-top: 10px;
@@ -179,13 +198,36 @@ button {
   align-items: center;
   justify-content: center;
   gap: 20px;
+  animation: fadeIn 0.6s linear;
 }
-
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+  to {
+    opacity: 1;
+  }
+}
 .choice-result {
   position: relative;
 }
 .result_text {
   width: 50%;
+}
+/* 다시하기 버튼, 공유하기 버튼 div*/
+.result_btn_container {
+  display: none;
+  text-align: center;
+  /* visibility: hidden; */
+}
+.result_btn_container button {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+.result_btn_container p a {
+  font-size: 1.5em;
+  text-decoration: none;
 }
 
 /* kakaomap */
