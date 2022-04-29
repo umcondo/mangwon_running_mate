@@ -11,8 +11,10 @@ let currentQuestion; // 현재 질문 객체
 
 let resultBox = []; // 답변을 모아두는 박스
 
-// 현재 인덱스의 질문, 내용을 보여주는 함수
-const makeQuestion = (idx) => {
+makeQuestion(currentIndex); // 첫 페이지를 보여줌
+
+// 현재 인덱스의 질문, 내용, 진행도, 다시하기버튼을 보여주는 함수
+function makeQuestion(idx) {
   currentQuestion = Question[currentIndex]; // 현재 질문 객체
 
   let curTitle = currentQuestion.question;
@@ -32,10 +34,11 @@ const makeQuestion = (idx) => {
   choiceItems2.innerHTML = curAnswer2;
 
   progressBar(idx);
-};
+  makeBackBtn();
+}
 
 // 질문 내용 선택시 질문값을 저장하고 다음 질문을 보여주는 함수
-const nextQuestion = (event) => {
+function nextQuestion(event) {
   currentIndex++;
 
   // 질문값 저장
@@ -47,51 +50,41 @@ const nextQuestion = (event) => {
     : resultBox.push(curValue2);
 
   if (currentIndex < questionCount) {
-    makeQuestion(currentIndex);
+    return makeQuestion(currentIndex);
   } else {
     // 현재 인덱스가 질문 수와 같아지면 결과페이지 출력
     currentIndex = 0; // 질문이 끝났으므로 인덱스를 초기화
-    makeResult();
-    return;
-    // 결과페이지
+    return makeResult();
   }
-
-  makeBackBtn();
-  progressBar(currentIndex);
-};
+}
 
 // 뒤로가기 버튼을 누르면 실행되는 함수, 이전 질문을 보여주고, 질문결과의 마지막 값을 제거한다.
-const backwardBtn = () => {
+function backwardBtn() {
   currentIndex--;
+
   makeQuestion(currentIndex);
 
   resultBox.pop();
-  // console.log(resultBox);
-  makeBackBtn();
-  progressBar(currentIndex);
-};
+}
 
 // 질문 진행에 따라 진행도를 보여주는 함수
-const progressBar = (idx) => {
+function progressBar(idx) {
   let progressText = document.querySelector("header .progress .progress-text"); // 진행바텍스트
   let progressImage = document.querySelector(
     "header .progress .progress-bar .progress-image" // 진행바
   );
   progressImage.style.width = `${((idx + 1) / questionCount) * 100}%`; // 진행바
   progressText.innerHTML = `${idx + 1} / ${questionCount}`; // 진행도
-};
+}
 
 // 뒤로가기 버튼 생성함수
-const makeBackBtn = () => {
+function makeBackBtn() {
   let backBtn = document.querySelector(".back_btn"); // 뒤로가기 버튼
 
-  // 뒤로가기 버튼 생성
   currentIndex < questionCount && currentIndex > 0
-    ? (backBtn.style.display = "block")
-    : (backBtn.style.display = "none");
-};
-
-makeQuestion(currentIndex);
+    ? (backBtn.style.visibility = " visible")
+    : (backBtn.style.visibility = " hidden");
+}
 
 /* 결과페이지 */
 // "beginner" , "intermediate", "Hangang", "inland", "loud", "quiet"
@@ -120,15 +113,14 @@ const resultValue = () => {
   }
 };
 
-const choice = document.querySelector("main .container .choice"); //질문,답변 전체 div
+const container = document.querySelector(".container"); //질문,답변 전체 div
 const choiceResult = document.querySelector(".choice-result"); //결과
-const progressBarBox = document.querySelector("header"); // 진행바
 const resultPage = document.querySelector(".result"); // 결과 div
 
 // 결과를 출력하는 함수
 const makeResult = () => {
-  choice.style.display = "none";
-  progressBarBox.style.display = "none";
+  container.style.display = "none";
+
   resultPage.style.display = "flex";
 
   const resultIdx = resultValue();
@@ -161,45 +153,8 @@ const makeResult = () => {
 
 // 다시하기 함수
 const reStartBtn = () => {
-  choice.style.display = "flex";
-  progressBarBox.style.display = "flex";
+  container.style.display = "block";
   resultPage.style.display = "none";
   resultBox = [];
   makeQuestion(0);
 };
-
-/*    지도    */
-
-function map() {
-  var mapContainer = document.getElementById("map"), // 지도를 표시할 div
-    mapOption = {
-      center: new kakao.maps.LatLng(37.55795, 126.89761), // 지도의 중심좌표
-      level: 3, // 지도의 확대 레벨
-      mapTypeId: kakao.maps.MapTypeId.ROADMAP, // 지도종류
-    };
-
-  // 지도를 생성한다
-  var map = new kakao.maps.Map(mapContainer, mapOption);
-
-  // 지도에 확대 축소 컨트롤을 생성한다
-  var zoomControl = new kakao.maps.ZoomControl();
-
-  // 지도의 우측에 확대 축소 컨트롤을 추가한다
-  map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
-  // 지도에 마커를 생성하고 표시한다
-  var marker = new kakao.maps.Marker({
-    position: new kakao.maps.LatLng(37.55795, 126.89761), // 마커의 좌표
-    draggable: true, // 마커를 드래그 가능하도록 설정한다
-    map: map, // 마커를 표시할 지도 객체
-  });
-
-  // 커스텀 오버레이를 생성하고 지도에 표시한다
-  var customOverlay = new kakao.maps.CustomOverlay({
-    map: map,
-    content: '<div style="padding:0 5px;background:#fff;">망원체육공원</div>',
-    position: new kakao.maps.LatLng(37.55795, 126.89761), // 커스텀 오버레이를 표시할 좌표
-    xAnchor: 0.5, // 컨텐츠의 x 위치
-    yAnchor: 3, // 컨텐츠의 y 위치
-  });
-}

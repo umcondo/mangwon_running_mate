@@ -13,6 +13,7 @@ body {
   height: 100vh;
   /* overflow: hidden; */
 }
+/* 첫페이지 */
 .first__page {
   height: 100%;
   width: 100%;
@@ -46,108 +47,30 @@ body {
   margin-top: 40px;
 }
 
+/* 질문페이지 */
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+/* 진행바 */
 header {
   height: 80px;
   width: 100%;
-  /* background-color: #f5f5f7; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
-button {
-  background: transparent;
-  border: 2px solid #000;
-  border-radius: 10px;
-  cursor: pointer;
-}
-main .container {
-  width: 100%;
-  height: 100%;
-  /* background-color: rgb(184, 184, 184); */
-}
-main .container .choice {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-main .container .choice .choice-img {
-  width: 90px;
-  margin-top: 50px;
-  margin-bottom: 20px;
-}
-main .container .choice .choice-text {
-  margin-bottom: 30px;
-  padding: 50px 100px;
-  border-radius: 70px;
-  font-size: 13px;
-  border: 3px solid #000;
-}
-main .container .choice .back_btn {
-  padding: 10px 20px;
-  display: none;
-  margin-top: 30px;
-  font-size: 13px;
-  font-weight: bold;
-  border-radius: 20px;
-}
-main .container .choice .choice-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 25px;
-}
-
-main .container .choice .choice-box .choice-items {
-  width: 350px;
-  min-height: 78px;
-  border: 2px solid #000;
-  border-radius: 50px;
-  /* box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); */
-  cursor: pointer;
-  padding: 10px 30px;
-  font-weight: bold;
-  font-size: 1.2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-main .container .choice .choice-box .choice-items:hover {
-  background-color: #ececec;
-  transition: 1s;
-}
-
 header {
   height: 150px;
   width: 100%;
-  /* background-color: skyblue; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.choice-btn {
-  display: none;
-  text-align: center;
-  /* visibility: hidden; */
-}
-.choice-btn button {
-  padding: 10px 20px;
-  margin-bottom: 10px;
-}
-
-.choice-btn p a {
-  font-size: 1.5em;
-  text-decoration: none;
-}
-
 header .progress {
   width: 90%;
   height: 80%;
-  /* background-color: rgb(95, 94, 94); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,7 +88,6 @@ header .progress .progress-bar .progress-image {
   transition: 0.5s;
   position: relative;
 }
-
 header .progress .progress-bar .progress-image i {
   color: black;
   position: absolute;
@@ -176,12 +98,81 @@ header .progress .progress-text {
   font-weight: bold;
   font-size: 25px;
 }
-
-#map {
-  margin-bottom: 30px;
+button {
+  background: transparent;
+  border: 2px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
+/* 질문내용 */
+.container .choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .choice .choice-img {
+  width: 90px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.container .choice .choice-text {
+  margin-bottom: 30px;
+  padding: 50px 100px;
+  border-radius: 70px;
+  font-size: 13px;
+  border: 3px solid #000;
+}
+.container .choice .back_btn {
+  padding: 10px 20px;
+  margin-top: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+.container .choice .choice-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
+.container .choice .choice-box .choice-items {
+  width: 350px;
+  min-height: 78px;
+  border: 2px solid #000;
+  border-radius: 50px;
+  /* box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); */
+  cursor: pointer;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .choice .choice-box .choice-items:hover {
+  background-color: #ececec;
+  transition: 1s;
+}
+.choice-btn {
+  display: none;
+  text-align: center;
+  /* visibility: hidden; */
+}
+.choice-btn button {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+.choice-btn p a {
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+/* 결과 */
 .result {
+  height: 100%;
   margin-top: 10px;
   display: none;
   flex-direction: column;
@@ -198,6 +189,9 @@ header .progress .progress-text {
 }
 
 /* kakaomap */
+#map {
+  margin-bottom: 30px;
+}
 .dot {
   overflow: hidden;
   float: left;
