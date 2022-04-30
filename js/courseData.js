@@ -1,19 +1,19 @@
 // data 형식 객체
-// CourseData 배열 - 객체 courseName(코스 이름), courseDistance(코스 거리), courseInfo(코스 설명)
+// CourseData 배열 - 객체 courseName(코스 이름), courseDistance(코스 거리), coursePath(코스경로), courseInfo(코스 설명)
 const CourseData = [
   {
     id: 0,
-    courseName: "망원 - 선유도공원",
-    courseDistance: "4~5km",
-    coursePath: `망원한강공원 -> 선유도 -> 상수나들목`,
-    courseInfo: `중간에 양화대교를 올라가야한다. 다리 위에서의 경관을 즐길 수 있다.`,
-  },
-  {
-    id: 1,
     courseName: "망원 - 홍제천",
     courseDistance: "편도 5km",
     coursePath: `망원한강공원 -> 홍제천 합수부 -> 홍제천 인공폭포`,
     courseInfo: `트랙이 잘 깔려져 있다. 한강에 비해 사람이 적다.`,
+  },
+  {
+    id: 1,
+    courseName: "망원 - 선유도공원",
+    courseDistance: "4~5km",
+    coursePath: `망원한강공원 -> 선유도 -> 상수나들목`,
+    courseInfo: `중간에 양화대교를 올라가야한다. 다리 위에서의 경관을 즐길 수 있다.`,
   },
   {
     id: 2,
@@ -31,6 +31,7 @@ const CourseData = [
     courseInfo: `한강에서 양화진순교지로 들어갈때 높은 계단을 올라야한다. 합정에서 당인리발전소로 이어지는 길에는 여러 아기자기한 카페,
       가게들이 있다. 벚꽃이 피는 시기에는 다른 벚꽃축제 못지 않은 광경을 볼 수 있다.`,
   },
+
   {
     id: 4,
     courseName: "망원 - 마포대교 왕복",

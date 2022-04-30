@@ -1,6 +1,8 @@
 /* 첫페이지 */
+// 버튼 누르면 첫화면 사라지고 질문페이지 생성
 document.querySelector(".first__page button").addEventListener("click", () => {
   document.querySelector(".first__page").style.display = "none";
+  makeQuestion(currentIndex);
 });
 
 /* 질문페이지 */
@@ -11,10 +13,10 @@ let currentQuestion; // 현재 질문 객체
 
 let resultBox = []; // 답변을 모아두는 박스
 
-makeQuestion(currentIndex); // 첫 페이지를 보여줌
-
 // 현재 인덱스의 질문, 내용, 진행도, 다시하기버튼을 보여주는 함수
 function makeQuestion(idx) {
+  document.querySelector(".container").style.display = "block";
+
   currentQuestion = Question[currentIndex]; // 현재 질문 객체
 
   let curTitle = currentQuestion.question;
