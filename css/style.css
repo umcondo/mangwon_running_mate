@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Apple SD Gothic Neo";
-  src: url("../font/AppleSDGothicNeoL.ttf");
+  src: url("../font/AppleSDGothicNeoL00.woff") format("woff");
 }
 * {
   margin: 0;

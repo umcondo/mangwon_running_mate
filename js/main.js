@@ -134,8 +134,8 @@ const makeResult = () => {
 
   // 지도
   choiceResult.innerHTML = `<div id="map" style="width:1000px;height:500px;"></div>`;
-  // map();
-  showCourse(resultIdx);
+
+  showCourse(resultIdx); // map.js에 있는 코스보여주는 함수
   let newDiv = document.createElement("div");
   choiceResult.append(newDiv);
 
@@ -152,7 +152,6 @@ const makeResult = () => {
   let choiceBtn = document.querySelector(".result_btn_container"); // 다시하기버튼
   choiceBtn.style.display = "block";
 };
-// 지도를 출력하는 함수
 
 // 다시하기 함수
 const reStartBtn = () => {
