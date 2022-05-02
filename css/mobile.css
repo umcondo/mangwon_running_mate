@@ -1,0 +1,192 @@
+@media screen and (max-width: 950px) {
+  .result_map_container {
+    width: 100%;
+  }
+  #map {
+    margin-bottom: 0px;
+    width: 100%;
+    height: 400px;
+  }
+  .result {
+    padding: 10px 0;
+  }
+  .result_text {
+    width: 90vw;
+  }
+  .result_text h3 {
+    font-size: 13px;
+  }
+  .result_text p {
+    border-bottom: 1px solid #ecf0f2;
+  }
+  .dotOverlay {
+    display: none;
+  }
+  #toggle_btn {
+    display: none;
+  }
+  .result_btn_container p a {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* 첫페이지 */
+  .first__page__container {
+    gap: 15px;
+  }
+
+  .first__page__container h2 {
+    font-size: 2em;
+  }
+  .first__page__container h1 {
+    font-size: 3em;
+  }
+  .first__page__container p {
+    font-size: 1em;
+  }
+  .first__page__container button {
+    padding: 15px 20px;
+    font-size: 1.5em;
+    margin-top: 20px;
+  }
+  /* 질문페이지 */
+  .container .choice .choice-img {
+    width: 70px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  /* 질문 제목 */
+  .container .choice .choice-text {
+    margin-bottom: 30px;
+    padding: 35px 60px;
+    font-size: 13px;
+  }
+  .container .choice .back_btn {
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-size: 13px;
+  }
+  .container .choice .choice-box {
+    gap: 15px;
+  }
+  /* 질문 1,2 */
+  .container .choice .choice-box .choice-items {
+    width: 350px;
+    min-height: 78px;
+    padding: 10px 30px;
+
+    font-size: 1em;
+  }
+}
+
+/* 모바일 반응형 */
+
+@media screen and (max-width: 500px) {
+  /* 첫페이지 */
+  .first__page__container {
+    gap: 15px;
+  }
+  .first__page__container h2 {
+    font-size: 1.5em;
+  }
+  .first__page__container h1 {
+    font-size: 2.5em;
+  }
+  .first__page__container p {
+    font-size: 0.9em;
+  }
+  .first__page__container button {
+    padding: 20px 25px;
+    font-size: 1.2em;
+
+    margin-top: 15px;
+  }
+  /* 질문페이지 */
+  .container {
+    margin-top: -80px;
+  }
+  header .progress {
+    gap: 10px;
+  }
+  header .progress .progress-bar {
+    width: 300px;
+  }
+
+  header .progress .progress-text {
+    font-size: 20px;
+  }
+  .container .choice {
+    margin-top: -20px;
+  }
+  .container .choice .choice-img {
+    width: 60px;
+    margin-bottom: 15px;
+  }
+  /* 질문 제목 */
+  .container .choice .choice-text {
+    margin-bottom: 30px;
+    padding: 20px 30px;
+    font-size: 10px;
+    max-width: 330px;
+    min-height: 100px;
+    letter-spacing: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container .choice .back_btn {
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-size: 13px;
+  }
+  .container .choice .choice-box {
+    gap: 10px;
+  }
+  /* 질문 1,2 */
+  .container .choice .choice-box .choice-items {
+    width: 330px;
+    min-height: 78px;
+    padding: 5px 25px;
+
+    font-size: 1em;
+  }
+
+  .animation_content {
+    animation: disappear 1.5s linear;
+  }
+  @keyframes disappear {
+    from {
+      transform: translate(-50%, -50%);
+    }
+    to {
+      transform: translate(-50%, -50%) scale(3);
+      background-color: rgba(248, 248, 100, 0.3);
+    }
+  }
+
+  /* 결과페이지 */
+  #map {
+    margin-bottom: 0px;
+    width: 100%;
+    height: 330px;
+  }
+  .result {
+    padding: 10px 0;
+    gap: 15px;
+  }
+  .result_text {
+    width: 90vw;
+    padding-bottom: 10px;
+  }
+  .result_text h2 {
+    font-size: 13px;
+  }
+
+  .dotOverlay {
+    display: none;
+  }
+  #toggle_btn {
+    display: none;
+  }
+}
