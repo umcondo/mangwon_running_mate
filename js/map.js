@@ -46,7 +46,7 @@ function runningCourse(coordinates, MapCenter) {
     // 지도에 표시할 선을 생성합니다
     var polyline = new kakao.maps.Polyline({
       path: linePath, // 선을 구성하는 좌표배열 입니다
-      strokeWeight: 5, // 선의 두께 입니다
+      strokeWeight: 7, // 선의 두께 입니다
       strokeColor: "red", // 선의 색깔입니다
       strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
       strokeStyle: "shortdash", // 선의 스타일입니다
@@ -243,9 +243,34 @@ function getTimeHTML(distance) {
   var contentContainer = document.createElement("article");
   contentContainer.innerHTML = content;
 
+  // 모바일 결과페이지 추가
+  var courseTimeInfo = '<ul class="courseTimeInfo">';
+  courseTimeInfo += "    <li>";
+  courseTimeInfo +=
+    '        <span class="label">거리<br></span><span class="number">' +
+    distance +
+    " </span>km";
+  courseTimeInfo += "    </li>";
+  courseTimeInfo += "    <li>";
+  courseTimeInfo +=
+    '        <span class="label">도보<br></span>' +
+    // <i class="fa-solid fa-person-walking"></i>
+    walkHour +
+    walkMin;
+  courseTimeInfo += "    </li>";
+  courseTimeInfo += "    <li>";
+  courseTimeInfo +=
+    '        <span class="label">러닝(10km/h)<br></span>' +
+    //<i class="fa-solid fa-person-running"></i>
+    runningHour +
+    runningMin;
+  courseTimeInfo += "</ul>";
+
+  document.querySelector(".result_text").innerHTML = courseTimeInfo;
+
   return contentContainer;
 }
-toggleBtn;
+toggleBtn();
 
 // 오버레이 토글
 function toggleBtn() {

@@ -144,13 +144,12 @@ const makeResult = () => {
   const resultHead = document.querySelector(".result_head");
   resultHead.innerText = courseName;
 
-  // let resultText = `<div class="result_text">`;
   let resultText = `<h3>${coursePath}</h3>`;
-  resultText += `<h4>거리 : ${courseDistance}</h4>`;
-  resultText += `<p>${courseInfo}</p>`;
-  // resultText += `</div>`;
 
-  document.querySelector(".result_text").innerHTML = resultText;
+  // resultText += `<h4>거리 : ${courseDistance}</h4>`;
+  resultText += `<p>&nbsp;${courseInfo}</p>`;
+
+  document.querySelector(".result_text").innerHTML += resultText;
 
   let choiceBtn = document.querySelector(".result_btn_container"); // 다시하기버튼
   choiceBtn.style.display = "block";

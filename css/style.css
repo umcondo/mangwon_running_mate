@@ -12,7 +12,7 @@
 
 body {
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 /* 첫페이지 */
 .first__page {
@@ -242,6 +242,9 @@ button {
   flex-direction: column;
   gap: 5px;
   padding-bottom: 30px;
+}
+.result_text .courseTimeInfo {
+  display: none;
 }
 .result_text h3 {
   text-align: center;
