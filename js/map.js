@@ -114,6 +114,16 @@ function runningCourse(coordinates, MapCenter) {
 
   mapContainer.appendChild(overlayToggleBtnContainer);
 
+  /* 현위치 버튼 생성 */
+  let currentLocationBtn = `<button class='current_location_btn' onclick='currentLocation()'>`;
+  currentLocationBtn += `<i class="fa-solid fa-location-crosshairs"></i>`;
+  currentLocationBtn += `</button>`;
+
+  let currentLocationContainer = document.createElement("div");
+  currentLocationContainer.innerHTML = currentLocationBtn;
+
+  mapContainer.appendChild(currentLocationContainer);
+
   /* 출발,도착 마커 */
   var startMarker =
     coordinates[0].lng === coordinates[coordinates.length - 1].lng
@@ -279,4 +289,8 @@ function toggleBtn() {
       "#map > div:nth-child(n) > div > div:nth-child(6) > div:nth-child(n) > div"
     )
     .forEach((elm) => elm.classList.toggle("toggle"));
+}
+
+function currentLocation() {
+  // 현위치 찾기
 }

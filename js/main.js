@@ -128,7 +128,7 @@ const makeResult = () => {
 
   const resultIdx = resultValue();
   const course = CourseData[resultIdx];
-  const courseDistance = course.courseDistance;
+  // const courseDistance = course.courseDistance;
   const courseName = course.courseName;
   const courseInfo = course.courseInfo;
   const coursePath = course.coursePath;
@@ -137,8 +137,8 @@ const makeResult = () => {
   choiceResult.innerHTML = `<div id="map" class="map_style"></div>`;
 
   showCourse(resultIdx); // map.js에 있는 코스보여주는 함수
-  let newDiv = document.createElement("div");
-  choiceResult.append(newDiv);
+  // let newDiv = document.createElement("div");
+  // choiceResult.append(newDiv);
 
   // 결과
   const resultHead = document.querySelector(".result_head");

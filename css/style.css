@@ -359,6 +359,7 @@ article {
   /* position: absolute;
   top: 10px;
   left: 10px; */
+  display: inline-block;
   overflow: hidden;
   margin: 0;
   z-index: 3;
@@ -378,4 +379,23 @@ article {
 }
 .toggle {
   display: none;
+}
+
+.current_location_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 10px;
+  top: 20px;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 3px 1px;
+  z-index: 5;
+  font-size: 15px;
+}
+.current_location_btn:hover {
+  background-color: #adadad;
 }
