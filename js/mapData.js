@@ -7,7 +7,7 @@ const coordinates = [
     id: 0,
     MapCenter: {
       coordinatesName: "지도 가운데",
-      mapDepthLevel: 6,
+      mapDepthLevel: 7,
       lng: 37.568973491762506,
       lat: 126.92275825560569,
     },
@@ -73,7 +73,7 @@ const coordinates = [
     id: 1,
     MapCenter: {
       coordinatesName: "지도 가운데",
-      mapDepthLevel: 5,
+      mapDepthLevel: 7,
       lng: 37.54736757228941,
       lat: 126.90032767884799,
     },
@@ -112,7 +112,7 @@ const coordinates = [
     id: 2,
     MapCenter: {
       coordinatesName: "지도 가운데",
-      mapDepthLevel: 6,
+      mapDepthLevel: 7,
       lng: 37.55412999600038,
       lat: 126.93282148067331,
     },
@@ -170,7 +170,7 @@ const coordinates = [
     id: 3,
     MapCenter: {
       coordinatesName: "지도 가운데",
-      mapDepthLevel: 5,
+      mapDepthLevel: 7,
       lng: 37.54640285763314,
       lat: 126.91078491444449,
     },
@@ -230,7 +230,7 @@ const coordinates = [
     id: 4,
     MapCenter: {
       coordinatesName: "지도 가운데",
-      mapDepthLevel: 6,
+      mapDepthLevel: 7,
       lng: 37.54374257921535,
       lat: 126.92011210863753,
     },
@@ -298,7 +298,7 @@ const coordinates = [
     id: 5,
     MapCenter: {
       coordinatesName: "지도 가운데",
-      mapDepthLevel: 6,
+      mapDepthLevel: 7,
       lng: 37.561804756760324,
       lat: 126.8841006543737,
     },
@@ -372,7 +372,7 @@ const coordinates = [
     id: 6,
     MapCenter: {
       coordinatesName: "지도 가운데",
-      mapDepthLevel: 6,
+      mapDepthLevel: 7,
       lng: 37.55422540293601,
       lat: 126.91331063111693,
     },
@@ -516,7 +516,7 @@ const coordinates = [
     id: 7,
     MapCenter: {
       coordinatesName: "지도 가운데",
-      mapDepthLevel: 6,
+      mapDepthLevel: 7,
       lng: 37.56468623796848,
       lat: 126.88237574385846,
     },

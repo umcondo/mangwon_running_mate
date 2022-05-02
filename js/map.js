@@ -122,6 +122,8 @@ function runningCourse(coordinates, MapCenter) {
 
   var startSrc =
       "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png", // 출발 마커이미지의 주소입니다
+    // var startSrc =
+    //     "https://t1.daumcdn.net/localimg/localimages/07/2018/pc/flagImg/blue_b.png", // 출발 마커이미지의 주소입니다
     startSize = new kakao.maps.Size(50, 45), // 출발 마커이미지의 크기입니다
     startOption = {
       offset: startMarker, // 출발 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
@@ -147,6 +149,8 @@ function runningCourse(coordinates, MapCenter) {
 
   var arriveSrc =
       "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_b.png", // 도착 마커이미지 주소입니다
+    // var arriveSrc =
+    //     "https: //t1.daumcdn.net/localimg/localimages/07/2018/pc/flagImg/blue_b.png", // 도착 마커이미지 주소입니다
     arriveSize = new kakao.maps.Size(50, 45), // 도착 마커이미지의 크기입니다
     arriveOption = {
       offset: new kakao.maps.Point(15, 45), // 도착 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
@@ -180,6 +184,8 @@ function runningCourse(coordinates, MapCenter) {
   document.querySelector(
     "#map > div:nth-child(1) > div > div:nth-child(6) > div:nth-last-child(1)"
   ).style.zIndex = 4;
+
+  toggleBtn();
 }
 
 /* 완성 함수 */
@@ -189,16 +195,16 @@ function runningCourse(coordinates, MapCenter) {
 // HTML Content를 만들어 리턴하는 함수입니다
 function getTimeHTML(distance) {
   // 도보의 시속은 평균 4km/h 이고 도보의 분속은 67m/min입니다
-  var walkkTime = (distance / 67) | 0;
+  var walkTime = (distance / 67) | 0;
   var walkHour = "",
     walkMin = "";
 
   // 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
-  if (walkkTime > 60) {
+  if (walkTime > 60) {
     walkHour =
-      '<span class="number">' + Math.floor(walkkTime / 60) + "</span>시간 ";
+      '<span class="number">' + Math.floor(walkTime / 60) + "</span>시간 ";
   }
-  walkMin = '<span class="number">' + (walkkTime % 60) + "</span>분";
+  walkMin = '<span class="number">' + (walkTime % 60) + "</span>분";
 
   // 달리기 평균 시속은 10km/h 이고 이것을 기준으로 달리기 분속은 167m/min입니다
   var runningTime = (distance / 167) | 0;

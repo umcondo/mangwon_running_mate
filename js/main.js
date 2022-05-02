@@ -15,7 +15,7 @@ let resultBox = []; // 답변을 모아두는 박스
 
 // 현재 인덱스의 질문, 내용, 진행도, 다시하기버튼을 보여주는 함수
 function makeQuestion(idx) {
-  document.querySelector(".container").style.display = "block";
+  document.querySelector(".container").style.display = "flex";
 
   currentQuestion = Question[currentIndex]; // 현재 질문 객체
 
@@ -116,8 +116,9 @@ const resultValue = () => {
 };
 
 const container = document.querySelector(".container"); //질문,답변 전체 div
-const choiceResult = document.querySelector(".choice-result"); //결과
-const resultPage = document.querySelector(".result"); // 결과 div
+const choiceResult = document.querySelector(".result_map_container"); //결과
+const resultPage = document.querySelector(".result"); //결과
+// const resultPage = document.querySelector(".result_container"); // 결과 div
 
 // 결과를 출력하는 함수
 const makeResult = () => {
@@ -133,19 +134,21 @@ const makeResult = () => {
   const coursePath = course.coursePath;
 
   // 지도
-  choiceResult.innerHTML = `<div id="map" style="width:1000px;height:500px;"></div>`;
+  choiceResult.innerHTML = `<div id="map" class="map_style"></div>`;
 
   showCourse(resultIdx); // map.js에 있는 코스보여주는 함수
   let newDiv = document.createElement("div");
   choiceResult.append(newDiv);
 
   // 결과
-  let resultText = `<div class="result_text">`;
-  resultText = `<h1>코스 : ${courseName} </h1>`;
-  resultText += `<h3>코스요약 : ${coursePath}</h3>`;
-  resultText += `<h4>코스길이 : ${courseDistance}</h4>`;
-  resultText += `<p>코스정보 : ${courseInfo}</p>`;
-  resultText += `</div>`;
+  const resultHead = document.querySelector(".result_head");
+  resultHead.innerText = courseName;
+
+  // let resultText = `<div class="result_text">`;
+  let resultText = `<h3>${coursePath}</h3>`;
+  resultText += `<h4>거리 : ${courseDistance}</h4>`;
+  resultText += `<p>${courseInfo}</p>`;
+  // resultText += `</div>`;
 
   document.querySelector(".result_text").innerHTML = resultText;
 
@@ -167,5 +170,5 @@ function resultAnimation() {
   setTimeout(() => {
     document.querySelector(".result_animation").style.display = "none";
     makeResult();
-  }, 2000);
+  }, 1500);
 }
