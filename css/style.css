@@ -355,10 +355,7 @@ article {
   z-index: 10;
 } */
 
-.btn {
-  /* position: absolute;
-  top: 10px;
-  left: 10px; */
+.overlay_toggle_btn {
   display: inline-block;
   overflow: hidden;
   margin: 0;

@@ -3,6 +3,8 @@ function showCourse(idx) {
   runningCourse(coordinates[idx].track, coordinates[idx].MapCenter);
 }
 
+var map = "";
+
 // 데이터를 바탕으로 지도에 코스를 그려주는 함수
 function runningCourse(coordinates, MapCenter) {
   /* 지도 생성 */
@@ -12,7 +14,7 @@ function runningCourse(coordinates, MapCenter) {
       level: MapCenter.mapDepthLevel, // 지도의 확대 레벨
     };
 
-  var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+  map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
   /* 컨트롤 추가 */
   // 지도 타입 변경 컨트롤을 생성한다
@@ -105,7 +107,7 @@ function runningCourse(coordinates, MapCenter) {
   mapContainer.appendChild(content);
 
   /* 오버레이 토글버튼 생성 */
-  let overlayToggleBtn = `<button id="toggle_btn" class="btn" onclick="toggleBtn()">`;
+  let overlayToggleBtn = `<button id="toggle_btn" class="overlay_toggle_btn" onclick="toggleBtn()">`;
   overlayToggleBtn += `거점 숨기기/보이기`;
   overlayToggleBtn += `</button>`;
 
@@ -291,6 +293,86 @@ function toggleBtn() {
     .forEach((elm) => elm.classList.toggle("toggle"));
 }
 
+/* 현위치 버튼 */
+let la = 0; // 현재 위도
+let lo = 0; // 현재 경도
+
+const options = {
+  enableHighAccuracy: true, // 실제 위치와의 오차 - 단위 M
+  timeout: 5000, // 위치를 반환하는데 걸리는 최대시간 (5초)
+  maximumAge: 0, // 항상 실시간 위치정보를 가져옴
+};
+
+//
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, error, options);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+function showPosition(position) {
+  ac = Math.floor(position.coords.accuracy);
+  la = position.coords.latitude;
+  lo = position.coords.longitude;
+  // 지도이동
+  // setCenter();
+  panTo();
+  // 마커 및 말풍선 생성
+  // const text = "마포청년일자리센터";
+  // myMarker(text);
+  currentMarker();
+}
+
+function setCenter() {
+  // 이동할 위도 경도 위치를 생성합니다
+  var moveLatLon = new kakao.maps.LatLng(la, lo);
+
+  // 지도 중심을 이동 시킵니다
+  map.setCenter(moveLatLon);
+}
 function currentLocation() {
   // 현위치 찾기
+  getLocation();
+}
+
+function panTo() {
+  // 이동할 위도 경도 위치를 생성합니다
+  var moveLatLon = new kakao.maps.LatLng(la, lo);
+
+  // 지도 중심을 부드럽게 이동시킵니다
+  // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+  map.panTo(moveLatLon);
+}
+
+function currentMarker() {
+  // 마커가 표시될 위치입니다
+
+  // var imageSrc =
+  //     "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png", // 마커이미지의 주소입니다
+  var imageSrc = "./../img/current.png", // 마커이미지의 주소입니다
+    imageSize = new kakao.maps.Size(20, 20), // 마커이미지의 크기입니다
+    imageOption = { offset: new kakao.maps.Point(10, 0) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+  // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+  var markerImage = new kakao.maps.MarkerImage(
+      imageSrc,
+      imageSize,
+      imageOption
+    ),
+    markerPosition = new kakao.maps.LatLng(la, lo); // 마커가 표시될 위치입니다
+
+  // 마커를 생성합니다
+  var marker = new kakao.maps.Marker({
+    position: markerPosition,
+    image: markerImage, // 마커이미지 설정
+  });
+  marker.setMap(null);
+  // 마커가 지도 위에 표시되도록 설정합니다
+  marker.setMap(map);
 }
