@@ -26,6 +26,9 @@
 }
 
 @media screen and (max-width: 700px) {
+  body {
+    overflow: visible;
+  }
   /* 첫페이지 */
   .first__page__container {
     gap: 15px;
@@ -78,6 +81,9 @@
 /* 모바일 반응형 */
 
 @media screen and (max-width: 500px) {
+  body {
+    overflow: visible;
+  }
   /* 첫페이지 */
   .first__page__container {
     gap: 15px;
