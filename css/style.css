@@ -157,9 +157,11 @@ button {
   align-items: center;
   justify-content: center;
 }
-.container .choice .choice-box .choice-items:hover {
-  background-color: #ececec;
-  transition: 1s;
+@media (hover: hover) and (pointer: fine) {
+  .container .choice .choice-box .choice-items:hover {
+    background-color: #ececec;
+    transition: 1s;
+  }
 }
 
 /* 결과대기 애니메이션 페이지 */
@@ -393,6 +395,8 @@ article {
   z-index: 5;
   font-size: 15px;
 }
-.current_location_btn:hover {
-  background-color: #adadad;
+@media (hover: hover) and (pointer: fine) {
+  .current_location_btn:hover {
+    background-color: #adadad;
+  }
 }
