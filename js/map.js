@@ -293,15 +293,17 @@ function toggleBtn() {
     .forEach((elm) => elm.classList.toggle("toggle"));
 }
 
-/* 현위치 버튼 */
+/*  현위치 버튼  */
 let la = 0; // 현재 위도
 let lo = 0; // 현재 경도
 
 const options = {
   enableHighAccuracy: true, // 실제 위치와의 오차 - 단위 M
-  timeout: 5000, // 위치를 반환하는데 걸리는 최대시간 (5초)
+  timeout: 1000, // 위치를 반환하는데 걸리는 최대시간 (5초)
   maximumAge: 0, // 항상 실시간 위치정보를 가져옴
 };
+
+const markerbox = [];
 
 //
 function getLocation() {
@@ -317,9 +319,9 @@ function error(err) {
 }
 
 function showPosition(position) {
-  ac = Math.floor(position.coords.accuracy);
   la = position.coords.latitude;
   lo = position.coords.longitude;
+  document.getElementById("cur").innerHTML += `la : ${la}, lo : ${lo}<br>`;
   // 지도이동
   // setCenter();
   panTo();
@@ -354,10 +356,10 @@ function currentMarker() {
   // 마커가 표시될 위치입니다
 
   var imageSrc =
-      "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png", // 마커이미지의 주소입니다
+      "https://t1.daumcdn.net/localimg/localimages/07/2018/mw/m640/ico_marker.png", // 마커이미지의 주소입니다
     // var imageSrc = "./../img/circle-dot-solid.svg", // 마커이미지의 주소입니다
-    imageSize = new kakao.maps.Size(25, 25), // 마커이미지의 크기입니다
-    imageOption = { offset: new kakao.maps.Point(10, 0) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+    imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기입니다
+    imageOption = { offset: new kakao.maps.Point(15, 15) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
   // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
   var markerImage = new kakao.maps.MarkerImage(
@@ -372,7 +374,13 @@ function currentMarker() {
     position: markerPosition,
     image: markerImage, // 마커이미지 설정
   });
-  marker.setMap(null);
+
+  markerbox.push(marker);
+  // marker.setMap(null);
   // 마커가 지도 위에 표시되도록 설정합니다
-  marker.setMap(map);
+  markerbox[markerbox.length - 1].setMap(map);
 }
+
+// #map > div:nth-child(1) > div > div:nth-child(6) > div:nth-child(7) > img
+
+// #map > div:nth-child(1) > div > div:nth-child(6) > div:nth-child(1) > img

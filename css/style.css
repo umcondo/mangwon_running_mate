@@ -400,3 +400,11 @@ article {
     background-color: #adadad;
   }
 }
+.current_icon {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #2e91ff;
+  box-shadow: 0 0 5px rgb(0 0 0 / 40%);
+}
