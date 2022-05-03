@@ -310,7 +310,7 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition, error, options);
   } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    alert("Geolocation is not supported by this browser.");
   }
 }
 
@@ -321,13 +321,11 @@ function error(err) {
 function showPosition(position) {
   la = position.coords.latitude;
   lo = position.coords.longitude;
-  document.getElementById("cur").innerHTML += `la : ${la}, lo : ${lo}<br>`;
-  // 지도이동
-  // setCenter();
+
+  // 스무스하게 맵 이동
   panTo();
-  // 마커 및 말풍선 생성
-  // const text = "마포청년일자리센터";
-  // myMarker(text);
+
+  // 현 위치 맵 마커 만들기
   currentMarker();
 }
 
@@ -376,11 +374,9 @@ function currentMarker() {
   });
 
   markerbox.push(marker);
-  // marker.setMap(null);
+
+  // 현재 마커빼고 다 삭제
+  markerbox.forEach((elm) => elm.setMap(null));
   // 마커가 지도 위에 표시되도록 설정합니다
   markerbox[markerbox.length - 1].setMap(map);
 }
-
-// #map > div:nth-child(1) > div > div:nth-child(6) > div:nth-child(7) > img
-
-// #map > div:nth-child(1) > div > div:nth-child(6) > div:nth-child(1) > img
