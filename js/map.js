@@ -197,7 +197,7 @@ function runningCourse(coordinates, MapCenter) {
     "#map > div:nth-child(1) > div > div:nth-child(6) > div:nth-last-child(1)"
   ).style.zIndex = 4;
 
-  toggleBtn();
+  // toggleBtn();
 }
 
 /* 완성 함수 */

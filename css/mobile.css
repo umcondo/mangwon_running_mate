@@ -123,7 +123,7 @@
     margin-bottom: 30px;
     padding: 20px 30px;
     font-size: 10px;
-    max-width: 330px;
+    max-width: 300px;
     min-height: 100px;
     letter-spacing: 10px;
     display: flex;
@@ -140,8 +140,8 @@
   }
   /* 질문 1,2 */
   .container .choice .choice-box .choice-items {
-    width: 330px;
-    min-height: 78px;
+    max-width: 280px;
+    min-height: 70px;
     padding: 5px 25px;
 
     font-size: 1em;
