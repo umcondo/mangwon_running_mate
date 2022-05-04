@@ -126,6 +126,28 @@ function runningCourse(coordinates, MapCenter) {
 
   mapContainer.appendChild(currentLocationContainer);
 
+  // 지도타입 컨트롤 버튼 생성
+  let mapTypeBtn = `<span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>`;
+  mapTypeBtn += `<span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>`;
+
+  const mapTypeContainer = document.createElement("div");
+  mapTypeContainer.classList = `custom_typecontrol radius_border`;
+  mapTypeContainer.innerHTML = mapTypeBtn;
+  mapContainer.appendChild(mapTypeContainer);
+
+  // 지도 확대, 축소 컨트롤 버튼 생성
+  let mapSizeBtn = `<span onclick="zoomIn()">`;
+  mapSizeBtn += `<img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"/>`;
+  mapSizeBtn += `</span>`;
+  mapSizeBtn += `<span onclick="zoomOut()">`;
+  mapSizeBtn += `<img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"/>`;
+  mapSizeBtn += `</span>`;
+
+  const mapSizeContainer = document.createElement("div");
+  mapSizeContainer.classList = `custom_zoomcontrol radius_border`;
+  mapSizeContainer.innerHTML = mapSizeBtn;
+  mapContainer.appendChild(mapSizeContainer);
+
   /* 출발,도착 마커 */
   var startMarker =
     coordinates[0].lng === coordinates[coordinates.length - 1].lng
