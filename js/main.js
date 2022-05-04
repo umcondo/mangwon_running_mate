@@ -75,7 +75,7 @@ function progressBar(idx) {
   let progressImage = document.querySelector(
     "header .progress .progress-bar .progress-image" // 진행바
   );
-  progressImage.style.width = `${((idx + 1) / questionCount) * 100}%`; // 진행바
+  progressImage.style.width = `${(idx / (questionCount - 1)) * 100}%`; // 진행바
   progressText.innerHTML = `${idx + 1} / ${questionCount}`; // 진행도
 }
 
