@@ -1,0 +1,35 @@
+/* 결과대기 애니메이션 페이지 */
+.result_animation {
+  position: absolute;
+  display: none;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(248, 248, 100, 1);
+  z-index: 10;
+  top: 0px;
+  overflow: hidden;
+}
+.animation_content {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: disappear 1.5s linear;
+}
+@keyframes disappear {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(7);
+    background-color: rgba(248, 248, 100, 0.3);
+  }
+}

@@ -1,0 +1,34 @@
+/* 첫페이지 */
+.first__page {
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 100px;
+}
+.first__page__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  font-weight: bold;
+}
+
+.first__page__container h2 {
+  font-size: 3em;
+}
+.first__page__container h1 {
+  font-size: 4em;
+}
+.first__page__container p {
+  font-size: 1.5em;
+}
+.first__page__container button {
+  padding: 20px 30px;
+  font-size: 2em;
+  border-radius: 50px;
+  margin-top: 40px;
+  font-weight: bold;
+}

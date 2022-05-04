@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Apple SD Gothic Neo";
+  src: url("../font/AppleSDGothicNeoL00.woff") format("woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Apple SD Gothic Neo", sans-serif;
+  letter-spacing: 1px;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
