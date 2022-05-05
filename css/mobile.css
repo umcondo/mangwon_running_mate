@@ -50,7 +50,6 @@
   }
   /* 질문페이지 */
   .container .choice .choice-img {
-    width: 70px;
     margin-top: 15px;
     margin-bottom: 20px;
   }
@@ -91,6 +90,11 @@
   .first__page__container h2 {
     font-size: 1.5em;
   }
+  /* .first__page__container img {
+    transform: scale(0.8);
+    margin-left: -20px;
+    margin-bottom: -10px;
+  } */
   .first__page__container h1 {
     font-size: 2.5em;
   }
@@ -114,15 +118,20 @@
     width: 300px;
   }
 
+  header .progress .progress-bar .progress-image img {
+    transform: scale(0.8);
+  }
+
   header .progress .progress-text {
-    font-size: 20px;
+    font-size: 25px;
+    margin-bottom: 20px;
   }
   .container .choice {
-    margin-top: -20px;
+    margin-top: -15px;
   }
   .container .choice .choice-img {
-    width: 60px;
-    margin-bottom: 15px;
+    width: 80px;
+    margin-bottom: 25px;
   }
   /* 질문 제목 */
   .container .choice .choice-text {

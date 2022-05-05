@@ -19,10 +19,12 @@ function makeQuestion(idx) {
 
   currentQuestion = Question[currentIndex]; // 현재 질문 객체
 
+  let curImg = currentQuestion.img;
   let curTitle = currentQuestion.question;
   let curAnswer1 = currentQuestion.answer[0].text;
   let curAnswer2 = currentQuestion.answer[1].text;
 
+  let choiceImg = document.querySelector(".choice-img");
   let choiceText = document.querySelector(".choice-text > h1"); // 질문제목
   let choiceItems1 = document.querySelector(
     ".choice-box > .choice-items:nth-child(1)" // 답변내용1
@@ -31,6 +33,7 @@ function makeQuestion(idx) {
     ".choice-box > .choice-items:nth-child(2)" // 답변내용2
   );
 
+  choiceImg.src = curImg;
   choiceText.innerHTML = curTitle;
   choiceItems1.innerHTML = curAnswer1;
   choiceItems2.innerHTML = curAnswer2;

@@ -73,6 +73,7 @@ const CourseData = [
 const Question = [
   {
     id: 0,
+    img: "./img/icons-difficulty.png",
     question: `러닝 난이도를 선택해주세요`,
     answer: [
       {
@@ -87,6 +88,7 @@ const Question = [
   },
   {
     id: 1,
+    img: "./img/icons-river.png",
     question: `어디를 더 가보고 싶으신가요?`,
     answer: [
       {
@@ -101,6 +103,7 @@ const Question = [
   },
   {
     id: 2,
+    img: "./img/icons-crowd.png",
     question: `달릴 때 주변 혼잡도는 어느정도가 괜찮나요?`,
     answer: [
       {
