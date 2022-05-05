@@ -1,3 +1,9 @@
+@import url("firstPage.css");
+@import url("question.css");
+@import url("resultAnimation.css");
+@import url("result.css");
+@import url("map.css");
+
 @font-face {
   font-family: "Apple SD Gothic Neo";
   src: url("../font/AppleSDGothicNeoL00.woff") format("woff");
