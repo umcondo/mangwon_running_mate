@@ -48,6 +48,7 @@
   display: none;
 }
 .result_text h3 {
+  /* white-space: nowrap; */
   text-align: center;
   margin-bottom: 10px;
 }
