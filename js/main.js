@@ -135,6 +135,7 @@ const makeResult = () => {
   const courseName = course.courseName;
   const courseInfo = course.courseInfo;
   const coursePath = course.coursePath;
+  const courseId = course.id;
 
   // 지도
   choiceResult.innerHTML = `<div id="map" class="map_style"></div>`;
@@ -142,11 +143,13 @@ const makeResult = () => {
 
   // 결과
   const resultHead = document.querySelector(".result_head");
-  resultHead.innerText = courseName;
+  let resultHeadContent = `<h1>${
+    courseId + 1
+  }.  <span class="courseName">${courseName}</span> 코스</h1>`;
+  resultHead.innerHTML = resultHeadContent;
 
   let resultText = `<h3>${coursePath}</h3>`;
 
-  // resultText += `<h4>거리 : ${courseDistance}</h4>`;
   resultText += `<p>&nbsp;${courseInfo}</p>`;
 
   document.querySelector(".result_text").innerHTML += resultText;

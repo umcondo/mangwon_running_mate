@@ -1,3 +1,7 @@
+:root {
+  --bg-color: #323232;
+}
+
 /* kakaomap */
 #map {
   width: 900px;
@@ -49,7 +53,7 @@
 .number {
   font-weight: bold;
   /* color: #ee6152; */
-  color: #000;
+  color: rgb(255, 30, 86);
   font-size: 18px;
 }
 /*
@@ -110,7 +114,7 @@ article {
   margin: 0;
   z-index: 1;
   font-size: 12px;
-  background: linear-gradient(#425470, #5b6d8a);
+  background: var(--bg-color);
   border: 1px solid #919191;
   text-align: center;
   cursor: pointer;
@@ -141,7 +145,7 @@ article {
   height: 36px;
   box-shadow: rgb(0 0 0 / 15%) 0px 2px 2px 0px;
   background-color: #f5f5f5;
-  color: #677491;
+  color: var(--bg-color);
   z-index: 5;
   font-size: 15px;
   border: 1px solid #919191;
@@ -150,7 +154,6 @@ article {
 @media (hover: hover) and (pointer: fine) {
   .current_location_btn:hover {
     background: #f5f5f5;
-    background: linear-gradient(#f5f5f5, #e3e3e3);
   }
 }
 .current_icon {
@@ -198,22 +201,18 @@ article {
 }
 .custom_typecontrol .btn {
   background: #fff;
-  background: linear-gradient(#fff, #e6e6e6);
 }
 @media (hover: hover) and (pointer: fine) {
   .custom_typecontrol .btn:hover {
     background: #f5f5f5;
-    background: linear-gradient(#f5f5f5, #e3e3e3);
   }
 }
 .custom_typecontrol .btn:active {
   background: #e6e6e6;
-  background: linear-gradient(#e6e6e6, #fff);
 }
 .custom_typecontrol .selected_btn {
   color: #fff;
-  background: #425470;
-  background: linear-gradient(#425470, #5b6d8a);
+  background: var(--bg-color);
 }
 @media (hover: hover) and (pointer: fine) {
   .custom_typecontrol .selected_btn:hover {
@@ -228,7 +227,7 @@ article {
   height: 80px;
   overflow: hidden;
   z-index: 1;
-  background-color: #f5f5f5;
+  background-color: #fff;
   box-sizing: content-box;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
 }

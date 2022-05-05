@@ -75,6 +75,11 @@
 
     font-size: 1em;
   }
+
+  /* 결과페이지*/
+  .result_head h1 {
+    font-size: 1.2em;
+  }
 }
 
 /* 모바일 반응형 */
@@ -185,6 +190,10 @@
     padding: 10px 0;
     gap: 10px;
   }
+  .result_head h1 {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
   .result_text {
     width: 95vw;
     padding-bottom: 10px;
@@ -208,6 +217,7 @@
     font-size: 1.3em;
   }
   .result_text h3 {
+    margin-top: 5px;
     font-size: 14px;
   }
 

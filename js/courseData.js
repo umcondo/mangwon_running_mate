@@ -27,7 +27,7 @@ const CourseData = [
   },
   {
     id: 3,
-    courseName: "망원 - 당인리 발전소 앞 - 상수",
+    courseName: "망원 - 당인리 발전소 - 상수",
     courseDistance: "4~5km",
     coursePath: `망원한강공원 → 양화진순교지 → 당인리 발전소 → 상수나들목 → 망원한강공원`,
     courseInfo: `한강에서 양화진순교지로 들어갈때 높은 계단을 올라야한다. 합정에서 당인리발전소로 이어지는 길에는 여러 아기자기한 카페,
