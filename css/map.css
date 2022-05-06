@@ -22,8 +22,8 @@
 }
 .dotOverlay {
   position: relative;
-  /* bottom: -55px; */
-  bottom: -10px;
+  bottom: 25px;
+  /* bottom: -10px; */
   left: -40px;
   border-radius: 6px;
   float: left;
@@ -34,12 +34,16 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
   opacity: 0.5;
 }
+/* #map > div:nth-child(1) > div > div:nth-child(6) > div:nth-child(1) > div */
+/* #map > div:nth-child(1) > div > div:nth-child(6) > div:nth-child(9) > div */
+
 /* div:nth-child(1) > .dotOverlay {
-      opacity: 1;
-    }
-    div:nth-last-child(4) > .dotOverlay {
-      opacity: 1;
-    } */
+  opacity: 1;
+}
+
+div:nth-last-child(5) > .dotOverlay {
+  opacity: 1;
+} */
 @media (hover: hover) and (pointer: fine) {
   .dotOverlay:hover {
     opacity: 1;
@@ -56,20 +60,6 @@
   color: rgb(255, 30, 86);
   font-size: 18px;
 }
-/*
-  .dotOverlay:after {
-    content: "";
-    position: absolute;
-    margin-left: -6px;
-    left: 50%;
-    // bottom: -8px; 
-    bottom: 40px;
-    width: 11px;
-    height: 8px;
-    transform: rotate(180deg);
-    background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png");
-  }
-  */
 article {
   position: absolute;
   bottom: 70px;
@@ -79,7 +69,6 @@ article {
 }
 
 .distanceInfo {
-  /* position: relative; */
   position: relative;
   top: 50px;
   left: 50px;
