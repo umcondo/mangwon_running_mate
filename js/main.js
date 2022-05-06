@@ -118,15 +118,12 @@ const resultValue = () => {
   }
 };
 
-const container = document.querySelector(".container"); //질문,답변 전체 div
 const choiceResult = document.querySelector(".result_map_container"); //결과
 const resultPage = document.querySelector(".result"); //결과
 // const resultPage = document.querySelector(".result_container"); // 결과 div
 
 // 결과를 출력하는 함수
 const makeResult = () => {
-  container.style.display = "none";
-
   resultPage.style.display = "flex";
 
   const resultIdx = resultValue();
@@ -160,7 +157,7 @@ const makeResult = () => {
 
 // 다시하기 함수
 const reStartBtn = () => {
-  container.style.display = "block";
+  document.querySelector(".container").style.display = "block"; //질문,답변 전체 div
   resultPage.style.display = "none";
   resultBox = [];
   makeQuestion(0);
@@ -168,9 +165,11 @@ const reStartBtn = () => {
 
 // 애니메이션 페이지 2초 후 없애버리기
 function resultAnimation() {
-  document.querySelector(".result_animation").style.display = "block";
+  document.querySelector(".container").style.display = "none"; //질문,답변 전체 div
+  document.querySelector(".result_animation").style.display = "block"; // animation page
+
   setTimeout(() => {
     document.querySelector(".result_animation").style.display = "none";
     makeResult();
-  }, 1500);
+  }, 2000);
 }
