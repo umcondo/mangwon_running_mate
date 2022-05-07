@@ -77,11 +77,11 @@ const Question = [
     question: `러닝 난이도를 선택해주세요`,
     answer: [
       {
-        text: `걷고, 뛰면서 천천히 산책하듯 하고 싶어요`,
+        text: `걷고, 뛰면서 천천히 산책하듯 <br> 뛰고 싶어요`,
         value: "beginner",
       },
       {
-        text: `왕복코스, 마포 이곳저곳, 10km 이내로 좀 길게 뛰고 싶어요`,
+        text: `왕복코스, 마포 이곳저곳, <br>10km 이내로 좀 길게 뛰고 싶어요`,
         value: "intermediate",
       },
     ],
@@ -92,11 +92,11 @@ const Question = [
     question: `어디를 더 가보고 싶으신가요?`,
     answer: [
       {
-        text: `한강 가보고 싶어요. 시원하게 물을 보면서 달리고 싶어요`,
+        text: `한강 가보고 싶어요. <br>물을 보면서 달리고 싶어요`,
         value: "Hangang",
       },
       {
-        text: `내륙쪽으로 가보고 싶어요. 마포의 거리, 공원에서 달리고 싶어요`,
+        text: `내륙쪽으로 가보고 싶어요. <br>거리, 공원에서 달리고 싶어요`,
         value: "inland",
       },
     ],

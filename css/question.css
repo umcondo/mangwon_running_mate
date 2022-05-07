@@ -54,12 +54,6 @@ header .progress .progress-text {
   font-weight: bold;
   font-size: 25px;
 }
-button {
-  background: transparent;
-  border: 2px solid #000;
-  border-radius: 10px;
-  cursor: pointer;
-}
 
 /* 질문내용 */
 
@@ -76,20 +70,53 @@ button {
   margin-bottom: 30px;
 }
 /* 질문 제목 */
-.container .choice .choice-text {
+/* .container .choice .choice-text {
   margin-bottom: 30px;
   padding: 50px 100px;
   border-radius: 70px;
   font-size: 13px;
   border: 3px solid #000;
+} */
+.container .choice .choice-text {
+  margin-bottom: 50px;
+  padding: 40px 50px;
+  /* border-radius: 70px; */
+  font-size: 22px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  border-top: 1px solid rgb(0, 0, 0);
 }
+button {
+  background: transparent;
+  border: 2px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container .choice .back_btn {
-  padding: 10px 20px;
+  position: absolute;
+  bottom: 80px;
+  padding: 7px 20px;
   margin-top: 30px;
   font-size: 13px;
   font-weight: bold;
   border-radius: 20px;
 }
+@media (hover: hover) and (pointer: fine) {
+  .container .choice .back_btn:hover {
+    background-color: #000;
+    color: #fff;
+    /* transition: 0.5s; */
+  }
+}
+
+.container .choice .back_btn span {
+  font-size: 2em;
+  margin-right: 5px;
+}
+
 .container .choice .choice-box {
   display: flex;
   justify-content: center;
@@ -114,7 +141,8 @@ button {
 }
 @media (hover: hover) and (pointer: fine) {
   .container .choice .choice-box .choice-items:hover {
-    background-color: #ececec;
-    transition: 1s;
+    background-color: #000;
+    color: #fff;
+    transition: 0.5s;
   }
 }
