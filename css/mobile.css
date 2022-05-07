@@ -23,6 +23,13 @@
   .result_btn_container p a {
     display: none;
   }
+  .result_animation {
+    transform: scale(0.8);
+  }
+  .result_animation h1 {
+    font-size: 2.2em;
+    bottom: 18%;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -76,6 +83,14 @@
     font-size: 1em;
   }
 
+  /* 애니메이션 */
+  .result_animation {
+    transform: scale(1);
+  }
+  .result_animation h1 {
+    bottom: 30%;
+    font-size: 1.5em;
+  }
   /* 결과페이지*/
   .result_head h1 {
     font-size: 1.2em;
@@ -175,6 +190,12 @@
       transform: translate(-50%, -50%) scale(3);
       background-color: rgba(248, 248, 100, 0.3);
     }
+  }
+  /* 애니메이션 */
+
+  .result_animation h1 {
+    bottom: 35%;
+    font-size: 1.3em;
   }
 
   /* 결과페이지 */

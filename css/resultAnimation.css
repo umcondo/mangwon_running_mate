@@ -9,13 +9,38 @@
   overflow: hidden;
   z-index: 10;
 }
+.result_animation h1 {
+  position: absolute;
+  bottom: 12%;
+  color: #ff1e56;
+  left: 50%;
+  transform: translate(-47.5%, -50%);
+  text-align: center;
+  font-size: 2.5em;
+  width: 100%;
+  animation: shake 2s infinite linear;
+}
+@keyframes shake {
+  from {
+    transform: translate(-47.5%, -50%);
+  }
+  30% {
+    transform: translate(-47.5%, -50%) rotate(-2deg) translateY(-1px);
+  }
+  80% {
+    transform: translate(-47.5%, -50%) rotate(2deg) translateY(1px);
+  }
+  100% {
+    transform: translate(-47.5%, -50%);
+  }
+}
 .run img {
   width: 100%;
 }
 .run {
   position: absolute;
   z-index: 1;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   animation: updown 0.5s linear infinite alternate;
