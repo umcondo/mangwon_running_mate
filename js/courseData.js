@@ -81,7 +81,7 @@ const Question = [
         value: "beginner",
       },
       {
-        text: `왕복코스, 마포 이곳저곳, <br>10km 이내로 좀 길게 뛰고 싶어요`,
+        text: `왕복코스, 마포 이곳저곳, <br>10km 이내로 길게 뛰고 싶어요`,
         value: "intermediate",
       },
     ],

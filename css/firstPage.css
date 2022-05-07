@@ -16,9 +16,6 @@
   font-weight: bold;
 }
 
-.first__page__container h2 {
-  /* font-size: 3em; */
-}
 .first__page__container img {
   transform: scaleX(-1);
 }

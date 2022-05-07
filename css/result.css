@@ -21,12 +21,15 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  animation: fadeIn 0.6s linear;
+  animation: result_fadeIn 2.6s linear;
 }
-@keyframes fadeIn {
+@keyframes result_fadeIn {
   from {
     opacity: 0;
     transform: translateY(30%);
+  }
+  80% {
+    opacity: 0;
   }
   to {
     opacity: 1;
@@ -73,20 +76,22 @@
   text-align: center;
 }
 .result_btn_container button {
+  display: inline-block;
   margin-bottom: 15px;
   padding: 10px 30px;
   font-size: 13px;
   border-radius: 40px;
-  background-color: #000;
-  color: white;
+  font-weight: bold;
 }
-.result_btn_container button:hover {
-  background-color: rgb(44, 44, 44);
-}
+
 @media (hover: hover) and (pointer: fine) {
-  .result_btn_container button:nth-child(1) {
-    margin-right: 5px;
+  .result_btn_container button:hover {
+    background-color: #000;
+    color: #fff;
   }
+}
+.result_btn_container button:nth-child(1) {
+  margin-right: 5px;
 }
 .result_btn_container p a {
   font-size: 1.5em;

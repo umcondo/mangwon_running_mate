@@ -118,6 +118,7 @@
   }
   header .progress {
     gap: 10px;
+    margin-bottom: 150px;
   }
   header .progress .progress-bar {
     width: 300px;
@@ -136,13 +137,13 @@
   }
   .container .choice .choice-img {
     width: 80px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
   /* 질문 제목 */
   .container .choice .choice-text {
     margin-bottom: 30px;
-    padding: 20px 30px;
-    font-size: 10px;
+    padding: 20px 10px;
+    font-size: 11px;
     max-width: 300px;
     min-height: 100px;
     letter-spacing: 10px;
@@ -151,6 +152,7 @@
     align-items: center;
   }
   .container .choice .back_btn {
+    bottom: 80px;
     padding: 10px 20px;
     margin-top: 15px;
     font-size: 13px;

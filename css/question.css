@@ -64,26 +64,27 @@ header .progress .progress-text {
   align-items: center;
   animation: fadeIn 0.6s;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+  to {
+    opacity: 1;
+  }
+}
 .container .choice .choice-img {
   width: 100px;
   margin-top: 20px;
   margin-bottom: 30px;
 }
 /* 질문 제목 */
-/* .container .choice .choice-text {
-  margin-bottom: 30px;
-  padding: 50px 100px;
-  border-radius: 70px;
-  font-size: 13px;
-  border: 3px solid #000;
-} */
 .container .choice .choice-text {
   margin-bottom: 50px;
-  padding: 40px 50px;
-  /* border-radius: 70px; */
-  font-size: 22px;
-  border-bottom: 1px solid rgb(0, 0, 0);
-  border-top: 1px solid rgb(0, 0, 0);
+  padding: 40px 20px;
+  font-size: 15px;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  border-top: 2px solid rgb(0, 0, 0);
 }
 button {
   background: transparent;
