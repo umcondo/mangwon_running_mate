@@ -9,16 +9,11 @@
 }
 
 .dot {
-  /* display: relative; */
   overflow: hidden;
   float: left;
   width: 12px;
   height: 12px;
-  /* background-size: cover; */
   background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png");
-  /* bac  kground: url("https://img.icons8.com/material/30/000000/circled-dot.png"); */
-  /* background-color: #919191;
-      background-blend-mode: multiply; */
 }
 .dotOverlay {
   position: relative;
@@ -86,14 +81,7 @@ article {
 .distanceInfo:after {
   content: none;
 }
-/* 
-  #map > div:nth-child(n) > div > div:nth-child(6) > div:nth-child(n) > div {
-  }
-  #map > div:nth-child(1) > div > div:nth-child(6) > div:nth-child(14) > img {
-    display: inline-block;
-    width: 100px;
-    z-index: 10;
-  } */
+
 #map > article:nth-child(5) {
   position: relative;
   top: 15px;

@@ -1,17 +1,4 @@
 /* 결과페이지 */
-/* .result_container {
-  height: 95%;
-  width: 950px;
-
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 20px;
-  margin: 20px auto;
-  animation: fadeIn 0.6s linear;
-
-} */
-/* background-color: #f1f3f6; */
 .result {
   height: 100%;
 
@@ -62,7 +49,6 @@
   display: none;
 }
 .result_text h3 {
-  /* white-space: nowrap; */
   text-align: center;
   margin-bottom: 10px;
 }
