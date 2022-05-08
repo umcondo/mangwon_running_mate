@@ -423,5 +423,7 @@ function zoomOut() {
 
 window.addEventListener("resize", () => {
   //브라우저 리사이즈시 좌표맵 중심 이동
-  map.panTo(centerPoint);
+  if (map) {
+    map.panTo(centerPoint);
+  }
 });
