@@ -5,6 +5,7 @@ function showCourse(idx) {
 
 var map = "";
 
+let centerPoint = "";
 // 데이터를 바탕으로 지도에 코스를 그려주는 함수
 function runningCourse(coordinates, MapCenter) {
   /* 지도 생성 */
@@ -13,6 +14,8 @@ function runningCourse(coordinates, MapCenter) {
       center: new kakao.maps.LatLng(MapCenter.lng, MapCenter.lat), // 지도의 중심좌표
       level: MapCenter.mapDepthLevel, // 지도의 확대 레벨
     };
+
+  centerPoint = new kakao.maps.LatLng(MapCenter.lng, MapCenter.lat);
 
   map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
@@ -356,6 +359,7 @@ function panTo() {
   // 이동할 위도 경도 위치를 생성합니다
   var moveLatLon = new kakao.maps.LatLng(la, lo);
 
+  centerPoint = new kakao.maps.LatLng(la, lo);
   // 지도 중심을 부드럽게 이동시킵니다
   // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
   map.panTo(moveLatLon);
@@ -416,3 +420,8 @@ function zoomIn() {
 function zoomOut() {
   map.setLevel(map.getLevel() + 1);
 }
+
+window.addEventListener("resize", () => {
+  //브라우저 리사이즈시 좌표맵 중심 이동
+  map.panTo(centerPoint);
+});

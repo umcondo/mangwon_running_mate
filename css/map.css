@@ -49,10 +49,14 @@ div:nth-last-child(5) > .dotOverlay {
   border: 0;
   box-shadow: 0px 1px 2px #888;
 }
+/* .number {
+  font-weight: bold;
+  color: rgb(255, 30, 86);
+  font-size: 18px;
+} */
 .number {
   font-weight: bold;
-  /* color: #ee6152; */
-  color: rgb(255, 30, 86);
+  color: #000;
   font-size: 18px;
 }
 article {

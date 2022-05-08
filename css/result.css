@@ -32,8 +32,12 @@
 .result_head h1 {
   font-size: 1.5em;
 }
-.result_head .courseName {
+/* .result_head .courseName {
   color: #ff1e56;
+  font-weight: bold;
+} */
+.result_head .courseName {
+  color: #000;
   font-weight: bold;
 }
 .result_text {
