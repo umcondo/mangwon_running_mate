@@ -140,9 +140,9 @@ const makeResult = () => {
 
   // 결과
   const resultHead = document.querySelector(".result_head");
-  let resultHeadContent = `<h1>${
+  let resultHeadContent = `${
     courseId + 1
-  }.  <span class="courseName">${courseName}</span> 코스</h1>`;
+  }.  <span class="courseName">${courseName}</span> 코스`;
   resultHead.innerHTML = resultHeadContent;
 
   let resultText = `<h3>${coursePath}</h3>`;

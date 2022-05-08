@@ -30,6 +30,11 @@
     font-size: 2.2em;
     bottom: 18%;
   }
+  .result_head_image {
+    width: 45%;
+    height: 90px;
+    margin-bottom: 10px;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -92,8 +97,13 @@
     font-size: 1.5em;
   }
   /* 결과페이지*/
-  .result_head h1 {
-    font-size: 1.2em;
+  .result_head {
+    font-size: 1.7em;
+  }
+  .result_head_image {
+    width: 55%;
+    height: 80px;
+    margin-bottom: 10px;
   }
 }
 
@@ -197,15 +207,23 @@
   }
   .result {
     padding: 10px 0;
-    gap: 10px;
   }
-  .result_head h1 {
-    font-size: 1em;
+  .result_head_image {
+    width: 55%;
+    height: 70px;
+    margin-bottom: 5px;
+  }
+
+  .result_head {
+    font-size: 1.5em;
+  }
+  .result_map_container {
     margin-bottom: 10px;
   }
   .result_text {
     width: 95vw;
     padding-bottom: 10px;
+    margin-bottom: 10px;
   }
   .result_text .courseTimeInfo {
     display: flex;
