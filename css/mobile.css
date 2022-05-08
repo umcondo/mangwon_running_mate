@@ -128,7 +128,7 @@
   }
   header .progress {
     gap: 10px;
-    margin-bottom: 150px;
+    margin-bottom: 30px;
   }
   header .progress .progress-bar {
     width: 300px;
@@ -178,19 +178,10 @@
 
     font-size: 1em;
   }
+  .container .choice .back_btn {
+    bottom: 20px;
+  }
 
-  .animation_content {
-    animation: disappear 1.5s linear;
-  }
-  @keyframes disappear {
-    from {
-      transform: translate(-50%, -50%);
-    }
-    to {
-      transform: translate(-50%, -50%) scale(3);
-      background-color: rgba(248, 248, 100, 0.3);
-    }
-  }
   /* 애니메이션 */
 
   .result_animation h1 {
