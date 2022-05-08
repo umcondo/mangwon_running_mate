@@ -33,3 +33,11 @@
   margin-top: 40px;
   font-weight: bold;
 }
+
+@media (hover: hover) and (pointer: fine) {
+  .first__page__container button:hover {
+    color: #fff;
+    background-color: #000;
+    transition: 0.5s linear;
+  }
+}

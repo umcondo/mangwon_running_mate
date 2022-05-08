@@ -4,7 +4,7 @@
   top: 0px;
   height: 100%;
   width: 100%;
-  display: none;
+  /* display: none; */
   transform: scale(0.7);
   overflow: hidden;
   z-index: 10;
