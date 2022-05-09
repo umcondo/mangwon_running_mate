@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 100px;
+  color: var(--font-color-dark);
 }
 .first__page__container {
   display: flex;
@@ -36,8 +37,8 @@
 
 @media (hover: hover) and (pointer: fine) {
   .first__page__container button:hover {
-    color: #fff;
-    background-color: #000;
+    color: var(--font-color-white);
+    background-color: var(--font-color-dark);
     transition: 0.5s linear;
   }
 }

@@ -9,6 +9,18 @@
   src: url("../font/AppleSDGothicNeoL00.woff") format("woff");
 }
 
+:root {
+  /* --font-color-dark: #15133c; */
+  /* --font-color-orange: #ec994b; */
+  /* --font-color-white: #f1eee9; */
+  /* --border-color: #73777b; */
+
+  --font-color-orange: orange;
+  --border-color: #000;
+  --font-color-dark: #000;
+  --font-color-white: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,5 +31,6 @@
 
 main {
   height: 100vh;
+  /* background-color: var(--font-color-white); */
   overflow: hidden;
 }

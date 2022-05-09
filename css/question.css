@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   margin-top: -100px;
+  color: var(--font-color-dark);
 }
 
 /* 진행바 */
@@ -34,12 +35,10 @@ header .progress .progress-bar {
 }
 header .progress .progress-bar .progress-image {
   height: 100%;
-  background-color: black;
   transition: 0.5s;
   position: relative;
 }
 header .progress .progress-bar .progress-image img {
-  color: black;
   position: absolute;
   right: -30px;
   top: -30px;
@@ -77,23 +76,25 @@ header .progress .progress-text {
   margin-bottom: 50px;
   padding: 40px 20px;
   font-size: 15px;
-  border-bottom: 2px solid rgb(0, 0, 0);
-  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 2px solid var(--border-color);
+  border-top: 2px solid var(--border-color);
+  color: var(--font-color-orange);
 }
 button {
   background: transparent;
-  border: 2px solid #000;
+  border: 2px solid var(--font-color-dark);
   border-radius: 10px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--font-color-dark);
 }
 
 .back_btn {
   position: absolute;
   bottom: 80px;
-  border: 2px solid #fff;
+  border: 2px solid var(--font-color-white);
   padding: 5px 15px;
   margin-top: 30px;
   font-size: 16px;
@@ -102,8 +103,8 @@ button {
 }
 @media (hover: hover) and (pointer: fine) {
   .back_btn:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--font-color-dark);
+    color: var(--font-color-white);
     /* transition: 0.5s; */
   }
 }
@@ -124,7 +125,7 @@ button {
 .container .choice .choice-box .choice-items {
   width: 350px;
   min-height: 78px;
-  border: 2px solid #000;
+  border: 2px solid var(--border-color);
   border-radius: 50px;
   /* box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); */
   cursor: pointer;
@@ -134,11 +135,12 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--font-color-dark);
 }
 @media (hover: hover) and (pointer: fine) {
   .container .choice .choice-box .choice-items:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--font-color-dark);
+    color: var(--font-color-white);
     transition: 0.5s;
   }
 }

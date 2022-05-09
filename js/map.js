@@ -228,9 +228,9 @@ function getTimeHTML(distance) {
   // 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
   if (walkTime > 60) {
     walkHour =
-      '<span class="number">' + Math.floor(walkTime / 60) + "</span>시간 ";
+      '<span class="number">' + Math.floor(walkTime / 60) + "</span> 시간 ";
   }
-  walkMin = '<span class="number">' + (walkTime % 60) + "</span>분";
+  walkMin = '<span class="number">' + (walkTime % 60) + "</span> 분";
 
   // 달리기 평균 시속은 10km/h 이고 이것을 기준으로 달리기 분속은 167m/min입니다
   var runningTime = (distance / 167) | 0;
@@ -240,9 +240,9 @@ function getTimeHTML(distance) {
   // 계산한 달리기 시간이 60분 보다 크면 시간으로 표출합니다
   if (runningTime > 60) {
     runningHour =
-      '<span class="number">' + Math.floor(runningTime / 60) + "</span>시간 ";
+      '<span class="number">' + Math.floor(runningTime / 60) + "</span> 시간 ";
   }
-  runningMin = '<span class="number">' + (runningTime % 60) + "</span>분";
+  runningMin = '<span class="number">' + (runningTime % 60) + "</span> 분";
 
   distance = Math.round((distance / 1000) * 100) / 100;
   // 거리와 도보 시간, 달리기 시간을 가지고 HTML Content를 만들어 리턴합니다

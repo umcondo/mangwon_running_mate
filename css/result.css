@@ -7,7 +7,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: result_fadeIn 2.6s linear;
+  color: var(--font-color-dark);
+  /* animation: result_fadeIn 2.6s linear; */
 }
 @keyframes result_fadeIn {
   from {
@@ -42,10 +43,10 @@
 }
 .result_head {
   font-size: 2em;
-  color: #000;
+  color: var(--font-color-dark);
 }
 .result_head .courseName {
-  color: #000;
+  color: var(--font-color-dark);
   font-weight: bold;
 }
 .result_map_container {
@@ -88,8 +89,8 @@
 
 @media (hover: hover) and (pointer: fine) {
   .result_btn_container button:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--font-color-dark);
+    color: var(--font-color-white);
   }
 }
 .result_btn_container button:nth-child(1) {
@@ -98,7 +99,7 @@
 .result_btn_container p a {
   font-size: 1.5em;
   text-decoration: none;
-  color: orange;
+  color: var(--font-color-orange);
   font-weight: bold;
   letter-spacing: 2px;
 }

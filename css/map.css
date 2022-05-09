@@ -1,8 +1,3 @@
-:root {
-  --bg-color: #323232;
-  --font-color: orange;
-}
-
 /* kakaomap */
 #map {
   width: 900px;
@@ -26,7 +21,7 @@
   font-size: 12px;
   padding: 5px;
   background: #fff;
-  border: 1px solid #919191;
+  border: 1px solid var(--border-color);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
   opacity: 0.5;
 }
@@ -57,7 +52,7 @@ div:nth-last-child(5) > .dotOverlay {
 } */
 .number {
   font-weight: bold;
-  color: var(--font-color);
+  color: var(--font-color-orange);
   font-size: 18px;
 }
 article {
@@ -96,11 +91,11 @@ article {
   margin: 0;
   z-index: 1;
   font-size: 12px;
-  background: var(--bg-color);
-  border: 1px solid #919191;
+  background: var(--font-color-dark);
+  border: 1px solid var(--border-color);
   text-align: center;
   cursor: pointer;
-  color: #fff;
+  color: var(--font-color-white);
   width: 130px;
   height: 30px;
   box-sizing: content-box;
@@ -126,8 +121,8 @@ article {
   width: 36px;
   height: 36px;
   box-shadow: rgb(0 0 0 / 15%) 0px 2px 2px 0px;
-  background-color: #f5f5f5;
-  color: var(--bg-color);
+  background-color: #fff;
+  color: var(--font-color-dark);
   z-index: 5;
   font-size: 15px;
   border: 1px solid #919191;
@@ -137,14 +132,6 @@ article {
   .current_location_btn:hover {
     background: #f5f5f5;
   }
-}
-.current_icon {
-  width: 12px;
-  height: 12px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: #2e91ff;
-  box-shadow: 0 0 5px rgb(0 0 0 / 40%);
 }
 
 /* map controller */
@@ -194,7 +181,7 @@ article {
 }
 .custom_typecontrol .selected_btn {
   color: #fff;
-  background: var(--bg-color);
+  background: var(--font-color-dark);
 }
 @media (hover: hover) and (pointer: fine) {
   .custom_typecontrol .selected_btn:hover {
