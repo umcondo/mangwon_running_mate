@@ -38,12 +38,6 @@ header .progress .progress-bar .progress-image {
   transition: 0.5s;
   position: relative;
 }
-/* header .progress .progress-bar .progress-image i {
-  color: black;
-  position: absolute;
-  right: -20px;
-  top: -25px;
-} */
 header .progress .progress-bar .progress-image img {
   color: black;
   position: absolute;
@@ -96,24 +90,25 @@ button {
   align-items: center;
 }
 
-.container .choice .back_btn {
+.back_btn {
   position: absolute;
   bottom: 80px;
-  padding: 7px 20px;
+  border: 2px solid #fff;
+  padding: 5px 15px;
   margin-top: 30px;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: bold;
   border-radius: 20px;
 }
 @media (hover: hover) and (pointer: fine) {
-  .container .choice .back_btn:hover {
+  .back_btn:hover {
     background-color: #000;
     color: #fff;
     /* transition: 0.5s; */
   }
 }
 
-.container .choice .back_btn span {
+.back_btn span {
   font-size: 2em;
   margin-right: 5px;
 }

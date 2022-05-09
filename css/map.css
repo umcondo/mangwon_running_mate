@@ -1,5 +1,6 @@
 :root {
   --bg-color: #323232;
+  --font-color: orange;
 }
 
 /* kakaomap */
@@ -56,7 +57,7 @@ div:nth-last-child(5) > .dotOverlay {
 } */
 .number {
   font-weight: bold;
-  color: #000;
+  color: var(--font-color);
   font-size: 18px;
 }
 article {

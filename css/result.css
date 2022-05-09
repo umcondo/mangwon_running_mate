@@ -28,25 +28,22 @@
   text-align: center;
 }
 .result_head_image {
-  background: url("./../img/pngwing.com2.png");
+  background: url("./../img/orange_brush.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  width: 35%;
+  background-size: 100% 120%;
+  width: 45%;
   white-space: nowrap;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 .result_head {
   font-size: 2em;
+  color: #000;
 }
-/* .result_head .courseName {
-  color: #ff1e56;
-  font-weight: bold;    
-} */
 .result_head .courseName {
   color: #000;
   font-weight: bold;
@@ -101,4 +98,7 @@
 .result_btn_container p a {
   font-size: 1.5em;
   text-decoration: none;
+  color: orange;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
