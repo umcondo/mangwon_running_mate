@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* animation: result_fadeIn 2.6s linear; */
+  animation: result_fadeIn 2.6s linear;
 }
 @keyframes result_fadeIn {
   from {
@@ -28,13 +28,13 @@
   text-align: center;
 }
 .result_head_image {
-  background: url("./../img/black_brush.png");
+  background: url("./../img/pngwing.com2.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 150%;
-  width: 45%;
+  background-size: 100% 100%;
+  width: 35%;
   white-space: nowrap;
-  height: 150px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,10 +42,13 @@
 }
 .result_head {
   font-size: 2em;
-  color: #fff;
 }
+/* .result_head .courseName {
+  color: #ff1e56;
+  font-weight: bold;    
+} */
 .result_head .courseName {
-  color: #fff;
+  color: #000;
   font-weight: bold;
 }
 .result_map_container {

@@ -50,8 +50,7 @@ function nextQuestion(event) {
   let curValue1 = currentQuestion.answer[0].value[0];
   let curValue2 = currentQuestion.answer[1].value[0];
 
-  event.target.innerText.slice(0, 3) ===
-  currentQuestion.answer[0].text.slice(0, 3)
+  event.target.innerText === currentQuestion.answer[0].text
     ? resultBox.push(curValue1)
     : resultBox.push(curValue2);
 
@@ -97,7 +96,6 @@ function makeBackBtn() {
 
 // 결과값 함수
 const resultValue = () => {
-  console.log(resultBox);
   switch (resultBox.join("")) {
     case "bHl": // 선유도
       return 0;
