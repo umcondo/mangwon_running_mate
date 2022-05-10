@@ -43,8 +43,8 @@
   <body>
     <main>
       <!-- 첫화면 -->
-      <div class="first__page">
-        <div class="first__page__container">
+      <div class="first_page">
+        <div class="first_page_container">
           <h2>
             <img src="./img/icons-man-running.png" alt="" />
             <img src="./img/icons-woman-running.png" alt="" />
@@ -59,7 +59,7 @@
       </div>
 
       <!-- 질문 페이지 -->
-      <div class="container">
+      <div class="question_container">
         <!-- 진행바 -->
         <header>
           <div class="progress">
@@ -72,17 +72,17 @@
           </div>
         </header>
         <!-- 질문내용 -->
-        <div class="choice">
-          <img class="choice-img" />
-          <div class="choice-text">
+        <div class="question_content">
+          <img class="question_img" />
+          <div class="question_head">
             <h1></h1>
           </div>
-          <div class="choice-box">
-            <div class="choice-items" onclick="nextQuestion(event)"></div>
-            <div class="choice-items" onclick="nextQuestion(event)"></div>
+          <div class="question_text_box">
+            <div class="question_text" onclick="nextQuestion(event)"></div>
+            <div class="question_text" onclick="nextQuestion(event)"></div>
           </div>
         </div>
-        <button class="back_btn" onclick="backwardBtn()">
+        <button class="question_back_btn" onclick="backwardBtn()">
           <span><</span> 뒤로가기
         </button>
       </div>
@@ -133,14 +133,12 @@
       <div class="result">
         <div class="result_head_container">
           <h2 class="result_head"></h2>
-          <h4 class="course_destination">
+          <h4 class="result_course_destination">
             <span></span> | 코스 총거리 : <span></span>
           </h4>
         </div>
-        <h3 class="course_path"></h3>
-        <div class="result_map_container">
-          <div id="map" class="map_style"></div>
-        </div>
+        <h3 class="result_course_path"></h3>
+        <div class="result_map_container"></div>
         <div class="result_text"></div>
         <div class="result_btn_container">
           <button onclick="reStartBtn()">다시하기</button>

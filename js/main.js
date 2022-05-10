@@ -1,7 +1,7 @@
 /* 첫페이지 */
 // 버튼 누르면 첫화면 사라지고 질문페이지 생성
-document.querySelector(".first__page button").addEventListener("click", () => {
-  document.querySelector(".first__page").style.display = "none";
+document.querySelector(".first_page button").addEventListener("click", () => {
+  document.querySelector(".first_page").style.display = "none";
   makeQuestion(currentIndex);
 });
 
@@ -15,7 +15,7 @@ let resultBox = []; // 답변을 모아두는 박스
 
 // 현재 인덱스의 질문, 내용, 진행도, 다시하기버튼을 보여주는 함수
 function makeQuestion(idx) {
-  document.querySelector(".container").style.display = "flex";
+  document.querySelector(".question_container").style.display = "flex";
 
   currentQuestion = Question[currentIndex]; // 현재 질문 객체
 
@@ -24,13 +24,13 @@ function makeQuestion(idx) {
   let curAnswer1 = currentQuestion.answer[0].text;
   let curAnswer2 = currentQuestion.answer[1].text;
 
-  let choiceImg = document.querySelector(".choice-img");
-  let choiceText = document.querySelector(".choice-text > h1"); // 질문제목
+  let choiceImg = document.querySelector(".question_img");
+  let choiceText = document.querySelector(".question_head > h1"); // 질문제목
   let choiceItems1 = document.querySelector(
-    ".choice-box > .choice-items:nth-child(1)" // 답변내용1
+    ".question_text_box > .question_text:nth-child(1)" // 답변내용1
   );
   let choiceItems2 = document.querySelector(
-    ".choice-box > .choice-items:nth-child(2)" // 답변내용2
+    ".question_text_box > .question_text:nth-child(2)" // 답변내용2
   );
 
   choiceImg.src = curImg;
@@ -85,7 +85,7 @@ function progressBar(idx) {
 
 // 뒤로가기 버튼 생성함수
 function makeBackBtn() {
-  let backBtn = document.querySelector(".back_btn"); // 뒤로가기 버튼
+  let backBtn = document.querySelector(".question_back_btn"); // 뒤로가기 버튼
 
   currentIndex < questionCount && currentIndex > 0
     ? (backBtn.style.visibility = " visible")
@@ -93,7 +93,9 @@ function makeBackBtn() {
 }
 
 /* 결과페이지 */
-// "beginner" , "intermediate", "Hangang", "inland", "loud", "quiet"
+// 난이도 : "beginner - b" , "intermediate - i"
+// 한강, 내륙 : "Hangang" - H , "inland" - i,
+// 혼잡도 : "loud" - l, "quiet"- q
 
 // 결과값 함수
 const resultValue = () => {
@@ -121,7 +123,6 @@ const resultValue = () => {
 
 const choiceResult = document.querySelector(".result_map_container"); //결과
 const resultPage = document.querySelector(".result"); //결과
-// const resultPage = document.querySelector(".result_container"); // 결과 div
 
 // 결과를 출력하는 함수
 const makeResult = () => {
@@ -129,6 +130,7 @@ const makeResult = () => {
 
   const resultIdx = resultValue();
   const course = CourseData[resultIdx];
+
   const courseDistance = course.courseDistance;
   const courseName = course.courseName;
   const courseInfo = course.courseInfo;
@@ -141,36 +143,42 @@ const makeResult = () => {
   showCourse(resultIdx); // map.js에 있는 코스보여주는 함수
 
   // 결과
-  const resultHead = document.querySelector(".result_head"); // 코스 제목
+  // 코스 제목
+  const resultHead = document.querySelector(".result_head");
   let resultHeadContent = `<span class="courseNameNum">${
     courseId + 1
   }코스</span>`;
   resultHeadContent += `<span class="courseName">${courseName}</span>`;
   resultHead.innerHTML = resultHeadContent;
 
+  // 코스 목적지
   const resultCourseDestination = document.querySelector(
-    ".course_destination span:nth-child(1)"
+    ".result_course_destination span:nth-child(1)"
   );
   resultCourseDestination.innerText = courseDestination;
+
+  // 코스 대략적 거리
   const resultCourseDistance = document.querySelector(
-    ".course_destination span:nth-child(2)"
+    ".result_course_destination span:nth-child(2)"
   );
   resultCourseDistance.innerText = courseDistance;
 
-  const resultCoursePath = document.querySelector(".course_path"); // 코스 상세
+  // 코스 경로
+  const resultCoursePath = document.querySelector(".result_course_path");
   resultCoursePath.innerHTML = `${coursePath}`;
 
+  // 코스 상세
   let resultText = `<p>&nbsp;${courseInfo}</p>`;
-
   document.querySelector(".result_text").innerHTML += resultText;
 
-  let choiceBtn = document.querySelector(".result_btn_container"); // 다시하기버튼
+  // 다시하기버튼
+  let choiceBtn = document.querySelector(".result_btn_container");
   choiceBtn.style.display = "block";
 };
 
 // 다시하기 함수
 const reStartBtn = () => {
-  document.querySelector(".container").style.display = "block"; //질문,답변 전체 div
+  document.querySelector(".question_container").style.display = "block"; //질문,답변 전체 div
   resultPage.style.display = "none";
   resultBox = [];
   makeQuestion(0);
@@ -178,7 +186,7 @@ const reStartBtn = () => {
 
 // 애니메이션 페이지 2초 후 없애버리기
 function resultAnimation() {
-  document.querySelector(".container").style.display = "none"; //질문,답변 전체 div
+  document.querySelector(".question_container").style.display = "none"; //질문,답변 전체 div
   document.querySelector(".result_animation").style.display = "block"; // animation page
   makeResult();
 

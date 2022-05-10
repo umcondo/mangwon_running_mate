@@ -1,5 +1,5 @@
 /* 질문페이지 */
-.container {
+.question_container {
   width: 100%;
   height: 100vh;
   display: none;
@@ -11,7 +11,6 @@
 }
 
 /* 진행바 */
-
 header {
   height: 150px;
   width: 100%;
@@ -49,8 +48,7 @@ header .progress .progress-text {
 }
 
 /* 질문내용 */
-
-.container .choice {
+.question_container .question_content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,13 +64,13 @@ header .progress .progress-text {
     opacity: 1;
   }
 }
-.container .choice .choice-img {
+.question_container .question_content .question_img {
   width: 100px;
   margin-top: 20px;
   margin-bottom: 30px;
 }
 /* 질문 제목 */
-.container .choice .choice-text {
+.question_container .question_content .question_head {
   margin-bottom: 50px;
   padding: 40px 20px;
   font-size: 14px;
@@ -80,7 +78,7 @@ header .progress .progress-text {
   border-top: 2px solid var(--border-color);
   color: var(--font-color-dark);
 }
-.container .choice .choice-text span {
+.question_container .question_content .question_head span {
   color: var(--font-color-orange);
   font-size: 1.2em;
 }
@@ -96,7 +94,7 @@ button {
   color: var(--font-color-dark);
 }
 
-.back_btn {
+.question_back_btn {
   position: absolute;
   bottom: 80px;
   border: 2px solid var(--font-color-white);
@@ -108,19 +106,19 @@ button {
   color: var(--font-color-orange);
 }
 @media (hover: hover) and (pointer: fine) {
-  .back_btn:hover {
+  .question_back_btn:hover {
     background-color: var(--font-color-orange);
     color: var(--font-color-white);
     /* transition: 0.5s; */
   }
 }
 
-.back_btn span {
+.question_back_btn span {
   font-size: 2em;
   margin-right: 5px;
 }
 
-.container .choice .choice-box {
+.question_container .question_content .question_text_box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,7 +126,7 @@ button {
   gap: 25px;
 }
 /* 질문 1,2 */
-.container .choice .choice-box .choice-items {
+.question_container .question_content .question_text_box .question_text {
   width: 350px;
   min-height: 78px;
   border: 2px solid var(--border-color);
@@ -144,7 +142,10 @@ button {
   color: var(--font-color-dark);
 }
 @media (hover: hover) and (pointer: fine) {
-  .container .choice .choice-box .choice-items:hover {
+  .question_container
+    .question_content
+    .question_text_box
+    .question_text:hover {
     background-color: var(--font-color-dark);
     color: var(--font-color-white);
     transition: 0.5s;

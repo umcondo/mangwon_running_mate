@@ -26,7 +26,7 @@
   .result_head_container {
     width: 95%;
   }
-  .course_path {
+  .result_course_path {
     width: 95%;
   }
 }
@@ -36,45 +36,45 @@
     overflow: visible;
   }
   /* 첫페이지 */
-  .first__page__container {
+  .first_page_container {
     gap: 15px;
   }
 
-  .first__page__container h2 {
+  .first_page_container h2 {
     font-size: 2em;
   }
-  .first__page__container h1 {
+  .first_page_container h1 {
     font-size: 3em;
   }
-  .first__page__container p {
+  .first_page_container p {
     font-size: 1em;
   }
-  .first__page__container button {
+  .first_page_container button {
     padding: 15px 20px;
     font-size: 1.5em;
     margin-top: 20px;
   }
   /* 질문페이지 */
-  .container .choice .choice-img {
+  .question_container .question_content .question_img {
     margin-top: 15px;
     margin-bottom: 20px;
   }
   /* 질문 제목 */
-  .container .choice .choice-text {
+  .question_container .question_content .question_head {
     margin-bottom: 30px;
     padding: 35px 60px;
     font-size: 13px;
   }
-  .back_btn {
+  .question_back_btn {
     padding: 10px 20px;
     margin-top: 15px;
     font-size: 13px;
   }
-  .container .choice .choice-box {
+  .question_container .question_content .question_text_box {
     gap: 15px;
   }
   /* 질문 1,2 */
-  .container .choice .choice-box .choice-items {
+  .question_container .question_content .question_text_box .question_text {
     width: 350px;
     min-height: 78px;
     padding: 10px 30px;
@@ -103,26 +103,26 @@
     overflow: visible;
   }
   /* 첫페이지 */
-  .first__page__container {
+  .first_page_container {
     gap: 15px;
   }
-  .first__page__container h2 {
+  .first_page_container h2 {
     font-size: 1.5em;
   }
-  .first__page__container h1 {
+  .first_page_container h1 {
     font-size: 2.5em;
   }
-  .first__page__container p {
+  .first_page_container p {
     font-size: 0.9em;
   }
-  .first__page__container button {
+  .first_page_container button {
     padding: 20px 25px;
     font-size: 1.2em;
 
     margin-top: 15px;
   }
   /* 질문페이지 */
-  .container {
+  .question_container {
     margin-top: -80px;
   }
   header .progress {
@@ -141,15 +141,15 @@
     font-size: 25px;
     margin-bottom: 20px;
   }
-  .container .choice {
+  .question_container .question_content {
     margin-top: -15px;
   }
-  .container .choice .choice-img {
+  .question_container .question_content .question_img {
     width: 80px;
     margin-bottom: 20px;
   }
   /* 질문 제목 */
-  .container .choice .choice-text {
+  .question_container .question_content .question_head {
     margin-bottom: 30px;
     padding: 20px 10px;
     font-size: 11px;
@@ -160,24 +160,24 @@
     justify-content: center;
     align-items: center;
   }
-  .back_btn {
+  .question_back_btn {
     bottom: 80px;
     padding: 10px 20px;
     margin-top: 15px;
     font-size: 13px;
   }
-  .container .choice .choice-box {
+  .question_container .question_content .question_text_box {
     gap: 10px;
   }
   /* 질문 1,2 */
-  .container .choice .choice-box .choice-items {
+  .question_container .question_content .question_text_box .question_text {
     max-width: 280px;
     min-height: 70px;
     padding: 5px 25px;
 
     font-size: 1em;
   }
-  .back_btn {
+  .question_back_btn {
     bottom: 20px;
   }
 
@@ -201,13 +201,18 @@
     font-size: 1.4em;
     margin-bottom: 5px;
   }
+  .result_head .courseNameNum {
+    padding: 4px 10px;
+    margin-bottom: 0px;
+  }
+
   .result_head_container {
     padding-bottom: 5px;
   }
-  .course_destination {
+  .result_course_destination {
     display: none;
   }
-  .course_path {
+  .result_course_path {
     font-size: 13px;
     padding-top: 10px;
     margin-bottom: 10px;
@@ -239,6 +244,10 @@
     font-weight: bold;
     color: #000;
     font-size: 1.3em;
+  }
+
+  .result_btn_container button {
+    padding: 10px 30px;
   }
 
   .dotOverlay {

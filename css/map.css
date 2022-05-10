@@ -3,7 +3,7 @@
   width: 900px;
   height: 500px;
 }
-
+/* 거점 */
 .dot {
   overflow: hidden;
   float: left;
@@ -11,10 +11,10 @@
   height: 12px;
   background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png");
 }
+/* 거점 오버레이 */
 .dotOverlay {
   position: relative;
   bottom: 25px;
-  /* bottom: -10px; */
   left: -40px;
   border-radius: 6px;
   float: left;
@@ -25,16 +25,6 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
   opacity: 0.5;
 }
-/* #map > div:nth-child(1) > div > div:nth-child(6) > div:nth-child(1) > div */
-/* #map > div:nth-child(1) > div > div:nth-child(6) > div:nth-child(9) > div */
-
-/* div:nth-child(1) > .dotOverlay {
-  opacity: 1;
-}
-
-div:nth-last-child(5) > .dotOverlay {
-  opacity: 1;
-} */
 @media (hover: hover) and (pointer: fine) {
   .dotOverlay:hover {
     opacity: 1;
@@ -45,11 +35,8 @@ div:nth-last-child(5) > .dotOverlay {
   border: 0;
   box-shadow: 0px 1px 2px #888;
 }
-/* .number {
-  font-weight: bold;
-  color: rgb(255, 30, 86);
-  font-size: 18px;
-} */
+
+/* 총거리, 총 소요시간 오버레이 */
 .number {
   font-weight: bold;
   color: var(--font-color-orange);
@@ -82,6 +69,7 @@ article {
   content: none;
 }
 
+/* 거점 숨기기 버튼 */
 #map > article:nth-child(5) {
   position: relative;
   top: 15px;
@@ -113,6 +101,7 @@ article {
   display: none;
 }
 
+/* 현위치 버튼 */
 .currentLocationContainer {
   position: absolute;
   top: 145px;
@@ -152,6 +141,7 @@ article {
   border: 1px solid #919191;
   border-radius: 5px;
 }
+/* 지도 타입 변경 버튼*/
 .custom_typecontrol {
   position: absolute;
   top: 15px;
@@ -196,6 +186,7 @@ article {
     color: #fff;
   }
 }
+/* 지도 축소, 확대 변경 버튼*/
 .custom_zoomcontrol {
   position: absolute;
   top: 55px;

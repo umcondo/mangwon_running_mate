@@ -54,12 +54,12 @@
   margin-bottom: 2px;
 }
 
-.course_destination {
+.result_course_destination {
   font-weight: bold;
   color: rgb(148, 148, 148);
 }
 /* 결과 코스 경로 */
-.course_path {
+.result_course_path {
   text-align: center;
   padding-top: 20px;
   margin-bottom: 15px;

@@ -1,11 +1,51 @@
+/*
+ <전체적인 코드 정보>
+
+1. runningCourse 함수
+  1) 점,선 찍고 표시
+    (1) 점찍기
+    (2) 선표시
+  2) 총 거리계산
+  3) 총소요시간, 거리 오버레이 생성
+  4) 지도 조작 버튼 생성
+    (1) 오버레이 토글 버튼 생성
+    (2) 현위치 버튼 생성
+    (3) 지도타입 버튼 생성
+    (4) 지도, 확대 축소 버튼 생성
+  5) 출발 도착 마커 생성
+    (1) 출발 마커 생성
+    (2) 도착 마커 생성
+    (3) 출발, 도착 마커 z-index 지정
+
+2. getTimeHtml 함수
+  1) 데스크탑 총거리, 총소요시간 오버레이 생성
+  2) 모바일 총거리, 총소요시간 div 생성 (desktop에선 display:none)
+
+3. toggleBtn 함수
+  1) 오버레이 숨김, 보임 조작
+
+4. 현위치 버튼 생성 관련 함수들
+  1) 현위치 버튼 생성
+  2) 현위치 마커 생성
+
+5. 지도 타입변화 함수
+
+6. 지도 확대, 축소 함수
+  1) 지도 확대 함수
+  2) 지도 축소 함수
+
+7. 브라우저 리사이즈 시 좌표맵 이동
+*/
+
 // 인덱스의 코스데이터를 불러와서 보여주는 함수
 function showCourse(idx) {
   runningCourse(coordinates[idx].track, coordinates[idx].MapCenter);
 }
 
+// 브라우저 리사이즈 시 좌표맵 이동시키기 위해 전역변수 설정
 var map = "";
-
 let centerPoint = "";
+
 // 데이터를 바탕으로 지도에 코스를 그려주는 함수
 function runningCourse(coordinates, MapCenter) {
   /* 지도 생성 */
@@ -210,8 +250,6 @@ function runningCourse(coordinates, MapCenter) {
   document.querySelector(
     "#map > div:nth-child(1) > div > div:nth-child(6) > div:nth-last-child(1)"
   ).style.zIndex = 4;
-
-  // toggleBtn();
 }
 
 /* 완성 함수 */
@@ -279,15 +317,11 @@ function getTimeHTML(distance) {
   courseTimeInfo += "    </li>";
   courseTimeInfo += "    <li>";
   courseTimeInfo +=
-    '        <span class="label">도보<br></span>' +
-    // <i class="fa-solid fa-person-walking"></i>
-    walkHour +
-    walkMin;
+    '        <span class="label">도보<br></span>' + walkHour + walkMin;
   courseTimeInfo += "    </li>";
   courseTimeInfo += "    <li>";
   courseTimeInfo +=
     '        <span class="label">러닝(10km/h)<br></span>' +
-    //<i class="fa-solid fa-person-running"></i>
     runningHour +
     runningMin;
   courseTimeInfo += "</ul>";
@@ -296,7 +330,6 @@ function getTimeHTML(distance) {
 
   return contentContainer;
 }
-toggleBtn();
 
 // 오버레이 토글
 function toggleBtn() {
@@ -365,6 +398,7 @@ function panTo() {
   map.panTo(moveLatLon);
 }
 
+/* 현위치 마커 */
 function currentMarker() {
   // 마커가 표시될 위치입니다
 
@@ -421,8 +455,8 @@ function zoomOut() {
   map.setLevel(map.getLevel() + 1);
 }
 
+//브라우저 리사이즈시 좌표맵 중심 이동
 window.addEventListener("resize", () => {
-  //브라우저 리사이즈시 좌표맵 중심 이동
   if (map) {
     map.panTo(centerPoint);
   }
