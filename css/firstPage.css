@@ -27,6 +27,10 @@
 .first__page__container p {
   font-size: 1.5em;
 }
+.first__page__container p span {
+  font-size: 1.1em;
+  color: var(--font-color-orange);
+}
 .first__page__container button {
   padding: 20px 30px;
   font-size: 2em;

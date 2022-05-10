@@ -13,15 +13,8 @@
   .result_text {
     width: 90vw;
   }
-  .result_text h3 {
-    font-size: 18px;
-  }
   .result_text p {
     border-bottom: 1px solid #ecf0f2;
-  }
-
-  .result_btn_container p a {
-    display: none;
   }
   .result_animation {
     transform: scale(0.8);
@@ -30,10 +23,11 @@
     font-size: 2.2em;
     bottom: 18%;
   }
-  .result_head_image {
-    width: 45%;
-    height: 90px;
-    margin-bottom: 10px;
+  .result_head_container {
+    width: 95%;
+  }
+  .course_path {
+    width: 95%;
   }
 }
 
@@ -99,11 +93,6 @@
   /* 결과페이지*/
   .result_head {
     font-size: 1.7em;
-  }
-  .result_head_image {
-    width: 55%;
-    height: 80px;
-    margin-bottom: 10px;
   }
 }
 
@@ -208,16 +197,22 @@
   .result {
     padding: 10px 0;
   }
-  .result_head_image {
-    /* width: 55%; */
-    width: 100%;
-    height: 50px;
-    margin-bottom: 5px;
-  }
-
   .result_head {
     font-size: 1.4em;
+    margin-bottom: 5px;
   }
+  .result_head_container {
+    padding-bottom: 5px;
+  }
+  .course_destination {
+    display: none;
+  }
+  .course_path {
+    font-size: 13px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
   .result_map_container {
     margin-bottom: 10px;
   }
@@ -231,7 +226,8 @@
     list-style-type: none;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
+    margin-bottom: 5px;
   }
   .result_text .courseTimeInfo li {
     text-align: center;
@@ -243,10 +239,6 @@
     font-weight: bold;
     color: #000;
     font-size: 1.3em;
-  }
-  .result_text h3 {
-    margin-top: 5px;
-    font-size: 14px;
   }
 
   .dotOverlay {

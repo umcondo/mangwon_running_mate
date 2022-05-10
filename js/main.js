@@ -129,9 +129,10 @@ const makeResult = () => {
 
   const resultIdx = resultValue();
   const course = CourseData[resultIdx];
-  // const courseDistance = course.courseDistance;
+  const courseDistance = course.courseDistance;
   const courseName = course.courseName;
   const courseInfo = course.courseInfo;
+  const courseDestination = course.courseDestination;
   const coursePath = course.coursePath;
   const courseId = course.id;
 
@@ -140,15 +141,26 @@ const makeResult = () => {
   showCourse(resultIdx); // map.js에 있는 코스보여주는 함수
 
   // 결과
-  const resultHead = document.querySelector(".result_head");
-  let resultHeadContent = `${
+  const resultHead = document.querySelector(".result_head"); // 코스 제목
+  let resultHeadContent = `<span class="courseNameNum">${
     courseId + 1
-  }.  <span class="courseName">${courseName}</span> 코스`;
+  }코스</span>`;
+  resultHeadContent += `<span class="courseName">${courseName}</span>`;
   resultHead.innerHTML = resultHeadContent;
 
-  let resultText = `<h3>${coursePath}</h3>`;
+  const resultCourseDestination = document.querySelector(
+    ".course_destination span:nth-child(1)"
+  );
+  resultCourseDestination.innerText = courseDestination;
+  const resultCourseDistance = document.querySelector(
+    ".course_destination span:nth-child(2)"
+  );
+  resultCourseDistance.innerText = courseDistance;
 
-  resultText += `<p>&nbsp;${courseInfo}</p>`;
+  const resultCoursePath = document.querySelector(".course_path"); // 코스 상세
+  resultCoursePath.innerHTML = `${coursePath}`;
+
+  let resultText = `<p>&nbsp;${courseInfo}</p>`;
 
   document.querySelector(".result_text").innerHTML += resultText;
 

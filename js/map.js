@@ -228,7 +228,7 @@ function getTimeHTML(distance) {
   // 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
   if (walkTime > 60) {
     walkHour =
-      '<span class="number">' + Math.floor(walkTime / 60) + "</span> 시간 ";
+      '<span class="number">' + Math.floor(walkTime / 60) + "</span>시간 ";
   }
   walkMin = '<span class="number">' + (walkTime % 60) + "</span> 분";
 
@@ -240,7 +240,7 @@ function getTimeHTML(distance) {
   // 계산한 달리기 시간이 60분 보다 크면 시간으로 표출합니다
   if (runningTime > 60) {
     runningHour =
-      '<span class="number">' + Math.floor(runningTime / 60) + "</span> 시간 ";
+      '<span class="number">' + Math.floor(runningTime / 60) + "</span>시간 ";
   }
   runningMin = '<span class="number">' + (runningTime % 60) + "</span> 분";
 

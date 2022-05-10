@@ -51,7 +51,9 @@
             <img src="./img/icons-person-running.png" alt="" />
           </h2>
           <h1>망원 런닝 메이트</h1>
-          <p>내 취향에 맞는 망원, 마포의 런닝 코스를 알아보세요 !!</p>
+          <p>
+            내 취향에 맞는 망원, 마포의 <span>런닝 코스</span>를 알아보세요 !!
+          </p>
           <button id="start_btn">러닝 코스 추천 시작하기</button>
         </div>
       </div>
@@ -129,9 +131,13 @@
       <!-- 결과 화면 -->
       <!-- <div class="result_container"> -->
       <div class="result">
-        <div class="result_head_image">
+        <div class="result_head_container">
           <h2 class="result_head"></h2>
+          <h4 class="course_destination">
+            <span></span> | 코스 총거리 : <span></span>
+          </h4>
         </div>
+        <h3 class="course_path"></h3>
         <div class="result_map_container">
           <div id="map" class="map_style"></div>
         </div>
@@ -139,7 +145,7 @@
         <div class="result_btn_container">
           <button onclick="reStartBtn()">다시하기</button>
           <button>공유하기</button>
-          <p><a href="#">그 밖의 마포의 러닝루트를 알고싶으세요?</a></p>
+          <!-- <p><a href="#">그 밖의 마포의 러닝루트를 알고싶으세요?</a></p> -->
         </div>
       </div>
     </main>
