@@ -26,8 +26,12 @@
 }
 .first_page_container p {
   font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .first_page_container p span {
+  margin-left: 8px;
   font-size: 1.1em;
   color: var(--font-color-orange);
 }

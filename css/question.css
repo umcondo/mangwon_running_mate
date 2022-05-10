@@ -77,6 +77,9 @@ header .progress .progress-text {
   border-bottom: 2px solid var(--border-color);
   border-top: 2px solid var(--border-color);
   color: var(--font-color-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .question_container .question_content .question_head span {
   color: var(--font-color-orange);

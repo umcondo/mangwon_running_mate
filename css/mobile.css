@@ -115,6 +115,9 @@
   .first_page_container p {
     font-size: 0.9em;
   }
+  .first_page_container p span {
+    margin-left: 5px;
+  }
   .first_page_container button {
     padding: 20px 25px;
     font-size: 1.2em;
