@@ -576,16 +576,18 @@
   width: 900px;
   line-height: 150%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 5px;
   padding-bottom: 0px;
   margin-bottom: 30px;
+  border-bottom: 1px solid #e6e6e6;
 }
 .result_text .courseTimeInfo {
   display: none;
 }
 .result_text p {
-  border-bottom: 1px solid #e6e6e6;
   padding-bottom: 15px;
 }
 /* 다시하기 버튼, 공유하기 버튼 div*/
@@ -654,6 +656,9 @@
   box-shadow: 0px 1px 2px #888;
 }
 
+.dotOverlay > div:nth-child(1) {
+  font-weight: bold;
+}
 /* 총거리, 총 소요시간 오버레이 */
 .number {
   font-weight: bold;
