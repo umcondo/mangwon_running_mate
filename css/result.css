@@ -34,8 +34,19 @@
     transform: translate(-47.5%, -50%);
   }
 }
-.run img {
+.run img,
+.run0 img,
+.run2 img {
   width: 100%;
+}
+
+.run0 {
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left: 50%;
+  transform: translate(50%, -50%);
+  animation: updown 0.5s linear infinite alternate;
 }
 .run {
   position: absolute;
@@ -43,6 +54,14 @@
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: updown 0.5s linear infinite alternate;
+}
+.run2 {
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left: 50%;
+  transform: translate(-150%, -50%);
   animation: updown 0.5s linear infinite alternate;
 }
 .hand1 {
