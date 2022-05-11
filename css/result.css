@@ -1,4 +1,507 @@
-/* 결과페이지 */
+/******************** 결과대기 애니메이션 페이지 ********************/
+.result_animation {
+  position: relative;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  display: none;
+  transform: scale(0.7);
+  overflow: hidden;
+  z-index: 10;
+}
+.result_animation h1 {
+  position: absolute;
+  bottom: 12%;
+  color: #ff1e56;
+  left: 50%;
+  transform: translate(-47.5%, -50%);
+  text-align: center;
+  font-size: 2.5em;
+  width: 100%;
+  animation: shake 2s infinite linear;
+}
+@keyframes shake {
+  from {
+    transform: translate(-47.5%, -50%);
+  }
+  30% {
+    transform: translate(-47.5%, -50%) rotate(-2deg) translateY(-1px);
+  }
+  80% {
+    transform: translate(-47.5%, -50%) rotate(2deg) translateY(1px);
+  }
+  100% {
+    transform: translate(-47.5%, -50%);
+  }
+}
+.run img {
+  width: 100%;
+}
+.run {
+  position: absolute;
+  z-index: 1;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: updown 0.5s linear infinite alternate;
+}
+.hand1 {
+  position: absolute;
+  z-index: -1;
+  top: 19.7%;
+  left: 45%;
+  width: 17%;
+  transform-origin: 90% 10%;
+  animation: hand1 1.5s linear infinite;
+}
+.hand2 {
+  position: absolute;
+  z-index: 1;
+  top: 19.4%;
+  left: 46%;
+  width: 16%;
+  transform-origin: 100% 20%;
+  animation: hand2 1.5s linear infinite;
+}
+.thigh-1 {
+  position: absolute;
+  z-index: -2;
+  top: 45%;
+  left: 48.7%;
+  width: 22%;
+  animation: thigh1 1.5s linear infinite;
+  transform-origin: 40% 10%;
+}
+.calf-1 {
+  position: absolute;
+  z-index: -1;
+  top: 105%;
+  left: 65%;
+  width: 75%;
+  animation: calf1 1.5s linear infinite;
+  transform-origin: 30% 0%;
+}
+.ankle-1 {
+  position: absolute;
+  z-index: 1;
+  bottom: -30%;
+  right: -50%;
+  width: 95%;
+  animation: ankle1 1.5s linear infinite;
+  transform-origin: 20% 10%;
+}
+.toe-1 {
+  position: absolute;
+  z-index: 2;
+  bottom: -5%;
+  right: -5%;
+  width: 40%;
+  animation: toe1 1.5s linear infinite;
+  transform-origin: left bottom;
+}
+.thigh-2 {
+  position: absolute;
+  z-index: -1;
+  top: 45%;
+  left: 48.7%;
+  width: 22%;
+  animation: thigh2 1.5s linear infinite;
+  transform-origin: 40% 10%;
+}
+.calf-2 {
+  position: absolute;
+  z-index: -1;
+  top: 105%;
+  left: 65%;
+  width: 75%;
+  animation: calf2 1.5s linear infinite;
+  transform-origin: 30% 0%;
+}
+
+.ankle-2 {
+  position: absolute;
+  z-index: 1;
+  bottom: -30%;
+  right: -50%;
+  width: 95%;
+  animation: ankle2 1.5s linear infinite;
+  transform-origin: 20% 10%;
+}
+.toe-2 {
+  position: absolute;
+  z-index: 2;
+  bottom: -5%;
+  right: -5%;
+  width: 40%;
+  animation: toe2 1.5s linear infinite;
+  transform-origin: left bottom;
+}
+@keyframes hand1 {
+  from {
+    transform: rotate(-100deg);
+  }
+  10% {
+    transform: rotate(-110deg);
+  }
+  20% {
+    transform: rotate(-100deg);
+  }
+  30% {
+    transform: rotate(-60deg);
+  }
+  40% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(15deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(-20deg);
+  }
+  90% {
+    transform: rotate(-50deg);
+  }
+  100% {
+    transform: rotate(-100deg);
+  }
+}
+@keyframes hand2 {
+  from {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(15deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-30deg);
+  }
+  40% {
+    transform: rotate(-60deg);
+  }
+  50% {
+    transform: rotate(-100deg);
+  }
+  60% {
+    transform: rotate(-110deg);
+  }
+  70% {
+    transform: rotate(-100deg);
+  }
+  80% {
+    transform: rotate(-60deg);
+  }
+  90% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes thigh1 {
+  from {
+    transform: rotate(40deg);
+  }
+  10% {
+    transform: rotate(50deg);
+  }
+  20% {
+    transform: rotate(55deg);
+  }
+  30% {
+    transform: rotate(40deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-60deg);
+  }
+  60% {
+    transform: rotate(-30deg);
+  }
+  70% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  90% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(40deg);
+  }
+}
+
+@keyframes calf1 {
+  from {
+    transform: rotate(20deg);
+  }
+  10% {
+    transform: rotate(40deg);
+  }
+  20% {
+    transform: rotate(70deg);
+  }
+  30% {
+    transform: rotate(110deg);
+  }
+  40% {
+    transform: rotate(110deg);
+  }
+  50% {
+    transform: rotate(110deg);
+  }
+  60% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(30deg);
+  }
+  90% {
+    transform: rotate(40deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+@keyframes ankle1 {
+  from {
+    transform: rotate(-30deg);
+  }
+  10% {
+    transform: rotate(-10deg);
+  }
+  20% {
+    transform: rotate(-20deg);
+  }
+  30% {
+    transform: rotate(-30deg);
+  }
+  40% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  60% {
+    transform: rotate(-20deg);
+  }
+  70% {
+    transform: rotate(-20deg);
+  }
+  80% {
+    transform: rotate(-40deg);
+  }
+  90% {
+    transform: rotate(-40deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes toe1 {
+  from {
+    transform: rotate(-40deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(-40deg);
+  }
+}
+/* 두번째 다리 */
+@keyframes thigh2 {
+  from {
+    transform: rotate(-40deg);
+  }
+  10% {
+    transform: rotate(-30deg);
+  }
+  20% {
+    transform: rotate(-5deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(40deg);
+  }
+  60% {
+    transform: rotate(50deg);
+  }
+  70% {
+    transform: rotate(55deg);
+  }
+  80% {
+    transform: rotate(40deg);
+  }
+  90% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-40deg);
+  }
+}
+
+@keyframes calf2 {
+  from {
+    transform: rotate(100deg);
+  }
+  10% {
+    transform: rotate(10deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(30deg);
+  }
+  40% {
+    transform: rotate(40deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  60% {
+    transform: rotate(40deg);
+  }
+  70% {
+    transform: rotate(70deg);
+  }
+  80% {
+    transform: rotate(110deg);
+  }
+  90% {
+    transform: rotate(110deg);
+  }
+  100% {
+    transform: rotate(100deg);
+  }
+}
+@keyframes ankle2 {
+  from {
+    transform: rotate(-30deg);
+  }
+  10% {
+    transform: rotate(-20deg);
+  }
+  20% {
+    transform: rotate(-20deg);
+  }
+  30% {
+    transform: rotate(-40deg);
+  }
+  40% {
+    transform: rotate(-40deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  70% {
+    transform: rotate(-20deg);
+  }
+  80% {
+    transform: rotate(-30deg);
+  }
+  90% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(-30deg);
+  }
+}
+@keyframes toe2 {
+  from {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(-30deg);
+  }
+  50% {
+    transform: rotate(-40deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes updown {
+  from {
+    margin-top: -8px;
+  }
+  to {
+    margin-top: 0;
+  }
+}
+
+/********************** 결과페이지 ********************/
 .result {
   height: 100%;
 
@@ -111,4 +614,230 @@
 }
 .result_btn_container button:nth-child(1) {
   margin-right: 10px;
+}
+
+/* *********************** 카카오맵 *********************** */
+#map {
+  width: 900px;
+  height: 500px;
+}
+/* 거점 */
+.dot {
+  overflow: hidden;
+  float: left;
+  width: 12px;
+  height: 12px;
+  background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png");
+}
+/* 거점 오버레이 */
+.dotOverlay {
+  position: relative;
+  bottom: 25px;
+  left: -40px;
+  border-radius: 6px;
+  float: left;
+  font-size: 12px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
+  opacity: 0.9;
+}
+@media (hover: hover) and (pointer: fine) {
+  .dotOverlay:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+.dotOverlay:nth-of-type(n) {
+  border: 0;
+  box-shadow: 0px 1px 2px #888;
+}
+
+/* 총거리, 총 소요시간 오버레이 */
+.number {
+  font-weight: bold;
+  color: var(--font-color-orange);
+  font-size: 18px;
+}
+article {
+  position: absolute;
+  bottom: 70px;
+  right: 70px;
+  z-index: 1;
+  display: inline-block;
+}
+
+.distanceInfo {
+  position: relative;
+  top: 50px;
+  left: 50px;
+  list-style: none;
+  margin: 0;
+  line-height: 170%;
+  padding: 10px 20px;
+  opacity: 1;
+}
+
+.distanceInfo .label {
+  display: inline-block;
+  width: 50px;
+}
+.distanceInfo:after {
+  content: none;
+}
+
+/* 거점 숨기기 버튼 */
+#map > article:nth-child(5) {
+  position: relative;
+  top: 15px;
+  left: 15px;
+}
+.overlay_toggle_btn {
+  margin: 0;
+  z-index: 1;
+  font-size: 12px;
+  background: var(--font-color-white);
+  border: 1px solid #919191;
+  text-align: center;
+  cursor: pointer;
+  color: var(--font-color-dark);
+  font-weight: bold;
+  width: 130px;
+  height: 30px;
+  box-sizing: content-box;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .overlay_toggle_btn:hover {
+    background: #f5f5f5;
+  }
+}
+
+.toggle {
+  display: none;
+}
+
+/* 현위치 버튼 */
+.currentLocationContainer {
+  position: absolute;
+  top: 145px;
+  right: 15px;
+}
+.current_location_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: none;
+  box-sizing: content-box;
+  width: 36px;
+  height: 36px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 2px 2px 0px;
+  background-color: #fff;
+  color: var(--font-color-dark);
+  z-index: 5;
+  font-size: 15px;
+  border: 1px solid #919191;
+  border-radius: 5px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .current_location_btn:hover {
+    background: #f5f5f5;
+  }
+}
+
+/* map controller */
+.map_wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 350px;
+}
+.radius_border {
+  border: 1px solid #919191;
+  border-radius: 5px;
+}
+/* 지도 타입 변경 버튼*/
+.custom_typecontrol {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  overflow: hidden;
+  width: 130px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  font-size: 12px;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
+  font-weight: bold;
+}
+.custom_typecontrol span {
+  display: block;
+  width: 65px;
+  height: 30px;
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+.custom_typecontrol .btn {
+  background: #fff;
+}
+@media (hover: hover) and (pointer: fine) {
+  .custom_typecontrol .btn:hover {
+    background: #f5f5f5;
+  }
+}
+.custom_typecontrol .btn:active {
+  background: #e6e6e6;
+}
+.custom_typecontrol .selected_btn {
+  color: #fff;
+  background: #777d86;
+}
+@media (hover: hover) and (pointer: fine) {
+  .custom_typecontrol .selected_btn:hover {
+    color: #fff;
+  }
+}
+/* 지도 축소, 확대 변경 버튼*/
+.custom_zoomcontrol {
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  width: 36px;
+  height: 80px;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #fff;
+  box-sizing: content-box;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .custom_zoomcontrol span:hover {
+    background: #f5f5f5;
+  }
+}
+
+.custom_zoomcontrol span {
+  display: block;
+  width: 36px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+.custom_zoomcontrol span img {
+  width: 15px;
+  height: 15px;
+  padding: 12px 0;
+  border: none;
+  box-sizing: content-box;
+}
+.custom_zoomcontrol span:first-child {
+  border-bottom: 1px solid #bfbfbf;
 }

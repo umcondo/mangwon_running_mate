@@ -37,14 +37,26 @@
 7. 브라우저 리사이즈 시 좌표맵 이동
 */
 
+// 브라우저 리사이즈 시 좌표맵 이동시키기 위해 전역변수 설정
+var map = "";
+let CENTER_POINT = "";
+
+/*  현위치 버튼  */
+let la = 0; // 현재 위도 초기화
+let lo = 0; // 현재 경도 초기화
+
+const OPTIONS = {
+  enableHighAccuracy: true, // 실제 위치와의 오차 - 단위 M
+  timeout: 1000, // 위치를 반환하는데 걸리는 최대시간 (5초)
+  maximumAge: 0, // 항상 실시간 위치정보를 가져옴
+};
+
+const MARKER_BOX = [];
+
 // 인덱스의 코스데이터를 불러와서 보여주는 함수
 function showCourse(idx) {
   runningCourse(coordinates[idx].track, coordinates[idx].MapCenter);
 }
-
-// 브라우저 리사이즈 시 좌표맵 이동시키기 위해 전역변수 설정
-var map = "";
-let centerPoint = "";
 
 // 데이터를 바탕으로 지도에 코스를 그려주는 함수
 function runningCourse(coordinates, MapCenter) {
@@ -55,7 +67,7 @@ function runningCourse(coordinates, MapCenter) {
       level: MapCenter.mapDepthLevel, // 지도의 확대 레벨
     };
 
-  centerPoint = new kakao.maps.LatLng(MapCenter.lng, MapCenter.lat);
+  CENTER_POINT = new kakao.maps.LatLng(MapCenter.lng, MapCenter.lat);
 
   map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
@@ -340,22 +352,10 @@ function toggleBtn() {
     .forEach((elm) => elm.classList.toggle("toggle"));
 }
 
-/*  현위치 버튼  */
-let la = 0; // 현재 위도
-let lo = 0; // 현재 경도
-
-const options = {
-  enableHighAccuracy: true, // 실제 위치와의 오차 - 단위 M
-  timeout: 1000, // 위치를 반환하는데 걸리는 최대시간 (5초)
-  maximumAge: 0, // 항상 실시간 위치정보를 가져옴
-};
-
-const markerbox = [];
-
 //
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, error, options);
+    navigator.geolocation.getCurrentPosition(showPosition, error, OPTIONS);
   } else {
     alert("Geolocation is not supported by this browser.");
   }
@@ -392,7 +392,7 @@ function panTo() {
   // 이동할 위도 경도 위치를 생성합니다
   var moveLatLon = new kakao.maps.LatLng(la, lo);
 
-  centerPoint = new kakao.maps.LatLng(la, lo);
+  CENTER_POINT = new kakao.maps.LatLng(la, lo);
   // 지도 중심을 부드럽게 이동시킵니다
   // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
   map.panTo(moveLatLon);
@@ -422,12 +422,12 @@ function currentMarker() {
     image: markerImage, // 마커이미지 설정
   });
 
-  markerbox.push(marker);
+  MARKER_BOX.push(marker);
 
   // 현재 마커빼고 다 삭제
-  markerbox.forEach((elm) => elm.setMap(null));
+  MARKER_BOX.forEach((elm) => elm.setMap(null));
   // 마커가 지도 위에 표시되도록 설정합니다
-  markerbox[markerbox.length - 1].setMap(map);
+  MARKER_BOX[MARKER_BOX.length - 1].setMap(map);
 }
 
 // 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
@@ -458,6 +458,6 @@ function zoomOut() {
 //브라우저 리사이즈시 좌표맵 중심 이동
 window.addEventListener("resize", () => {
   if (map) {
-    map.panTo(centerPoint);
+    map.panTo(CENTER_POINT);
   }
 });
