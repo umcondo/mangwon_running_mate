@@ -119,9 +119,10 @@
 /* 모바일 반응형 */
 
 @media screen and (max-width: 500px) {
-  body {
-    overflow: visible;
-  }
+  /* body {
+    position: fixed;
+    overflow: hidden;
+  } */
   /* 첫페이지 */
   .first_page_container {
     gap: 15px;

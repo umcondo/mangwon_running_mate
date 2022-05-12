@@ -521,15 +521,13 @@
 
 /********************** 결과페이지 ********************/
 .result {
-  height: 100%;
-
   padding: 20px 0;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: var(--font-color-dark);
-  /* animation: result_fadeIn 2.6s linear; */
+  animation: result_fadeIn 2.6s linear;
 }
 @keyframes result_fadeIn {
   from {
@@ -673,7 +671,13 @@
 .result_modal .modal_container .modal_content img {
   width: 30px;
   margin-right: 20px;
+  cursor: pointer;
 }
+
+.result_modal .modal_container .modal_content span {
+  cursor: pointer;
+}
+
 .result_modal .modal_container .modal_exit {
   position: absolute;
   top: 20px;

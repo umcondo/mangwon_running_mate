@@ -25,10 +25,17 @@
   letter-spacing: 1px;
 }
 
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
 main {
   height: 100vh;
-  /* background-color: var(--font-color-white); */
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 /* *********************** 첫페이지 *********************** */
@@ -40,10 +47,9 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -50px;
-  /* padding-bottom: 100px; */
+  padding-bottom: 100px;
   color: var(--font-color-dark);
-  /* overflow: hidden; */
+  position: relative;
 }
 .first_animation {
   position: relative;
