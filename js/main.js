@@ -197,3 +197,21 @@ function resultAnimation() {
     document.querySelector(".result_animation").style.display = "none";
   }, 2000);
 }
+
+/* 공유하기 모달 창 */
+function modalBtn() {
+  const modal = document.querySelector(".result_modal");
+  const exitBtn = document.querySelector(".modal_exit");
+
+  modal.style.display = "block";
+
+  exitBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+}
