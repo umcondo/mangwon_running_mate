@@ -34,8 +34,8 @@ body {
   width: 100%;
 }
 main {
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;
+  /* overflow: hidden; */
 }
 
 /* *********************** 첫페이지 *********************** */
@@ -45,11 +45,9 @@ main {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding-bottom: 100px;
   color: var(--font-color-dark);
-  position: relative;
+  padding-top: 50px;
 }
 .first_animation {
   position: relative;
@@ -62,8 +60,11 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 30px;
   font-weight: bold;
+  margin: auto;
+  flex-grow: 1;
 }
 
 .first_page_container h1 {
@@ -92,13 +93,14 @@ main {
   .first_page_container button:hover {
     color: var(--font-color-white);
     background-color: var(--font-color-dark);
-    transition: 0.5s linear;
+    transition: 0.2s linear;
   }
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  width: 100%;
+}
+.desktop_footer {
   width: 100%;
   padding: 40px 0;
   display: flex;
@@ -120,12 +122,10 @@ footer {
 /* *********************** 질문페이지 *********************** */
 .question_container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: -100px;
   color: var(--font-color-dark);
 }
 
@@ -136,6 +136,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
+  padding-top: 70px;
 }
 header .progress {
   width: 90%;
@@ -173,6 +175,8 @@ header .progress .progress-text {
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.6s;
+  flex-grow: 1;
+  padding-bottom: 100px;
 }
 @keyframes fadeIn {
   from {
@@ -215,17 +219,17 @@ button {
   align-items: center;
   color: var(--font-color-dark);
 }
-
+.question_btn_box {
+  flex-grow: 1;
+}
 .question_back_btn {
-  position: absolute;
-  bottom: 80px;
   border: 2px solid var(--font-color-white);
-  padding: 5px 15px;
-  margin-top: 30px;
   font-size: 16px;
   font-weight: bold;
   border-radius: 20px;
   color: var(--font-color-orange);
+
+  padding: 5px 15px;
 }
 @media (hover: hover) and (pointer: fine) {
   .question_back_btn:hover {
@@ -253,7 +257,6 @@ button {
   min-height: 78px;
   border: 2px solid var(--border-color);
   border-radius: 50px;
-  /* box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); */
   cursor: pointer;
   padding: 10px 30px;
   font-weight: bold;

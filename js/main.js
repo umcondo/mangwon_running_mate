@@ -91,7 +91,7 @@ function progressBar(idx) {
 
 // 뒤로가기 버튼 생성함수
 function makeBackBtn() {
-  let backBtn = document.querySelector(".question_back_btn"); // 뒤로가기 버튼
+  let backBtn = document.querySelector(".question_btn_box"); // 뒤로가기 버튼
 
   CURRENT_INDEX < QUESTION_COUNT && CURRENT_INDEX > 0
     ? (backBtn.style.visibility = " visible")

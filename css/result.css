@@ -1,22 +1,23 @@
 /******************** 결과대기 애니메이션 페이지 ********************/
 .result_animation {
-  position: relative;
+  position: absolute;
   top: 0px;
   height: 100%;
   width: 100%;
   display: none;
+  flex-direction: column;
   transform: scale(0.7);
   z-index: 10;
 }
 .result_animation h1 {
   position: absolute;
-  bottom: 12%;
+  bottom: -22%;
   color: #ff1e56;
-  left: 50%;
+  left: 55%;
   transform: translate(-47.5%, -50%);
   text-align: center;
   font-size: 2.5em;
-  width: 100%;
+  width: 130%;
   animation: shake 2s infinite linear;
 }
 @keyframes shake {
@@ -521,6 +522,7 @@
 
 /********************** 결과페이지 ********************/
 .result {
+  height: 100%;
   padding: 20px 0;
   display: none;
   flex-direction: column;
