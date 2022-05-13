@@ -219,6 +219,10 @@ function modalBtn() {
     .querySelectorAll(".modal_content:nth-child(2)")
     .forEach((elm) => elm.addEventListener("click", clip));
 
+  document
+    .querySelectorAll(".modal_content:nth-child(3)")
+    .forEach((elm) => elm.addEventListener("click", kakaoSendLink));
+
   modal.style.display = "block";
 
   exitBtn.addEventListener("click", () => {
@@ -229,5 +233,34 @@ function modalBtn() {
     if (event.target === modal) {
       modal.style.display = "none";
     }
+  });
+}
+
+/*공유하기 - 현재 링크 복사 */
+
+function clip() {
+  let url = "";
+  const textarea = document.createElement("textarea");
+
+  document.body.appendChild(textarea);
+  url = window.document.location.href;
+  textarea.value = url;
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  alert("복사되었습니다 !");
+}
+
+function kakaoSendLink() {
+  if (!Kakao.isInitialized()) Kakao.init("16c159fd8e6cf9b9dc0f34f5922c2f5a");
+
+  Kakao.Link.sendDefault({
+    objectType: "text",
+    text: "망원런닝메이트!!",
+    link: {
+      mobileWebUrl: "https://developers.kakao.com",
+      webUrl: "https://developers.kakao.com",
+    },
   });
 }
