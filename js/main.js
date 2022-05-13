@@ -19,7 +19,7 @@ document.querySelector(".first_page button").addEventListener("click", () => {
 
 /********************* 질문페이지 *********************/
 
-// 현재 인덱스의 질문, 내용, 진행도, 다시하기버튼을 보여주는 함수
+// 현재 인덱스의 질문, 내용, 진행도, 뒤로가기버튼을 보여주는 함수
 function makeQuestion(idx) {
   QUESTION_PAGE.style.display = "flex";
 
@@ -43,6 +43,9 @@ function makeQuestion(idx) {
   choiceText.innerHTML = curTitle;
   choiceItems1.innerHTML = curAnswer1;
   choiceItems2.innerHTML = curAnswer2;
+
+  choiceItems1.addEventListener("click", nextQuestion);
+  choiceItems2.addEventListener("click", nextQuestion);
 
   progressBar(idx);
   makeBackBtn();
@@ -92,6 +95,7 @@ function progressBar(idx) {
 // 뒤로가기 버튼 생성함수
 function makeBackBtn() {
   let backBtn = document.querySelector(".question_back_btn"); // 뒤로가기 버튼
+  backBtn.addEventListener("click", backwardBtn);
 
   CURRENT_INDEX < QUESTION_COUNT && CURRENT_INDEX > 0
     ? (backBtn.style.visibility = " visible")
@@ -174,9 +178,17 @@ const makeResult = () => {
   let resultText = `<p>&nbsp;${courseInfo}</p>`;
   document.querySelector(".result_text").innerHTML += resultText;
 
-  // 다시하기버튼
+  // 다시하기, 공유하기 버튼
   let choiceBtn = document.querySelector(".result_btn_container");
   choiceBtn.style.display = "block";
+
+  document
+    .querySelector(".result_btn_container button:nth-child(1)")
+    .addEventListener("click", reStartBtn);
+
+  document
+    .querySelector(".result_btn_container button:nth-child(2)")
+    .addEventListener("click", modalBtn);
 };
 
 // 다시하기 함수
@@ -203,15 +215,19 @@ function modalBtn() {
   const modal = document.querySelector(".result_modal");
   const exitBtn = document.querySelector(".modal_exit");
 
+  document
+    .querySelectorAll(".modal_content:nth-child(2)")
+    .forEach((elm) => elm.addEventListener("click", clip));
+
   modal.style.display = "block";
 
   exitBtn.addEventListener("click", () => {
     modal.style.display = "none";
   });
 
-  window.onclick = function (event) {
+  window.addEventListener("click", function (event) {
     if (event.target === modal) {
       modal.style.display = "none";
     }
-  };
+  });
 }

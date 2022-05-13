@@ -223,13 +223,13 @@
             <h1></h1>
           </div>
           <div class="question_text_box">
-            <div class="question_text" onclick="nextQuestion(event)"></div>
-            <div class="question_text" onclick="nextQuestion(event)"></div>
+            <div class="question_text"></div>
+            <div class="question_text"></div>
           </div>
         </div>
-        <button class="question_back_btn" onclick="backwardBtn()">
-          <span><</span> 뒤로가기
-        </button>
+        <div class="question_btn_box">
+          <button class="question_back_btn"><span><</span> 뒤로가기</button>
+        </div>
       </div>
 
       <!-- 애니메이션 화면 -->
@@ -285,15 +285,15 @@
         <div class="result_map_container"></div>
         <div class="result_text"></div>
         <div class="result_btn_container">
-          <button onclick="reStartBtn()">다시하기</button>
-          <button onclick="modalBtn()">공유하기</button>
+          <button>다시하기</button>
+          <button>공유하기</button>
         </div>
         <!-- 공유하기 모달창 -->
         <div class="result_modal">
           <div class="modal_container">
             <h3>공유하기</h3>
             <div class="modal_content">
-              <img src="./img/copy3.png" alt="링크복사" />
+              <img src="./img/copy3.webp" alt="링크복사" />
 
               <span>링크복사</span>
             </div>
