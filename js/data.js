@@ -129,7 +129,7 @@ const Question = [
   },
   {
     id: 2,
-    img: "./img/icons-crowd.webp",
+    img: "./img/icons-crowd.png",
     question: `달릴 때 주변 <span>혼잡도</span>는 어느정도가 괜찮나요?`,
     answer: [
       {

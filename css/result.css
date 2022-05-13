@@ -705,7 +705,7 @@
   float: left;
   width: 12px;
   height: 12px;
-  background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.webp");
+  background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png");
 }
 /* 거점 오버레이 */
 .dotOverlay {
