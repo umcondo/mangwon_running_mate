@@ -13,15 +13,11 @@
   .result_text {
     width: 90vw;
   }
-  .result_text p {
-    border-bottom: 1px solid #ecf0f2;
-  }
   .result_animation {
     transform: scale(0.8);
   }
   .result_animation h1 {
     font-size: 2.2em;
-    bottom: 18%;
   }
   .result_head_container {
     width: 95%;
@@ -32,7 +28,7 @@
 }
 
 @media screen and (max-width: 700px) {
-  body {
+  main {
     overflow: visible;
   }
   /* 첫페이지 */
@@ -55,12 +51,10 @@
     margin-top: 20px;
   }
 
-  footer {
+  .desktop_footer {
     display: none;
   }
   .mobile_footer {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     padding: 30px 0;
     display: flex;
@@ -107,7 +101,6 @@
     transform: scale(1);
   }
   .result_animation h1 {
-    bottom: 30%;
     font-size: 1.5em;
   }
   /* 결과페이지*/
@@ -119,10 +112,8 @@
 /* 모바일 반응형 */
 
 @media screen and (max-width: 500px) {
-  body {
-    overflow: visible;
-  }
   /* 첫페이지 */
+
   .first_page_container {
     gap: 15px;
   }
@@ -155,9 +146,6 @@
     display: none;
   }
   /* 질문페이지 */
-  .question_container {
-    margin-top: -80px;
-  }
   header .progress {
     gap: 10px;
     margin-bottom: 30px;
@@ -193,12 +181,6 @@
     justify-content: center;
     align-items: center;
   }
-  .question_back_btn {
-    bottom: 80px;
-    padding: 10px 20px;
-    margin-top: 15px;
-    font-size: 13px;
-  }
   .question_container .question_content .question_text_box {
     gap: 10px;
   }
@@ -211,13 +193,12 @@
     font-size: 1em;
   }
   .question_back_btn {
-    bottom: 20px;
+    bottom: -180px;
   }
 
   /* 애니메이션 */
 
   .result_animation h1 {
-    bottom: 35%;
     font-size: 1.3em;
   }
 
@@ -235,7 +216,8 @@
     margin-bottom: 5px;
   }
   .result_head .courseNameNum {
-    padding: 4px 10px;
+    padding: 2px 10px;
+    padding-top: 5px;
     margin-bottom: 0px;
   }
 
