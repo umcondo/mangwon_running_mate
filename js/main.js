@@ -59,7 +59,7 @@ function nextQuestion(event) {
   let curValue1 = CURRENT_QUESTION.answer[0].value[0];
   let curValue2 = CURRENT_QUESTION.answer[1].value[0];
 
-  event.target.innerText.slice(0, 3) ===
+  event.target.textContent.slice(0, 3) ===
   CURRENT_QUESTION.answer[0].text.slice(0, 3)
     ? RESULT_BOX.push(curValue1)
     : RESULT_BOX.push(curValue2);
@@ -162,13 +162,13 @@ const makeResult = () => {
   const resultCourseDestination = document.querySelector(
     ".result_course_destination span:nth-child(1)"
   );
-  resultCourseDestination.innerText = courseDestination;
+  resultCourseDestination.textContent = courseDestination;
 
   // 코스 대략적 거리
   const resultCourseDistance = document.querySelector(
     ".result_course_destination span:nth-child(2)"
   );
-  resultCourseDistance.innerText = courseDistance;
+  resultCourseDistance.textContent = courseDistance;
 
   // 코스 경로
   const resultCoursePath = document.querySelector(".result_course_path");
@@ -263,36 +263,4 @@ function kakaoSendLink() {
       webUrl: "https://developers.kakao.com",
     },
   });
-}
-
-/*공유하기 - 현재 링크 복사 */
-
-function clip() {
-  let url = "";
-  const textarea = document.createElement("textarea");
-
-  document.body.appendChild(textarea);
-  url = window.document.location.href;
-  textarea.value = url;
-  textarea.select();
-  document.execCommand("copy");
-  document.body.removeChild(textarea);
-
-  alert("복사되었습니다 !");
-}
-
-/*공유하기 - 현재 링크 복사 */
-
-function clip() {
-  let url = "";
-  const textarea = document.createElement("textarea");
-
-  document.body.appendChild(textarea);
-  url = window.document.location.href;
-  textarea.value = url;
-  textarea.select();
-  document.execCommand("copy");
-  document.body.removeChild(textarea);
-
-  alert("복사되었습니다 !");
 }
