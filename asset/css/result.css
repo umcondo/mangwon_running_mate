@@ -598,16 +598,24 @@
   align-items: center;
   flex-direction: column;
   gap: 5px;
-  padding-bottom: 0px;
   margin-bottom: 30px;
   border-bottom: 1px solid #e6e6e6;
 }
 .result_text .courseTimeInfo {
   display: none;
 }
-.result_text p {
+.result_text {
   padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+.result_text b {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
 /* 다시하기 버튼, 공유하기 버튼 div*/
 .result_btn_container {
   display: none;
@@ -697,7 +705,7 @@
 /* *********************** 카카오맵 *********************** */
 #map {
   width: 900px;
-  height: 500px;
+  height: 450px;
 }
 /* 거점 */
 .dot {

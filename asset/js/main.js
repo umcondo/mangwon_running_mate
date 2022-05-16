@@ -175,7 +175,7 @@ const makeResult = () => {
   resultCoursePath.innerHTML = `${coursePath}`;
 
   // 코스 상세
-  let resultText = `<p>&nbsp;${courseInfo}</p>`;
+  let resultText = courseInfo;
   document.querySelector(".result_text").innerHTML += resultText;
 
   // 다시하기, 공유하기 버튼
