@@ -108,7 +108,13 @@ footer {
   align-items: center;
   background-color: #ececec;
 }
-
+.footer-sns {
+  display: flex;
+  gap: 5px;
+}
+.footer-sns img {
+  display: block;
+}
 .mobile_footer {
   display: none;
 }
