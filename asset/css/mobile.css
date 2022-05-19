@@ -12,7 +12,6 @@
   .question_back_btn:hover {
     background-color: var(--font-color-orange);
     color: var(--font-color-white);
-    /* transition: 0.5s; */
   }
   .question_container
     .question_content
@@ -268,7 +267,6 @@
     height: 270px;
   }
   .result {
-    height: 110%;
     padding: 10px 0;
   }
   .result_head {
@@ -335,5 +333,11 @@
   }
   #toggle_btn {
     display: none;
+  }
+}
+/* 높이가 작은 핸드폰 화면에서 결과페이지가 짤리는 문제 때문에 미디어 쿼리 추가*/
+@media screen and (max-height: 700px) {
+  .result {
+    height: 130%;
   }
 }

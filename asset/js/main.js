@@ -233,10 +233,10 @@ const reStartBtn = () => {
 function resultAnimation() {
   QUESTION_PAGE.style.display = "none"; //질문,답변 전체 div
   document.querySelector(".result_animation").style.display = "block"; // animation page
-  makeResult();
 
   setTimeout(() => {
     document.querySelector(".result_animation").style.display = "none";
+    makeResult();
   }, 2000);
 }
 
