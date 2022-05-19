@@ -53,12 +53,21 @@ const OPTIONS = {
 
 const MARKER_BOX = [];
 
-// 인덱스의 코스데이터를 불러와서 보여주는 함수
+/**
+ * 인덱스의 코스데이터를 불러와서 보여주는 함수
+ *
+ * @param {number} idx 현재 질문의 인덱스
+ */
 function showCourse(idx) {
   runningCourse(coordinates[idx].track, coordinates[idx].MapCenter);
 }
 
-// 데이터를 바탕으로 지도에 코스를 그려주는 함수
+/**
+ * 결과데이터를 바탕으로 지도에 코스를 그려주는 함수
+ *
+ * @param {Array} coordinates 결과데이터 좌표
+ * @param {object} MapCenter 결과데이터 중심좌표
+ */
 function runningCourse(coordinates, MapCenter) {
   /* 지도 생성 */
   var mapContainer = document.getElementById("map"), // 지도를 표시할 div
@@ -264,11 +273,14 @@ function runningCourse(coordinates, MapCenter) {
   ).style.zIndex = 4;
 }
 
-/* 완성 함수 */
-
-// 마우스 우클릭 하여 선 그리기가 종료됐을 때 호출하여
-// 그려진 선의 총거리 정보와 거리에 대한 도보, 자전거 시간을 계산하여
-// HTML Content를 만들어 리턴하는 함수입니다
+/**
+ * 마우스 우클릭 하여 선 그리기가 종료됐을 때 호출하여
+ * 그려진 선의 총거리 정보와 거리에 대한 도보, 자전거 시간을 계산하여
+ * HTML Content를 만들어 리턴하는 함수입니다
+ *
+ * @param {number} distance
+ * @returns contentContainer 계산한 값이 들어있는 HTML article 요소객체
+ */
 function getTimeHTML(distance) {
   // 도보의 시속은 평균 4km/h 이고 도보의 분속은 67m/min입니다
   var walkTime = (distance / 67) | 0;
@@ -352,7 +364,9 @@ function toggleBtn() {
     .forEach((elm) => elm.classList.toggle("toggle"));
 }
 
-//
+/**
+ * 브라우저를 이용해 현 위치를 받아오는 함수
+ */
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition, error, OPTIONS);
@@ -430,7 +444,11 @@ function currentMarker() {
   MARKER_BOX[MARKER_BOX.length - 1].setMap(map);
 }
 
-// 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
+/**
+ * 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
+ *
+ * @param {string} maptype 맵속성
+ */
 function setMapType(maptype) {
   var roadmapControl = document.getElementById("btnRoadmap");
   var skyviewControl = document.getElementById("btnSkyview");

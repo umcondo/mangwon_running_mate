@@ -9,17 +9,19 @@ const QUESTION_PAGE = document.querySelector(".question_container"); // 질문�
 const RESULT_PAGE = document.querySelector(".result"); //결과페이지
 const RESULT_MAP_PAGE = document.querySelector(".result_map_container"); //결과 맵
 
-/********************** 첫페이지 **********************/
-
+/* 첫페이지 */
 // 버튼 누르면 첫화면 사라지고 질문페이지 생성
 document.querySelector(".first_page button").addEventListener("click", () => {
   document.querySelector(".first_page").style.display = "none";
   makeQuestion(CURRENT_INDEX);
 });
 
-/********************* 질문페이지 *********************/
-
-// 현재 인덱스의 질문, 내용, 진행도, 뒤로가기버튼을 보여주는 함수
+/* 질문페이지 */
+/**
+ * 현재 인덱스의 질문, 내용, 진행도, 뒤로가기 버튼을 보여주는 함수
+ *
+ * @param {number} idx 현재 질문의 인덱스
+ */
 function makeQuestion(idx) {
   QUESTION_PAGE.style.display = "flex";
 
@@ -51,7 +53,12 @@ function makeQuestion(idx) {
   makeBackBtn();
 }
 
-// 질문 내용 선택시 질문값을 저장하고 다음 질문을 보여주는 함수
+/**
+ * 질문 내용 선택시 질문값을 저장하고 다음 질문을 보여주는 함수
+ *
+ * @param {string} event
+ * @returns {function} makeQuestion |  resultAnimation 다음 인덱스의 질문을 만들거나 결과애니메이션을 반환
+ */
 function nextQuestion(event) {
   CURRENT_INDEX++;
 
@@ -73,7 +80,9 @@ function nextQuestion(event) {
   }
 }
 
-// 뒤로가기 버튼을 누르면 실행되는 함수, 이전 질문을 보여주고, 질문결과의 마지막 값을 제거한다.
+/**
+ * 뒤로가기 버튼을 누르면 실행되는 함수, 이전 질문을 보여주고, 질문결과의 마지막 값을 제거한다.
+ */
 function backwardBtn() {
   CURRENT_INDEX--;
 
@@ -82,7 +91,11 @@ function backwardBtn() {
   RESULT_BOX.pop();
 }
 
-// 질문 진행에 따라 진행도를 보여주는 함수
+/**
+ * 질문 진행에 따라 진행도를 보여주는 함수
+ *
+ * @param {number} idx 현재 질문의 인덱스
+ */
 function progressBar(idx) {
   let progressText = document.querySelector("header .progress .progress-text"); // 진행바텍스트
   let progressImage = document.querySelector(
@@ -92,7 +105,9 @@ function progressBar(idx) {
   progressText.innerHTML = `${idx + 1} / ${QUESTION_COUNT}`; // 진행도
 }
 
-// 뒤로가기 버튼 생성함수
+/**
+ * 뒤로가기 버튼 생성함수
+ */
 function makeBackBtn() {
   let backBtn = document.querySelector(".question_back_btn"); // 뒤로가기 버튼
   backBtn.addEventListener("click", backwardBtn);
@@ -102,12 +117,19 @@ function makeBackBtn() {
     : (backBtn.style.visibility = " hidden");
 }
 
-/********************* 결과페이지 *********************/
-// 난이도 : "beginner - b" , "intermediate - i"
-// 한강, 내륙 : "Hangang" - H , "inland" - i,
-// 혼잡도 : "loud" - l, "quiet"- q
+/** 결과페이지
+ *
+ * 난이도 : "beginner - b" , "intermediate - i"
+ * 한강, 내륙 : "Hangang" - H , "inland" - i
+ * 혼잡도 : "loud" - l, "quiet"- q
+ */
 
-// 결과값 함수
+/**
+ * 질문에 따른 결과인덱스를 반환하는 함수
+ *
+ * @returns {number} 결과데이터 인덱스
+ */
+
 const resultValue = () => {
   switch (RESULT_BOX.join("")) {
     case "bHl": // 선유도
@@ -131,7 +153,9 @@ const resultValue = () => {
   }
 };
 
-// 결과를 출력하는 함수
+/**
+ * 결과를 출력하는 함수
+ */
 const makeResult = () => {
   RESULT_PAGE.style.display = "flex";
 
@@ -191,7 +215,9 @@ const makeResult = () => {
     .addEventListener("click", modalBtn);
 };
 
-// 다시하기 함수
+/**
+ * 다시하기 함수
+ */
 const reStartBtn = () => {
   QUESTION_PAGE.style.display = "block"; //질문,답변 전체 div
   RESULT_PAGE.style.display = "none";
@@ -199,7 +225,11 @@ const reStartBtn = () => {
   makeQuestion(0);
 };
 
-//******************** 애니메이션 페이지 2초 후 없애버리기 ********************
+/**
+ * 애니메이션 페이지 2초 후 없애버리는 함수
+ * 애니메이션 페이지를 불러오고 결과페이지를 불러온다.
+ * 로딩을 최대 2초 기다리고 애니메이션 페이지를 제거하여 결과페이지를 보여준다.
+ */
 function resultAnimation() {
   QUESTION_PAGE.style.display = "none"; //질문,답변 전체 div
   document.querySelector(".result_animation").style.display = "block"; // animation page
@@ -210,7 +240,9 @@ function resultAnimation() {
   }, 2000);
 }
 
-/* 공유하기 모달 창 */
+/**
+ * 공유하기 모달 창 만드는 함수
+ */
 function modalBtn() {
   const modal = document.querySelector(".result_modal");
   const exitBtn = document.querySelector(".modal_exit");
@@ -236,8 +268,9 @@ function modalBtn() {
   });
 }
 
-/*공유하기 - 현재 링크 복사 */
-
+/**
+ * 공유하기 - 현재 링크 복사
+ */
 function clip() {
   let url = "";
   const textarea = document.createElement("textarea");
@@ -252,6 +285,9 @@ function clip() {
   alert("복사되었습니다 !");
 }
 
+/**
+ * 공유하기 - 카카오톡
+ */
 function kakaoSendLink() {
   if (!Kakao.isInitialized()) Kakao.init("16c159fd8e6cf9b9dc0f34f5922c2f5a");
 
