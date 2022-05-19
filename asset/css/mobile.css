@@ -267,6 +267,7 @@
     height: 270px;
   }
   .result {
+    overflow: scroll;
     padding: 10px 0;
   }
   .result_head {
@@ -335,8 +336,19 @@
     display: none;
   }
 }
+
+/* 갤럭시 폴드 고려 */
+@media screen and (max-width: 300px) {
+  .result_text .courseTimeInfo {
+    gap: 17px;
+  }
+  .result_text .courseTimeInfo li {
+    font-size: 0.8em;
+  }
+}
 /* 높이가 작은 핸드폰 화면에서 결과페이지가 짤리는 문제 때문에 미디어 쿼리 추가*/
-@media screen and (max-height: 700px) {
+
+@media screen and (max-width: 450px) and (max-height: 700px) {
   .result {
     height: 130%;
   }
