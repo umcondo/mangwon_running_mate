@@ -1,0 +1,3 @@
+User-agent: *
+Allow:/
+Sitemap: https://mangwonrunningmate.netlify.app/sitemap.xml
