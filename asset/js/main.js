@@ -293,7 +293,7 @@ function kakaoSendLink() {
 
   Kakao.Link.sendDefault({
     objectType: "text",
-    text: "망원런닝메이트!!",
+    text: "망원러닝메이트!!",
     link: {
       mobileWebUrl: "https://developers.kakao.com",
       webUrl: "https://developers.kakao.com",
