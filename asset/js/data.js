@@ -4,9 +4,9 @@ const CourseData = [
   {
     id: 0,
     courseName: "망원 - 선유도공원",
-    courseDistance: "4~5km",
+    courseDistance: "2~3km",
     courseDestination: "선유도공원",
-    coursePath: `망원한강공원 → 선유도 → 상수나들목`,
+    coursePath: `망원한강공원 → 양화대교 → 선유도공원`,
     courseInfo: `<b>선유도공원을 경유하는 코스</b> 
     <ul>
       <li>비교적 사람들이 붐비는 코스다. 
