@@ -1,7 +1,4 @@
-# 망원 런닝 메이트(mangwon_running_mate)
-마포와 관련된 싱글페이지 웹사이트 만드는 과업을 진행하게 되었다. 평소 망원 근처에서 런닝을 하는데 html, css, vanilla js를 이용해 러닝코스를 추천하는 사이트를 만들어 보았다. [Live Demo](https://mangwonrunningmate.netlify.app/)에서 전체적인 작동을 확인할 수 있다. 리액트 변환은 [리액트](https://github.com/umcondo/react_mangwon_running_mate)에서 진행중이다.
-
-<br>
+# 망원 런닝 메이트
 
 ### [Live Demo](https://mangwonrunningmate.netlify.app/)
 <img src="./image/desktop_demo.gif">
@@ -11,12 +8,29 @@
   <img src="./image/mobile_demo.gif">
 </p>
 
-<br>
+---
 
-## Web hosting
-무료이고, 깃허브와 연동이 편한 netlify를 이용했다.
+개발기간 : 2022.04.11 ~ 2022.05.25
+개발인원 : 1인
+- 기획/디자인 : umcondo
+- 개발 : umcondo
 
-<br>
+---
+
+## 프로젝트 소개
+마포와 관련된 싱글페이지 웹사이트 만드는 과업을 진행하게 되었다. 평소 망원 근처에서 런닝을 하는데 html, css, vanilla js를 이용해 러닝코스를 추천하는 사이트를 만들어 보았다. [Live Demo](https://mangwonrunningmate.netlify.app/)에서 전체적인 작동을 확인할 수 있다. 리액트 변환은 [리액트](https://github.com/umcondo/react_mangwon_running_mate)에서 진행중이다.
+
+---
+
+## 개발환경 및 사용툴
+
+- HTML, CSS, Vanilla JS
+- Visual Studio code
+- Git, Github
+- Netlify
+- Kakao map API, Kakao SDK
+
+---
 
 ## 진행과정 
 - 1차(~2022/4/24) 기획, 와이어프레임, 기초적인 웹사이트 구현
